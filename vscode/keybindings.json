@@ -1,0 +1,135 @@
+[
+  {
+    "key": "cmd+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+  },
+  {
+    "command": "vscode-neovim.compositeEscape1",
+    "key": "j",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "j"
+  },
+  {
+    "key": "space d",
+    "command": "editor.action.goToDeclaration",
+    "when": "neovim.mode == normal && editorTextFocus"
+  },
+  {
+    "key": "space b",
+    "command": "workbench.action.navigateBack",
+    "when": "neovim.mode == normal && editorTextFocus"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "workbench.explorer.fileView.focus",
+    "when": "!filesExplorerFocus"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "filesExplorerFocus"
+  },
+  {
+    "key": "Enter",
+    "command": "macros.selectAndToggleSidebar",
+    "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "t",
+    "command": "macros.selectAndToggleSidebar",
+    "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "Enter",
+    "command": "list.toggleExpand",
+    "when": "explorerViewletFocus && explorerViewletVisible && explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "m r",
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "m c",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "m p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "m a",
+    "command": "explorer.newFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "m d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "m f",
+    "command": "explorer.newFolder",
+    "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.nextEditor",
+    "when": "neovim.mode == normal"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.previousEditor",
+    "when": "neovim.mode == normal"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "-vscode-neovim.ctrl-u",
+    "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+  },
+  {
+    "key": "ctrl+d",
+    "command": "-vscode-neovim.ctrl-d",
+    "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+  },
+  {
+    "command": "vscode-neovim.send",
+    "key": "ctrl+d",
+    "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
+    "args": "<C-D>"
+  },
+  {
+    "command": "vscode-neovim.send",
+    "key": "ctrl+u",
+    "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
+    "args": "<C-U>"
+  },
+  {
+    "key": "space h",
+    "command": "editor.action.showHover",
+    "when": "vim.mode == 'Normal' && editorTextFocus ||  neovim.mode == normal && editorTextFocus"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "selectNextCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "cmd+down",
+    "command": "-selectNextCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "selectPrevCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "cmd+up",
+    "command": "-selectPrevCodeAction",
+    "when": "codeActionMenuVisible"
+  }
+]

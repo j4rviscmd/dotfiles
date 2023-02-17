@@ -2,6 +2,11 @@ autocmd BufWritePost  ~/.config/nvim/init.vim  so ~/.config/nvim/init.vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd BufEnter * set scroll=0
+
+if !exists('g:vscode')
+  autocmd BufEnter * set scroll=3
+end
 
 " read config files
 runtime ./dotfiles/complement.vim
@@ -10,9 +15,18 @@ runtime ./dotfiles/plug.vim
 runtime ./dotfiles/language-config/dart.vim
 
 " key binds
+
+if exists('g:vscode')
+  xmap gc  <Plug>VSCodeCommentary
+  nmap gc  <Plug>VSCodeCommentary
+  omap gc  <Plug>VSCodeCommentary
+  nmap gcc <Plug>VSCodeCommentaryLine
+endif
+
+
 nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
-nmap <F5> :!python3 %
+" nmap <F5> :!python3 %
 inoremap <silent> jj <Esc>
 tnoremap <Esc> <C-\><C-n>
 inoremap <Esc> <Esc>lh
@@ -109,7 +123,7 @@ call ddc#enable()
 
 let g:NERDTreeShowBookmarks=1
 let g:NERDTreeShowHidden=0
-let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeQuitOnOpen =1
 let NERDTreeIgnore=['.DS_Store', '\.git$',]
 
 let g:ale_linters = {

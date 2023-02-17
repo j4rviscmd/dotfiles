@@ -131,5 +131,10 @@
     "key": "cmd+up",
     "command": "-selectPrevCodeAction",
     "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-selectNextCodeAction",
+    "when": "codeActionMenuVisible"
   }
 ]

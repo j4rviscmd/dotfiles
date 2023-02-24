@@ -55,5 +55,7 @@
   "extensions.autoUpdate": false,
   "update.mode": "none",
   "workbench.activityBar.visible": false,
-  "workbench.editor.enablePreview": false
+  "workbench.editor.enablePreview": false,
+  "prettier.singleQuote": true,
+  "prettier.semi": false
 }

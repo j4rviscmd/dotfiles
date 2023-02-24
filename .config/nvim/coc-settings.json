@@ -1,0 +1,12 @@
+{
+  "flutter.enabled": true,
+  "flutter.lsp.initialization.onlyAnalyzeProjectsWithOpenFiles": true,
+  "flutter.autoOpenDevLog": true,
+  "flutter.lsp.initialization.closingLabels": true,
+  "flutter.UIPath": true,
+  "flutter.sdk.searchPaths": [
+    "/Users/maedatakurou/work/software/flutter/bin/flutter"
+  ],
+  "flutter.provider.hot-reload": true,
+  "coc.preferences.formatOnSaveFiletypes": ["dart"]
+}

@@ -1,5 +1,5 @@
 # key bind
-alias ll 'exa -l -a -g --icons --ignore-glob=".DS_Store|.localized" --sort=type'
+alias ll 'exa -l -a -g --icons --ignore-glob=".DS_Store|.localized" --sort=type --time-style=long-iso'
 alias vim 'nvim'
 alias chrome="open -a 'Google Chrome'"
 alias powerpoint="open -a 'Microsoft PowerPoint'"

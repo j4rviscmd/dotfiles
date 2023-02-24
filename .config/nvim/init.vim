@@ -11,6 +11,10 @@ if has('wsl')
   runtime ./windows.vim
 endif
 
+if has('mac')
+  runtime ./mac.vim
+endif
+
 " key binds
 if exists('g:vscode')
   xmap gc  <Plug>VSCodeCommentary

@@ -2,15 +2,14 @@ autocmd BufWritePost  ~/.config/nvim/init.vim  so ~/.config/nvim/init.vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd BufEnter * set scroll=0
-
-if !exists('g:vscode')
-  autocmd BufEnter * set scroll=3
-end
 
 " read config files
 runtime ./markdown-preview.vim
 runtime ./plug.vim
+
+if has('wsl')
+  runtime ./windows.vim
+endif
 
 " key binds
 if exists('g:vscode')
@@ -19,7 +18,6 @@ if exists('g:vscode')
   omap gc  <Plug>VSCodeCommentary
   nmap gcc <Plug>VSCodeCommentaryLine
 endif
-
 
 nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab

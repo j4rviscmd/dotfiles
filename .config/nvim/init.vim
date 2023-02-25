@@ -62,7 +62,7 @@ set helplang=ja
 set title
 set number
 set ignorecase
-set virtualedit=onemore
+" set virtualedit=onemore
 set smarttab
 set autoread
 set wildmenu

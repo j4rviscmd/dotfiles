@@ -1,14 +1,29 @@
 [
   {
+    "$comment": "ツリー操作フィルタ後のファイル上でEnterでフィルタウィジェット非表示",
+    "key": "Enter",
+    "command": "list.closeFind",
+    "when": "listFocus && treeFindOpen && explorerResourceIsFolder"
+  },
+  {
+    "$comment": "ツリー操作ファイル名文字列検索時にEnter押下でFilterしてjkバインディング有効化",
+    "key": "Enter",
+    "command": "macros.filterAndFocusDown",
+    "when": "inputFocus && explorerViewletFocus"
+  },
+  {
+    "$comment": "ツリー操作時に押下で分割＆ツリーを閉じる(settings.jsonへmacro名登録要",
+    "key": "v",
+    "command": "macros.splitAndToggleSidebar",
+    "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "$comment": "vscodeでのundoの有効化は最近のファイルキーを削除、useCtrlKeysForNormalMode: trueにして再起動"
+  },
+  {
     "key": "cmd+space",
     "command": "editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
-  },
-  {
-    "command": "vscode-neovim.compositeEscape1",
-    "key": "j",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "j"
   },
   {
     "key": "space d",
@@ -31,19 +46,16 @@
     "when": "filesExplorerFocus"
   },
   {
+    "$comment": "ファイルツリー操作においてファイルであれば、開いてツリーを閉じる",
     "key": "Enter",
     "command": "macros.selectAndToggleSidebar",
     "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
   },
   {
-    "key": "t",
-    "command": "macros.selectAndToggleSidebar",
-    "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
-  },
-  {
+    "$comment": "ファイルツリー操作においてフォルダであれば展開",
     "key": "Enter",
     "command": "list.toggleExpand",
-    "when": "explorerViewletFocus && explorerViewletVisible && explorerResourceIsFolder && !inputFocus"
+    "when": "explorerViewletFocus && explorerViewletVisible && explorerResourceIsFolder && !inputFocus && !treeFindOpen"
   },
   {
     "key": "m r",
@@ -136,5 +148,9 @@
     "key": "ctrl+n",
     "command": "-selectNextCodeAction",
     "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.openRecent"
   }
 ]

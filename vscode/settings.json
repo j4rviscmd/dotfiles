@@ -1,4 +1,6 @@
 {
+  "workbench.list.keyboardNavigation": "highlight",
+  "workbench.list.automaticKeyboardNavigation": false,
   "importSorter.generalConfiguration.sortOnBeforeSave": true,
   "workbench.editor.showTabs": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -26,12 +28,16 @@
     "selectAndToggleSidebar": [
       "list.select",
       "workbench.action.toggleSidebarVisibility"
-    ]
+    ],
+    "splitAndToggleSidebar": [
+      "explorer.openToSide",
+      "workbench.action.toggleSidebarVisibility"
+    ],
+    "filterAndFocusDown": ["list.toggleFilterOnType", "list.focusDown"]
   },
   "workbench.iconTheme": "vscode-icons",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.useCtrlKeysForInsertMode": false,
-  "vscode-neovim.useCtrlKeysForNormalMode": false,
   "liveServer.settings.donotShowInfoMsg": true,
   "vsicons.dontShowNewVersionMessage": true,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -45,7 +51,7 @@
   "vsicons.associations.folders": [],
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontFamily": "DroidSansMono Nerd Font",
-  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": "normal",
   "git.confirmSync": false,
   "git.autofetch": true,
@@ -57,5 +63,7 @@
   "workbench.activityBar.visible": false,
   "workbench.editor.enablePreview": false,
   "prettier.singleQuote": true,
-  "prettier.semi": false
+  "prettier.semi": false,
+  "editor.fontSize": 14,
+  "importSorter.importStringConfiguration.tabSize": 2
 }

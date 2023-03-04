@@ -56,6 +56,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 set list
+set showmatch " 括弧の対応をハイライト
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set clipboard+=unnamed
 set helplang=ja

@@ -1,6 +1,6 @@
 [
   {
-    "$comment": "ツリー操作フィルタ後のファイル上でEnterでフィルタウィジェット非表示",
+    "$comment": "ツリー操作フィルタ後のfolder上Enterでフィルタウィジェット非表示",
     "key": "Enter",
     "command": "list.closeFind",
     "when": "listFocus && treeFindOpen && explorerResourceIsFolder"
@@ -152,5 +152,10 @@
   {
     "key": "ctrl+r",
     "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "f",
+    "command": "-notebook.find",
+    "when": "notebookEditorFocused && !inputFocus"
   }
 ]

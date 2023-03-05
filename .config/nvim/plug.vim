@@ -3,26 +3,26 @@ call plug#begin()
 
 " not vscode editor
 if !exists('g:vscode')
-  Plug 'Shougo/pum.vim'
+  " Plug 'Shougo/pum.vim'
 
   " completion framework
-  Plug 'Shougo/ddc.vim'
-  Plug 'vim-denops/denops.vim'
+  " Plug 'Shougo/ddc.vim'
+  " Plug 'vim-denops/denops.vim'
 
   " filename completion with ddc.vim
-  Plug 'LumaKernel/ddc-file'
+  " Plug 'LumaKernel/ddc-file'
 
   " collect surrounding complementary candidates
-  Plug 'Shougo/ddc-source-around'
+  " Plug 'Shougo/ddc-source-around'
 
   " is headline match
-  Plug 'Shougo/ddc-filter-matcher_head'
+  " Plug 'Shougo/ddc-filter-matcher_head'
 
   " sort matching words
-  Plug 'Shougo/ddc-sorter_rank'
+  " Plug 'Shougo/ddc-sorter_rank'
 
   " remove duplicate text
-  Plug 'Shougo/ddc-filter-converter_remove_overlap'
+  " Plug 'Shougo/ddc-filter-converter_remove_overlap'
 
   " language protocol server
   " Plug 'prabirshrestha/vim-lsp'
@@ -65,6 +65,13 @@ if !exists('g:vscode')
   " nerdtree
   Plug 'scrooloose/nerdtree'
 
-end
+  " easymotion
+  Plug 'easymotion/vim-easymotion'
+endif
+
+if exists('g:vscode')
+  " easymotion
+  Plug 'asvetliakov/vim-easymotion'
+endif
 call plug#end()
 

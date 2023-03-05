@@ -21,16 +21,8 @@ if exists('g:vscode')
   nmap gcc <Plug>VSCodeCommentaryLine
 endif
 
-inoremap <silent><expr> <TAB>
-      \ pum#visible() ? '<Cmd>call pum#map#insert_relative(+1)<CR>' :
-      \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-      \ '<TAB>' : ddc#manual_complete()
-inoremap <C-p> <Cmd>call pum#map#select_relative(-1)<CR>
-inoremap <C-n> <Cmd>call pum#map#select_relative(+1)<CR>
-inoremap <C-Enter> <Cmd>call pum#map#confirm()<CR>
-
 set list
-set showmatch " 括弧の対応をハイライト
+set showmatch
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set clipboard+=unnamed
 set helplang=ja
@@ -53,8 +45,6 @@ set cursorline
 set nowrap
 set encoding=utf-8
 scriptencoding utf-8
-
-" let g:ale_fix_on_save = 1
 
 if !exists('g:vscode')
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -103,39 +93,20 @@ if !exists('g:vscode')
   nmap <C-p> <Plug>AirlineSelectPrevTab
   nmap <C-n> <Plug>AirlineSelectNextTab
 
-
   " cursor shape
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
   let &t_EI .= "\e[2 q"
 
-  " ddc-source-around
-  call ddc#custom#patch_global('sources', ['around'])
-
-  call ddc#custom#patch_global('sourceOptions', #{
-        \   around: #{ mark: 'A' },
-        \ })
-  call ddc#custom#patch_global('sourceParams', #{
-        \   around: #{ maxSize: 500 },
-        \ })
-
-  " ddc-filter-matcher_head
-  call ddc#custom#patch_global('sourceOptions', #{
-      \  _: #{
-      \    matchers: ['matcher_head'],
-      \  }
-      \ })
-
-  " ddc-sorter_rank
-  call ddc#custom#patch_global('sourceOptions', #{
-      \   _: #{
-      \     sorters: ['sorter_rank'],
-      \   }
-      \ })
-
-  " ddc-filter-converter_remove_overlap
-  call ddc#custom#patch_global('sourceOptions', #{
-      \   _: #{
-      \     converters: ['converter_remove_overlap'],
-      \ }})
 endif
+
+" easymotion
+if exists('g:vscode')
+  "  nmap f <Plug>(easymotion-s2)
+  nmap f <Plug>(easymotion-bd-w)
+else
+  nmap f <Plug>(easymotion-overwin-w)
+endif
+let g:EasyMotion_do_mattping = 0
+let g:EasyMotion_smartcase = 1
+

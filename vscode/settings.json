@@ -4,13 +4,20 @@
     "terminal.external.osxExec",
     "terminal.integrated.fontFamily",
     "vscode-neovim.neovimInitVimPaths.darwin",
-    "vscode-neovim.neovimExecutablePaths.darwin"
+    "vscode-neovim.neovimExecutablePaths.darwin",
+    "vscode-neovim.neovimExecutablePaths.linux",
+    "vscode-neovim.neovimInitVimPaths.linux",
+    "terminal.integrated.profiles.windows",
+    "vscode-neovim.useWSL"
   ],
-  "$comment__": "common settings(sync)",
+  "$comment__": "sync settings",
   "vscode-neovim.neovimInitVimPaths.darwin": "/Users/maedatakurou/.config/nvim/init.vim",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.useCtrlKeysForInsertMode": false,
+  "vscode-neovim.useCtrlKeysForNormalMode": false,
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.linux": "/home/maedatkw/.config/nvim/init.vim",
   "workbench.editor.showTabs": true,
   "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "none",
@@ -36,6 +43,31 @@
   "terminal.integrated.fontFamily": "DroidSansMono Nerd Font",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "Ubuntu (WSL)": {
+      "path": "C:\\WINDOWS\\System32\\wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu"
+      ]
+    }
+  },
+
   "macros": {
     "selectAndToggleSidebar": [
       "list.closeFind",
@@ -53,6 +85,7 @@
   "vsicons.dontShowNewVersionMessage": true,
   "vsicons.associations.folders": [],
   "update.mode": "none",
+  "update.enableWindowsBackgroundUpdates": false,
   "extensions.autoUpdate": false,
   "importSorter.generalConfiguration.sortOnBeforeSave": true,
   "liveServer.settings.donotShowInfoMsg": true,
@@ -67,5 +100,26 @@
     "**/node_modules": false
   },
   "files.trimTrailingWhitespace": true,
-  "settingsSync.ignoredExtensions": []
+  "settingsSync.ignoredExtensions": [],
+  "cSpell.userWords": [
+    "appium",
+    "enquete",
+    "firestore",
+    "foodloss",
+    "higashisakura",
+    "inappwebview",
+    "maedatkw",
+    "neovim",
+    "Nuxt",
+    "nvim",
+    "omotenashi",
+    "omotenashiapp",
+    "selfcare",
+    "shinagawa",
+    "societyos",
+    "udid",
+    "viewmatcher",
+    "zscaler"
+  ],
+  "bracket-pair-colorizer-2.depreciation-notice": false
 }

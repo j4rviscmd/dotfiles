@@ -1,24 +1,24 @@
 [
   {
-    "$comment": "ツリー操作フィルタ後のfolder上Enterでフィルタウィジェット非表示",
+    "$comment_": "close the filter widget if the focus after filtering on the tree operation is a folder",
     "key": "Enter",
     "command": "list.closeFind",
     "when": "listFocus && treeFindOpen && explorerResourceIsFolder"
   },
   {
-    "$comment": "ツリー操作ファイル名文字列検索時にEnter押下でFilterしてjkバインディング有効化",
+    "$comment_": "filter execution & j, k key activation by pressing enter in search by tree operation",
     "key": "Enter",
     "command": "macros.filterAndFocusDown",
     "when": "inputFocus && explorerViewletFocus"
   },
   {
-    "$comment": "ツリー操作時に押下で分割＆ツリーを閉じる(settings.jsonへmacro名登録要",
+    "$comment_": "split & close tree by pressing file in tree operation",
     "key": "v",
     "command": "macros.splitAndToggleSidebar",
     "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
   },
   {
-    "$comment": "vscodeでのundoの有効化は最近のファイルキーを削除、useCtrlKeysForNormalMode: trueにして再起動"
+    "$comment_": "enable undo delete recent file key & useCtrlKeysForNormalMode: true and reboot"
   },
   {
     "key": "cmd+space",
@@ -46,13 +46,13 @@
     "when": "filesExplorerFocus"
   },
   {
-    "$comment": "ファイルツリー操作においてファイルであれば、開いてツリーを閉じる",
+    "$comment_": "if a file in a file tree operation, open and close the tree",
     "key": "Enter",
     "command": "macros.selectAndToggleSidebar",
     "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
   },
   {
-    "$comment": "ファイルツリー操作においてフォルダであれば展開",
+    "$comment_": "expand if folder in file tree operation",
     "key": "Enter",
     "command": "list.toggleExpand",
     "when": "explorerViewletFocus && explorerViewletVisible && explorerResourceIsFolder && !inputFocus && !treeFindOpen"

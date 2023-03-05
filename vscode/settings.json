@@ -1,12 +1,18 @@
 {
   "$comment_": "unique settings(async)",
   "settingsSync.ignoredSettings": [
+    "$comment:which terminal to use",
     "terminal.external.osxExec",
+    "$comment:font in terminal",
     "terminal.integrated.fontFamily",
+    "$comment:[MAC]path to neovim configuration file(init.vim)",
     "vscode-neovim.neovimInitVimPaths.darwin",
+    "$comment:[MAC]path to neovim(e.g.: /opt/homevrew/bin/nvim)",
     "vscode-neovim.neovimExecutablePaths.darwin",
-    "vscode-neovim.neovimExecutablePaths.linux",
+    "$comment:[WSL]path to neovim configuration file(init.vim)",
     "vscode-neovim.neovimInitVimPaths.linux",
+    "$comment:[WSL]path to neovim(e.g.: /usr/bin/nvim)",
+    "vscode-neovim.neovimExecutablePaths.linux",
     "terminal.integrated.profiles.windows",
     "vscode-neovim.useWSL"
   ],
@@ -15,9 +21,7 @@
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.useCtrlKeysForInsertMode": false,
-  "vscode-neovim.useCtrlKeysForNormalMode": false,
-  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/maedatkw/.config/nvim/init.vim",
+  "vscode-neovim.useCtrlKeysForNormalMode": true,
   "workbench.editor.showTabs": true,
   "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "none",
@@ -61,10 +65,7 @@
     },
     "Ubuntu (WSL)": {
       "path": "C:\\WINDOWS\\System32\\wsl.exe",
-      "args": [
-        "-d",
-        "Ubuntu"
-      ]
+      "args": ["-d", "Ubuntu"]
     }
   },
 
@@ -114,6 +115,7 @@
     "nvim",
     "omotenashi",
     "omotenashiapp",
+    "primevue",
     "selfcare",
     "shinagawa",
     "societyos",

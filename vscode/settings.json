@@ -1,6 +1,6 @@
 {
   "$comment_": "unique settings(async)",
-  "settingsSync.ignoreSettings": [
+  "settingsSync.ignoredSettings": [
     "terminal.external.osxExec",
     "terminal.integrated.fontFamily",
     "vscode-neovim.neovimInitVimPaths.darwin",
@@ -11,7 +11,6 @@
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.useCtrlKeysForInsertMode": false,
-  "workbench.list.automaticKeyboardNavigation": false,
   "workbench.editor.showTabs": true,
   "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "none",
@@ -30,6 +29,7 @@
   "editor.fontSize": 15,
   "editor.tabSize": 2,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.wordWrap": "off",
   "prettier.singleQuote": true,
   "prettier.semi": false,
   "terminal.external.osxExec": "iTerm.app",
@@ -66,5 +66,6 @@
   "search.exclude": {
     "**/node_modules": false
   },
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  "settingsSync.ignoredExtensions": []
 }

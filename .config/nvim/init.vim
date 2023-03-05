@@ -46,6 +46,9 @@ set nowrap
 set encoding=utf-8
 scriptencoding utf-8
 
+" delete/yank line, but only whitespace-trimmed version
+nnoremap yy _yg_
+
 if !exists('g:vscode')
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
   autocmd StdinReadPre * let s:std_in=1

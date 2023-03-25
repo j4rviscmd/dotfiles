@@ -1,0 +1,10 @@
+/* reference: https://zenn.dev/taichifukumoto/scraps/ff5ec1f01fc823 */
+
+.sidebar .explorer-viewlet .label-name,
+.monaco-icon-label
+  > .monaco-icon-label-container
+  > .monaco-icon-description-container
+  > .label-description,
+.search-view .linematch > .match {
+  font-size: 16.8px !important;
+}

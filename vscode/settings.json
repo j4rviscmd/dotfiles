@@ -23,10 +23,10 @@
   "vscode-neovim.useCtrlKeysForInsertMode": false,
   "vscode-neovim.useCtrlKeysForNormalMode": true,
   "$comment": "change to path at your .config/vscode/style.css path.",
-  "$comment": "e.g.(MAC or Linux): file:///Users/maedatakurou/.config/vscode/style.css",
+  "$comment": "e.g.(MAC or Linux): file:///Users/maedatakurou/work/development/dotfiles/vscode/style.css",
   "$comment": "e.g.(Windows): file:///C:/Users/MyUserName/Documents/custom.css",
   "vscode_custom_css.imports": [
-    "file:///Users/maedatakurou/.config/vscode/style.css"
+    "file:///Users/maedatakurou/work/development/dotfiles/vscode/style.css"
   ],
   "workbench.editor.showTabs": true,
   "workbench.colorTheme": "Default Dark+",

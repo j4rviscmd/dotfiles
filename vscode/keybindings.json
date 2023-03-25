@@ -2,7 +2,7 @@
   {
     "$comment_": "close the filter widget if the focus after filtering on the tree operation is a folder",
     "key": "Enter",
-    "command": "list.closeFind",
+    "command": "macros.closeAndExpandFolder",
     "when": "listFocus && treeFindOpen && explorerResourceIsFolder"
   },
   {

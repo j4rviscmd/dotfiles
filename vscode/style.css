@@ -4,7 +4,8 @@
 .monaco-icon-label
   > .monaco-icon-label-container
   > .monaco-icon-description-container
-  > .label-description,
-.search-view .linematch > .match {
+  .search-view
+  .linematch
+  > .match {
   font-size: 16.8px !important;
 }

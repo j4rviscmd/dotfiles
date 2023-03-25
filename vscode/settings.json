@@ -81,6 +81,7 @@
       "list.select",
       "workbench.action.toggleSidebarVisibility"
     ],
+    "closeAndExpandFolder": ["list.closeFind", "list.expand"],
     "splitAndToggleSidebar": [
       "explorer.openToSide",
       "workbench.action.toggleSidebarVisibility"

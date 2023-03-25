@@ -1,5 +1,7 @@
 {
   "$comment": "unique settings(async)",
+  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/maedatakurou/.config/nvim/init.vim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "settingsSync.ignoredSettings": [
     "$comment:which terminal to use",
     "terminal.external.osxExec",
@@ -14,11 +16,10 @@
     "$comment:[WSL]path to neovim(e.g.: /usr/bin/nvim)",
     "vscode-neovim.neovimExecutablePaths.linux",
     "terminal.integrated.profiles.windows",
-    "vscode-neovim.useWSL"
+    "vscode-neovim.useWSL",
+    "vscode_custom_css.imports"
   ],
   "$comment": "sync settings",
-  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/maedatakurou/.config/nvim/init.vim",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.useCtrlKeysForInsertMode": false,
   "vscode-neovim.useCtrlKeysForNormalMode": true,
@@ -140,6 +141,5 @@
   "[python]": {
     "editor.formatOnType": true
   },
-  "git.enableSmartCommit": true,
-  "window.menuBarVisibility": "compact"
+  "git.enableSmartCommit": true
 }

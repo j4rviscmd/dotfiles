@@ -1,5 +1,5 @@
 {
-  "$comment_": "unique settings(async)",
+  "$comment": "unique settings(async)",
   "settingsSync.ignoredSettings": [
     "$comment:which terminal to use",
     "terminal.external.osxExec",
@@ -16,12 +16,18 @@
     "terminal.integrated.profiles.windows",
     "vscode-neovim.useWSL"
   ],
-  "$comment__": "sync settings",
+  "$comment": "sync settings",
   "vscode-neovim.neovimInitVimPaths.darwin": "/Users/maedatakurou/.config/nvim/init.vim",
   "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.useCtrlKeysForInsertMode": false,
   "vscode-neovim.useCtrlKeysForNormalMode": true,
+  "$comment": "change to path at your .config/vscode/style.css path.",
+  "$comment": "e.g.(MAC or Linux): file:///Users/maedatakurou/.config/vscode/style.css",
+  "$comment": "e.g.(Windows): file:///C:/Users/MyUserName/Documents/custom.css",
+  "vscode_custom_css.imports": [
+    "file:///Users/maedatakurou/.config/vscode/style.css"
+  ],
   "workbench.editor.showTabs": true,
   "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "none",
@@ -104,6 +110,8 @@
   "settingsSync.ignoredExtensions": [],
   "cSpell.userWords": [
     "appium",
+    "dismissable",
+    "dragggable",
     "enquete",
     "firestore",
     "foodloss",
@@ -115,13 +123,22 @@
     "nvim",
     "omotenashi",
     "omotenashiapp",
+    "primeflex",
+    "primeicons",
     "primevue",
     "selfcare",
     "shinagawa",
     "societyos",
+    "todos",
     "udid",
     "viewmatcher",
+    "Vuetify",
     "zscaler"
   ],
-  "bracket-pair-colorizer-2.depreciation-notice": false
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "git.enableSmartCommit": true,
+  "window.menuBarVisibility": "compact"
 }

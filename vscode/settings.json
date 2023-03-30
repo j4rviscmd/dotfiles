@@ -87,7 +87,10 @@
       "explorer.openToSide",
       "workbench.action.toggleSidebarVisibility"
     ],
-    "filterAndFocusDown": ["list.toggleFilterOnType", "list.focusDown"]
+    "filterAndFocusDown": [
+      "list.toggleFilterOnType",
+      "list.expandSelectionDown"
+    ]
   },
   "git.confirmSync": false,
   "git.autofetch": true,
@@ -141,5 +144,6 @@
   "[python]": {
     "editor.formatOnType": true
   },
-  "git.enableSmartCommit": true
+  "git.enableSmartCommit": true,
+  "window.menuBarVisibility": "compact"
 }

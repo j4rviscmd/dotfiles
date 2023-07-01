@@ -99,7 +99,6 @@
   "update.mode": "none",
   "update.enableWindowsBackgroundUpdates": false,
   "extensions.autoUpdate": false,
-  "importSorter.generalConfiguration.sortOnBeforeSave": true,
   "liveServer.settings.donotShowInfoMsg": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "dart.debugExternalPackageLibraries": false,
@@ -121,13 +120,16 @@
     "firestore",
     "foodloss",
     "higashisakura",
+    "Iconicons",
     "inappwebview",
+    "Ionicons",
     "maedatkw",
     "neovim",
     "Nuxt",
     "nvim",
     "omotenashi",
     "omotenashiapp",
+    "Pressable",
     "primeflex",
     "primeicons",
     "primevue",
@@ -145,5 +147,6 @@
     "editor.formatOnType": true
   },
   "git.enableSmartCommit": true,
-  "window.menuBarVisibility": "compact"
+  "window.menuBarVisibility": "compact",
+  "react-native-tools.showUserTips": false
 }

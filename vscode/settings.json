@@ -72,7 +72,10 @@
     },
     "Ubuntu (WSL)": {
       "path": "C:\\WINDOWS\\System32\\wsl.exe",
-      "args": ["-d", "Ubuntu"]
+      "args": [
+        "-d",
+        "Ubuntu"
+      ]
     }
   },
 
@@ -123,6 +126,7 @@
     "Iconicons",
     "inappwebview",
     "Ionicons",
+    "maedatakurou",
     "maedatkw",
     "neovim",
     "Nuxt",
@@ -133,20 +137,25 @@
     "primeflex",
     "primeicons",
     "primevue",
+    "pyautogui",
+    "rarfile",
     "selfcare",
     "shinagawa",
     "societyos",
     "todos",
     "udid",
+    "unrar",
     "viewmatcher",
     "Vuetify",
     "zscaler"
   ],
   "bracket-pair-colorizer-2.depreciation-notice": false,
   "[python]": {
-    "editor.formatOnType": true
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
+
   "git.enableSmartCommit": true,
   "window.menuBarVisibility": "compact",
-  "react-native-tools.showUserTips": false
+  "react-native-tools.showUserTips": false,
+  "explorer.confirmDelete": false
 }

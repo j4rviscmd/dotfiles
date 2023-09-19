@@ -2,6 +2,7 @@
 alias ll 'exa -l -a -g --icons --ignore-glob=".DS_Store|.localized" --sort=type --time-style=long-iso --no-permissions'
 alias vi 'nvim'
 alias vim 'nvim'
+alias python 'python3'
 alias chrome="open -a 'Google Chrome'"
 alias powerpoint="open -a 'Microsoft PowerPoint'"
 

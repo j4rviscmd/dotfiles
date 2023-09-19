@@ -1,6 +1,7 @@
 " synchoronize saving and applying
 autocmd BufWritePost  ~/.config/nvim/init.vim  so ~/.config/nvim/init.vim
 
+
 " read config files
 runtime ./plug.vim
 runtime ./markdown-preview-plug.vim
@@ -51,6 +52,7 @@ if !exists('g:vscode')
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
   autocmd StdinReadPre * let s:std_in=1
   autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  nmap <C-o> :NERDTreeToggle<CR>
 
   " editor-theme
   colorscheme molokai
@@ -76,9 +78,10 @@ if !exists('g:vscode')
 
   " NERDTree
   let g:NERDTreeShowBookmarks=1
-  let g:NERDTreeShowHidden=0
-  let g:NERDTreeQuitOnOpen =1
+  let g:NERDTreeShowHidden=1
+  let g:NERDTreeQuitOnOpen=1
   let NERDTreeIgnore=['.DS_Store', '\.git$',]
+  let g:NERDTreeWinSize=200
 
   " vim-airline
   set ttimeoutlen=50
@@ -111,3 +114,9 @@ endif
 let g:EasyMotion_do_mattping = 0
 let g:EasyMotion_smartcase = 1
 
+if !exists('g:vscode')
+lua << EOF
+  require("nvim-autopairs").setup{}
+  require('nvim-ts-autotag').setup{}
+EOF
+endif

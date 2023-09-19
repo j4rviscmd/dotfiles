@@ -60,18 +60,23 @@ if !exists('g:vscode')
   " prettier
   Plug 'prettier/vim-prettier', {
     \ 'do': 'yarn install --frozen-lockfile --production',
-    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+    \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html' ] }
 
   " nerdtree
   Plug 'scrooloose/nerdtree'
 
   " easymotion
   Plug 'easymotion/vim-easymotion'
+
+  Plug 'windwp/nvim-autopairs'
+  Plug 'windwp/nvim-ts-autotag'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 endif
 
 if exists('g:vscode')
   " easymotion
   Plug 'asvetliakov/vim-easymotion'
 endif
+
 call plug#end()
 

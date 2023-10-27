@@ -72,10 +72,7 @@
     },
     "Ubuntu (WSL)": {
       "path": "C:\\WINDOWS\\System32\\wsl.exe",
-      "args": [
-        "-d",
-        "Ubuntu"
-      ]
+      "args": ["-d", "Ubuntu"]
     }
   },
 
@@ -157,5 +154,8 @@
   "git.enableSmartCommit": true,
   "window.menuBarVisibility": "compact",
   "react-native-tools.showUserTips": false,
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
 }

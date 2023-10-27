@@ -24,6 +24,7 @@ endif
 
 set list
 set showmatch
+set smartcase
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set clipboard+=unnamed
 set helplang=ja

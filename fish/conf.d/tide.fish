@@ -1,0 +1,1 @@
+/Users/maedatakurou/work/development/dotfiles/.config/fish/conf.d/tide.fish

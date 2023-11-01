@@ -12,6 +12,4 @@ fish/fishd.tmp*
 fish/fish_variables
 fish/functions/
 fish/completions/
-fish/conf.d/_tide_init.fish
-fish/conf.d/nvm.fish
 fish/conf.d/z.fish

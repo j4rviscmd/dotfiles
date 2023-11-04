@@ -4,29 +4,20 @@ nmap gc  <Plug>VSCodeCommentary
 omap gc  <Plug>VSCodeCommentary
 nmap gcc <Plug>VSCodeCommentaryLine
 
-" set showmatch
-" set smartcase
-" set clipboard+=unnamed
-" set helplang=ja
-" set title
-" set number
-" set ignorecase
-" set virtualedit=onemore
-" set autoread
-" set wildmenu
-" set backspace=indent,eol,start
-" set autoindent
-" set smartindent
-" set smarttab
-" set nobackup
-" set noswapfile
-" set expandtab
-" set tabstop=2
-" set shiftwidth=2
-" set cursorline
-" set nowrap
-" set encoding=utf-8
-" scriptencoding utf-8
+set encoding=utf-8
+scriptencoding utf-8
+
+
+set nobackup
+set noswapfile
+set autoread
+set virtualedit=onemore
+set cursorline
+set nowrap
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
 
 set clipboard=unnamed
 let g:clipboard = {

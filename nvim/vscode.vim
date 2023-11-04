@@ -27,3 +27,17 @@ nmap gcc <Plug>VSCodeCommentaryLine
 " set nowrap
 " set encoding=utf-8
 " scriptencoding utf-8
+
+set clipboard=unnamed
+let g:clipboard = {
+        \   'name': 'myClipboard',
+        \   'copy': {
+        \      '+': 'win32yank.exe -i',
+        \      '*': 'win32yank.exe -i',
+        \    },
+        \   'paste': {
+        \      '+': 'win32yank.exe -o',
+        \      '*': 'win32yank.exe -o',
+        \   },
+        \   'cache_enabled': 1,
+        \ }

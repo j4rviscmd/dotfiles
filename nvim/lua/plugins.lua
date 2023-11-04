@@ -83,7 +83,6 @@ packer.startup(function(use)
       }
       vim.g["mkdp_markdown_css"] = ''
       vim.g["mkdp_highlight_css"] = ''
-      vim.g["mkdp_port"] = '「${name}」'
       vim.g["mkdp_page_title"] = ''
       vim.g["mkdp_filetypes"] = {'markdown'}
       vim.g["mkdp_theme"] = 'dark'

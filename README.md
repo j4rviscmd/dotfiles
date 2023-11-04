@@ -5,8 +5,9 @@
 ```fish
 git config --global user.name "Your Username"
 git config --global user.email "your.email@example.com"
-git config --global credential.helper cache
+git config --global credential.helper store
 ```
+
 
 ## WSL2(Ubuntu, Fish)
 

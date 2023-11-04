@@ -1,7 +1,5 @@
 {
   "$comment": "unique settings(async)",
-  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/maedatakurou/.config/nvim/init.vim",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "settingsSync.ignoredSettings": [
     "$comment:which terminal to use",
     "terminal.external.osxExec",

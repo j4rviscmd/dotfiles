@@ -24,13 +24,13 @@ packer.startup(function(use)
   use 'ryanoasis/vim-devicons'
 
   -- Editor theme
-  use({ 
+  use({
     'blueshirts/darcula',
     config = function()
       vim.cmd([[colorscheme darcula]])
     end
   })
-  
+
   -- View syntax error
   use 'scrooloose/syntastic'
 
@@ -40,7 +40,7 @@ packer.startup(function(use)
     config = function()
       vim.opt.ttimeoutlen = 50
       vim.g["airline#extensions#tabline#enabled"] = 1
-      vim.g["airline#extensions#tabline#formatter"] = 'unique_tail' 
+      vim.g["airline#extensions#tabline#formatter"] = 'unique_tail'
       vim.g["airline#extensions#tabline#buffer_idx_mode"] = 1
       vim.g["airline_theme"] = 'luna'
       vim.g["airline#extensions#default#layout"] = {
@@ -48,7 +48,7 @@ packer.startup(function(use)
         { 'error', 'warning', 'y', 'x' },
       }
     end
-  } 
+  }
   use('vim-airline/vim-airline-themes')
 
   -- Preview for markdown file
@@ -113,12 +113,12 @@ packer.startup(function(use)
       vim.g["NERDTreeIgnore"] = { '.DS_Store', '\\.git$', }
     end
   }
-  
+
   use {
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
-  
+
   use 'windwp/nvim-ts-autotag'
     require'nvim-treesitter.configs'.setup {
     autotag = {
@@ -130,12 +130,12 @@ packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
-      require('nvim-treesitter.install').update({ with_sync = true }) 
+      require('nvim-treesitter.install').update({ with_sync = true })
     end
   }
 
   use {
-    "nvim-telescope/telescope.nvim", 
+    "nvim-telescope/telescope.nvim",
     tag = '0.1.4',
     requires = {'nvim-lua/plenary.nvim'},
   }

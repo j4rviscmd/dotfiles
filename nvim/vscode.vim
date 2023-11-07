@@ -21,7 +21,7 @@ set incsearch
 
 set clipboard=unnamed
 
-if has('win32') || has('win64')
+if has("wsl") == 1
   let g:clipboard = {
           \   'name': 'myClipboard',
           \   'copy': {

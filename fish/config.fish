@@ -2,9 +2,6 @@
 alias ll 'exa -l -a -g --icons --ignore-glob=".DS_Store|.localized" --sort=type --time-style=long-iso --no-permissions'
 alias vi 'nvim'
 alias vim 'nvim'
-alias python 'python3'
-alias chrome="open -a 'Google Chrome'"
-alias powerpoint="open -a 'Microsoft PowerPoint'"
 
 
 # path
@@ -12,11 +9,14 @@ set -gx PATH /opt/homebrew/bin $PATH
 # set -gx PATH $HOME/.nodebrew/current/bin $PATH
 set -gx PATH $HOME/work/software/flutter/bin $PATH
 set -gx PATH $HOME/work/software/flutter/.pub-cache/bin $PATH
-set -gx PYENV_PATH $HOME/.pyenv
 set -gx EDITOR nvim
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx PATH $HOME/.pub-cache/bin $PATH
 set -U fish_user_paths $fish_user_paths $HOME/.cargo/bin
+
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH  $PYENV_ROOT/bin $PATH
+pyenv init - | source
 
 
 # appium

@@ -35,6 +35,7 @@
   "workbench.iconTheme": "vscode-icons",
   "workbench.list.fastScrollSensitivity": 1,
   "workbench.layoutControl.enabled": false,
+  "workbench.activityBar.visible": false,
   "workbench.editor.enablePreview": false,
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,

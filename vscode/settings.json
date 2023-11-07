@@ -7,16 +7,20 @@
     "terminal.integrated.fontFamily",
     "$comment:[MAC]path to neovim configuration file(init.vim)",
     "vscode-neovim.neovimInitVimPaths.darwin",
+    "vscode-neovim.neovimInitVimPaths.linux",
     "$comment:[MAC]path to neovim(e.g.: /opt/homevrew/bin/nvim)",
     "vscode-neovim.neovimExecutablePaths.darwin",
-    "$comment:[WSL]path to neovim configuration file(init.vim)",
-    "vscode-neovim.neovimInitVimPaths.linux",
-    "$comment:[WSL]path to neovim(e.g.: /usr/bin/nvim)",
-    "vscode-neovim.neovimExecutablePaths.linux",
     "terminal.integrated.profiles.windows",
     "vscode-neovim.useWSL",
+    "vscode-neovim.neovimExcecutablePaths.darwin",
+    "$comment:[WSL]path to neovim(e.g.: /usr/bin/nvim)",
+    "vscode-neovim.neovimExcecutablePaths.linux",
     "vscode_custom_css.imports"
   ],
+  "vscode-neovim.useWSL": true,
+  "vscode-neovim.neovimExcecutablePaths.linux": "/snap/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.linux": "/home/maedat/.config/nvim/vscode.vim",
+  "vscode_custom_css.imports": "/mnt/c/Users/Admin/AppData/Roaming/Code/User",
   "$comment": "sync settings",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.useCtrlKeysForInsertMode": false,
@@ -24,17 +28,13 @@
   "$comment": "change to path at your .config/vscode/style.css path.",
   "$comment": "e.g.(MAC or Linux): file:///Users/maedatakurou/work/development/dotfiles/vscode/style.css",
   "$comment": "e.g.(Windows): file:///C:/Users/MyUserName/Documents/custom.css",
-  "vscode_custom_css.imports": [
-    "file:///Users/maedatakurou/work/development/dotfiles/vscode/style.css"
-  ],
-  "workbench.editor.showTabs": true,
+  "workbench.editor.showTabs": "multiple",
   "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.iconTheme": "vscode-icons",
   "workbench.list.fastScrollSensitivity": 1,
   "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.visible": false,
   "workbench.editor.enablePreview": false,
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
@@ -109,7 +109,6 @@
     "**/node_modules": false
   },
   "files.trimTrailingWhitespace": true,
-  "settingsSync.ignoredExtensions": [],
   "cSpell.userWords": [
     "appium",
     "dismissable",
@@ -155,5 +154,12 @@
   "explorer.confirmDelete": false,
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  }
+  },
+  "workbench.activityBar.location": "hidden",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "remote.WSL.downloadInBackground": false,
+  "terminal.integrated.useWslProfiles": false,
+  "git.openRepositoryInParentFolders": "never"
 }

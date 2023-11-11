@@ -7,6 +7,7 @@ git config --global user.name "Your Username"
 git config --global user.email "your.email@example.com"
 git config --global credential.helper store
 ```
+[Gitで毎回パスワードを聞かれないようにする](https://qiita.com/aqua_ix/items/0433f85330087c62bffa)
 [git を https 経由で使うときのパスワードを保存する](https://qiita.com/usamik26/items/c655abcaeee02ea59695)
 
 

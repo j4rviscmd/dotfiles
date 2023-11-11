@@ -74,23 +74,6 @@
       "args": ["-d", "Ubuntu"]
     }
   },
-
-  "macros": {
-    "selectAndToggleSidebar": [
-      "list.closeFind",
-      "list.select",
-      "workbench.action.toggleSidebarVisibility"
-    ],
-    "closeAndExpandFolder": ["list.closeFind", "list.expand"],
-    "splitAndToggleSidebar": [
-      "explorer.openToSide",
-      "workbench.action.toggleSidebarVisibility"
-    ],
-    "filterAndFocusDown": [
-      "list.toggleFilterOnType",
-      "list.expandSelectionDown"
-    ]
-  },
   "git.confirmSync": false,
   "git.autofetch": true,
   "vsicons.dontShowNewVersionMessage": true,

@@ -1,21 +1,58 @@
 [
   {
     "$comment_": "close the filter widget if the focus after filtering on the tree operation is a folder",
+    "command": "runCommands",
     "key": "Enter",
-    "command": "macros.closeAndExpandFolder",
-    "when": "listFocus && treeFindOpen && explorerResourceIsFolder"
+    "when": "listFocus && treeFindOpen && explorerResourceIsFolder",
+    "args": {
+      "commands": ["list.closeFind", "list.expand"]
+    }
   },
   {
     "$comment_": "filter execution & j, k key activation by pressing enter in search by tree operation",
+    "command": "runCommands",
     "key": "Enter",
-    "command": "macros.filterAndFocusDown",
-    "when": "inputFocus && explorerViewletFocus"
+    "when": "inputFocus && explorerViewletFocus",
+    "args": {
+      "commands": ["list.toggleFilterOnType", "list.expandSelectionDown"]
+    }
   },
   {
     "$comment_": "split & close tree by pressing file in tree operation",
+    "command": "runCommands",
     "key": "v",
-    "command": "macros.splitAndToggleSidebar",
-    "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
+    "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus",
+    "args": {
+      "commands": [
+        "explorer.openToSide",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    }
+  },
+  {
+    "$comment_": "if a file in a file tree operation, open and close the tree",
+    "key": "Enter",
+    "command": "runCommands",
+    "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus",
+    "args": {
+      "commands": [
+        "list.closeFind",
+        "list.select",
+        "workbench.action.toggleSidebarVisibility"
+      ]
+    }
+  },
+  {
+    "$comment_": "show source control",
+    "key": "ctrl+s",
+    "command": "workbench.view.scm",
+    "when": "!view.workbench.scm.visible"
+  },
+  {
+    "$comment_": "not show source control",
+    "key": "ctrl+s",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "view.workbench.scm.visible"
   },
   {
     "$comment_": "enable undo delete recent file key & useCtrlKeysForNormalMode: true and reboot"
@@ -44,12 +81,6 @@
     "key": "ctrl+o",
     "command": "workbench.action.toggleSidebarVisibility",
     "when": "filesExplorerFocus"
-  },
-  {
-    "$comment_": "if a file in a file tree operation, open and close the tree",
-    "key": "Enter",
-    "command": "macros.selectAndToggleSidebar",
-    "when": "explorerViewletFocus && explorerViewletVisible && !explorerResourceIsFolder && !inputFocus"
   },
   {
     "$comment_": "expand if folder in file tree operation",
@@ -159,3 +190,4 @@
     "when": "notebookEditorFocused && !inputFocus"
   }
 ]
+

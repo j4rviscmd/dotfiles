@@ -10,6 +10,16 @@ Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineOption -EditMode Emacs
 
+# Not allow duplicates history
+Set-PSReadlineOption -AddToHistoryHandler {
+    param ($command)
+    switch -regex ($command) {
+        "SKIPHISTORY" {return $false}
+        "^[a-z]$" {return $false}
+        "exit" {return $false}
+    }
+    return $true
+}
 
 # Alias
 Set-Alias ll ls

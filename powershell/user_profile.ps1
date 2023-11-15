@@ -8,6 +8,7 @@ Import-Module Terminal-Icons
 Import-Module PSReadLine
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
+# Like Linux controll
 Set-PSReadLineOption -EditMode Emacs
 
 # Alias

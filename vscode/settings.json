@@ -1,5 +1,6 @@
 {
   "$comment": "unique settings(async)",
+  "vscode_custom_css.imports": ["file:///C:/work/dotfiles/vscode/style.css"],
   "settingsSync.ignoredSettings": [
     "$comment:which terminal to use",
     "terminal.external.osxExec",
@@ -8,19 +9,15 @@
     "$comment:[MAC]path to neovim configuration file(init.vim)",
     "vscode-neovim.neovimInitVimPaths.darwin",
     "vscode-neovim.neovimInitVimPaths.linux",
+    "vscode-neovim.neovimInitVimPaths.win32",
     "$comment:[MAC]path to neovim(e.g.: /opt/homevrew/bin/nvim)",
     "vscode-neovim.neovimExecutablePaths.darwin",
+    "vscode-neovim.neovimExecutablePaths.linux",
+    "vscode-neovim.neovimExecutablePaths.win32",
     "terminal.integrated.profiles.windows",
     "vscode-neovim.useWSL",
-    "vscode-neovim.neovimExcecutablePaths.darwin",
-    "$comment:[WSL]path to neovim(e.g.: /usr/bin/nvim)",
-    "vscode-neovim.neovimExcecutablePaths.linux",
     "vscode_custom_css.imports"
   ],
-  "vscode-neovim.useWSL": true,
-  "vscode-neovim.neovimExcecutablePaths.linux": "/snap/bin/nvim",
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/maedat/.config/nvim/vscode.vim",
-  "vscode_custom_css.imports": "/mnt/c/Users/Admin/AppData/Roaming/Code/User",
   "$comment": "sync settings",
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.useCtrlKeysForInsertMode": false,
@@ -32,10 +29,10 @@
   "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreviewFromQuickOpen": false,
+  "window.zoomLevel": 1,
   "workbench.iconTheme": "vscode-icons",
   "workbench.list.fastScrollSensitivity": 1,
   "workbench.layoutControl.enabled": false,
-  "workbench.activityBar.visible": false,
   "workbench.editor.enablePreview": false,
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
@@ -49,31 +46,8 @@
   "editor.wordWrap": "off",
   "prettier.singleQuote": true,
   "prettier.semi": false,
-  "terminal.external.osxExec": "iTerm.app",
-  "terminal.integrated.fontFamily": "DroidSansMono Nerd Font",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": "normal",
-  "terminal.integrated.profiles.windows": {
-    "PowerShell": {
-      "source": "PowerShell",
-      "icon": "terminal-powershell"
-    },
-    "Command Prompt": {
-      "path": [
-        "${env:windir}\\Sysnative\\cmd.exe",
-        "${env:windir}\\System32\\cmd.exe"
-      ],
-      "args": [],
-      "icon": "terminal-cmd"
-    },
-    "Git Bash": {
-      "source": "Git Bash"
-    },
-    "Ubuntu (WSL)": {
-      "path": "C:\\WINDOWS\\System32\\wsl.exe",
-      "args": ["-d", "Ubuntu"]
-    }
-  },
   "git.confirmSync": false,
   "git.autofetch": true,
   "vsicons.dontShowNewVersionMessage": true,
@@ -95,7 +69,9 @@
   "files.trimTrailingWhitespace": true,
   "cSpell.userWords": [
     "appium",
+    "boto",
     "dismissable",
+    "dotfiles",
     "dragggable",
     "enquete",
     "firestore",
@@ -104,13 +80,17 @@
     "Iconicons",
     "inappwebview",
     "Ionicons",
+    "levelname",
+    "maeda",
     "maedatakurou",
     "maedatkw",
     "neovim",
+    "NJSS",
     "Nuxt",
     "nvim",
     "omotenashi",
     "omotenashiapp",
+    "openpyxl",
     "Pressable",
     "primeflex",
     "primeicons",
@@ -118,6 +98,7 @@
     "pyautogui",
     "rarfile",
     "selfcare",
+    "sheetnames",
     "shinagawa",
     "societyos",
     "todos",
@@ -133,7 +114,7 @@
   },
 
   "git.enableSmartCommit": true,
-  "window.menuBarVisibility": "compact",
+  "vscode-neovim.useWSL": true,
   "react-native-tools.showUserTips": false,
   "explorer.confirmDelete": false,
   "[shellscript]": {
@@ -145,5 +126,8 @@
   },
   "remote.WSL.downloadInBackground": false,
   "terminal.integrated.useWslProfiles": false,
-  "git.openRepositoryInParentFolders": "never"
+  "git.openRepositoryInParentFolders": "never",
+  "git.ignoreRebaseWarning": true,
+  "window.commandCenter": false,
+  "vscode-neovim.neovimInitVimPaths.linux": "/home/user/.config/nvim/vscode.vim"
 }

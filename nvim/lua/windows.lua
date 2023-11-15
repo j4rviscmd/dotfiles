@@ -13,5 +13,5 @@ vim.g.clipboard = {
   cache_enabled = 0,
 }
 
-vim.cmd([[autocmd InsertLeave * :silent !/usr/local/bin/im-select com.apple.keylayout.ABC]])
+-- vim.cmd([[autocmd InsertLeave * :silent !/usr/local/bin/im-select com.apple.keylayout.ABC]])
 

@@ -72,6 +72,13 @@ git config --global credential.helper store
    9. Install-Module -Name Terminal-Icons -Repository PSGallery -Force
    10. Install-Module -Name z -Force
    11. Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
+5. nvim セットアップ
+   1. Packer をインストール
+      1. git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
+   2. dotfiles リポジトリの.config/nvim をペースト
+      1. nvim 内で以下のコマンドを実行する(一度では plugin が入りきらないことがあるため何度かループすること)
+         1. PackerInstall
+         2. PackerCompile
 
 ## WSL2(Ubuntu, Fish)
 

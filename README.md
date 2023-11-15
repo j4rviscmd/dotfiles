@@ -83,7 +83,7 @@ git config --global credential.helper store
          2. PackerCompile
 6. SymbolicLink の作成(任意)
    1. sudo New-Item -ItemType SymbolicLink -Name work -Target "C:\work"
-   2. sudo New-Item -ItemType SymbolicLink -Name VSCode -Target "C:\Users\maeda\AppData\Roaming\Code\User"
+   2. sudo New-Item -ItemType SymbolicLink -Name vscode -Target "C:\Users\maeda\AppData\Roaming\Code\User"
 
 ### VSCode
 

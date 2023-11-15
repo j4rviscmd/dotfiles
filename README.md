@@ -11,7 +11,9 @@ git config --global credential.helper store
 [Git で毎回パスワードを聞かれないようにする](https://qiita.com/aqua_ix/items/0433f85330087c62bffa)
 [git を https 経由で使うときのパスワードを保存する](https://qiita.com/usamik26/items/c655abcaeee02ea59695)
 
-## Windows(PowerShell)
+## Windows
+
+### PowerShell
 
 1. MicrosoftStore から PowerShell を Install する
    1. PowerShell 7.3.9 と表示されること
@@ -83,9 +85,21 @@ git config --global credential.helper store
    1. sudo New-Item -ItemType SymbolicLink -Name work -Target "C:\work"
    2. sudo New-Item -ItemType SymbolicLink -Name VSCode -Target "C:\Users\maeda\AppData\Roaming\Code\User"
 
+### VSCode
+
+#### settings.json
+
+```json
+"vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\maeda\\.config\\nvim\\vscode.vim",
+"vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\maeda\\scoop\\shims\\nvim.exe",
+"vscode_custom_css.imports": "C:\\work\\dotfiles\\vscode\\style.css",
+```
+
 ## WSL2(Ubuntu, Fish)
 
-### settings.json
+### VSCode
+
+#### settings.json
 
 ```json
 "vscode-neovim.useWSL": true,
@@ -93,6 +107,8 @@ git config --global credential.helper store
 "vscode-neovim.neovimExecutablePaths.linux": "/snap/bin/nvim",
 "vscode_custom_css.imports": "/mnt/c/Users/Admin/AppData/Roaming/Code/User",
 ```
+
+### NeoVim
 
 ### Share clipboard
 

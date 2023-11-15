@@ -7,13 +7,13 @@ Import-Module Terminal-Icons
 # Auto suggestions
 Import-Module PSReadLine
 Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView 
-
+Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineOption -EditMode Emacs
 
 # Alias
 Set-Alias ll ls
 Set-Alias vim nvim
-Set-Alias grep findstr 
+Set-Alias grep findstr
 function .. {
     Set-Location ..
 }

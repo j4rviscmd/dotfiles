@@ -103,7 +103,7 @@ packer.startup(function(use)
   }
 
   -- Nerdtree
-  use{'scrooloose/nerdtree',
+  use {'scrooloose/nerdtree',
     config= function()
       vim.g["NERDTreeShowBookmarks"] = 1
       vim.g["NERDTreeShowHidden"] = 1
@@ -135,7 +135,7 @@ packer.startup(function(use)
   use {
     "nvim-telescope/telescope.nvim",
     tag = '0.1.4',
-    requires = {'nvim-lua/plenary.nvim'},
+    requires = { {'nvim-lua/plenary.nvim'} },
   }
   use 'nvim-telescope/telescope-file-browser.nvim'
 

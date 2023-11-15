@@ -64,16 +64,18 @@ git config --global credential.helper store
 4. 各パッケージをインストール
    1. scoop install curl sudo jq
    2. scoop install neovim gcc
-   3. winget install -e --id Git.Git
-   4. mkdir .config/powershell
-   5. dotfiles リポジトリの.config/powershell をペースト
-   6. nvim $PROFILE.CurrentUserCurrentHost
+   3. scoop install gow
+   4. scoop install peco
+   5. winget install -e --id Git.Git
+   6. mkdir .config/powershell
+   7. dotfiles リポジトリの.config/powershell をペースト
+   8. nvim $PROFILE.CurrentUserCurrentHost
       1. . $env:USERPROFILE\.config\powershell\user_profile.ps1
-   7. Install-Module posh-git -Scope CurrentUser -Force
-   8. scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json
-   9. Install-Module -Name Terminal-Icons -Repository PSGallery -Force
-   10. Install-Module -Name z -Force
-   11. Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
+   9. Install-Module posh-git -Scope CurrentUser -Force
+   10. scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json
+   11. Install-Module -Name Terminal-Icons -Repository PSGallery -Force
+   12. Install-Module -Name z -Force
+   13. Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
 5. nvim セットアップ
    1. Packer をインストール
       1. git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"

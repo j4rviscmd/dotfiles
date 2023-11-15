@@ -95,6 +95,18 @@ git config --global credential.helper store
 "vscode_custom_css.imports": "C:\\work\\dotfiles\\vscode\\style.css",
 ```
 
+### Pyenv
+
+```powershell
+git clone https://github.com/pyenv-win/pyenv-win.git "$HOME\.pyenv"
+[System.Environment]::SetEnvironmentVariable('PYENV',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
+[System.Environment]::SetEnvironmentVariable('PYENV_ROOT',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
+[System.Environment]::SetEnvironmentVariable('PYENV_HOME',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
+[System.Environment]::SetEnvironmentVariable('PATH', $env:USERPROFILE + "\.pyenv\pyenv-win\bin;" + $env:USERPROFILE + "\.pyenv\pyenv-win\shims;" + [System.Environment]::GetEnvironmentVariable('PATH', "User"),"User")
+
+pyenv --version
+```
+
 ## WSL2(Ubuntu, Fish)
 
 ### VSCode
@@ -146,4 +158,37 @@ let g:clipboard = {
 
 ```json
 
+```
+
+### Pyenv's command
+
+```fish
+# 現在のバージョンを表示
+pyenv version
+
+# インストール済みのpythonバージョン一覧
+pyenv versions
+
+# インストール可能なpythonバージョン一覧
+pyenv install -l
+
+# インストール
+pyenv install 3.10.0
+
+# 適用
+## globalに適用する
+pyenv global 3.10.0
+
+## localに適用
+# local環境に適用
+pyenv local 3.10.0
+
+# local環境を生成
+pyenv virtualenv 3.10.0 hoge
+
+# hogeをアクティブ化
+pyenv active hoge
+
+# hogeをディアクティブ化
+pyenv deactive
 ```

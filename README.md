@@ -79,6 +79,9 @@ git config --global credential.helper store
       1. nvim 内で以下のコマンドを実行する(一度では plugin が入りきらないことがあるため何度かループすること)
          1. PackerInstall
          2. PackerCompile
+6. SymbolicLink の作成(任意)
+   1. sudo New-Item -ItemType SymbolicLink -Name work -Target "C:\work"
+   2. sudo New-Item -ItemType SymbolicLink -Name VSCode -Target "C:\Users\maeda\AppData\Roaming\Code\User"
 
 ## WSL2(Ubuntu, Fish)
 

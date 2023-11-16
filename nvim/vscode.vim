@@ -1,9 +1,3 @@
-" key binds
-xmap gc  <Plug>VSCodeCommentary
-nmap gc  <Plug>VSCodeCommentary
-omap gc  <Plug>VSCodeCommentary
-nmap gcc <Plug>VSCodeCommentaryLine
-
 set encoding=utf-8
 scriptencoding utf-8
 

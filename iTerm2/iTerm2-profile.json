@@ -85,6 +85,7 @@
     "Blue Component" : 0.81568628549575806
   },
   "Unlimited Scrollback" : false,
+  "Allow Title Setting" : true,
   "Custom Command" : "No",
   "HotKey Key Code" : 0,
   "Title Components" : 4,

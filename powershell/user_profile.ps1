@@ -7,7 +7,8 @@ Import-Module Terminal-Icons
 # Auto suggestions
 Import-Module PSReadLine
 Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
+# Set-PSReadLineOption -PredictionViewStyle ListView
+Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function ForwardWord
 Set-PSReadLineOption -EditMode Emacs
 
 # Not allow duplicates history

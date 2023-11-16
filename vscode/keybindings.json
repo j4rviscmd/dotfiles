@@ -43,6 +43,30 @@
     }
   },
   {
+    "$comment": "When nvim is normal or visual mode comment out bind",
+    "key": "g c c",
+    "command": "editor.action.commentLine",
+    "when": "neovim.mode == normal && editorTextFocus"
+  },
+  {
+    "command": "vscode-neovim.send",
+    "key": "g g",
+    "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
+    "args": "gg"
+  },
+  {
+    "$comment": "When nvim is normal or visual mode comment out bind",
+    "key": "g c",
+    "command": "runCommands",
+    "when": "neovim.mode == visual && editorTextFocus",
+    "args": {
+      "commands": [
+        "editor.action.commentLine",
+        "vscode-neovim.compositeEscape1"
+      ]
+    }
+  },
+  {
     "$comment_": "show source control",
     "key": "ctrl+s",
     "command": "workbench.view.scm",
@@ -190,4 +214,3 @@
     "when": "notebookEditorFocused && !inputFocus"
   }
 ]
-

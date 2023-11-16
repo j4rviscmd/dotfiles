@@ -60,10 +60,7 @@
     "command": "runCommands",
     "when": "neovim.mode == visual && editorTextFocus",
     "args": {
-      "commands": [
-        "editor.action.commentLine",
-        "vscode-neovim.compositeEscape1"
-      ]
+      "commands": ["editor.action.commentLine", "vscode-neovim.escape"]
     }
   },
   {

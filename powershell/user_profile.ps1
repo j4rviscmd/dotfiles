@@ -31,28 +31,6 @@ function .. {
 }
 
 # peco
-Add-Type -TypeDefinition @"
-using System;
-using System.Runtime.InteropServices;
-
-public class KeyboardSimulator
-{
-    [DllImport("user32.dll")]
-    public static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, UIntPtr dwExtraInfo);
-
-    public const int VK_RETURN = 0x0D;
-    public const int KEYEVENTF_KEYUP = 0x0002;
-
-    public static void SimulateKeyEnter()
-    {
-        keybd_event(VK_RETURN, 0, 0, UIntPtr.Zero);
-        keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, UIntPtr.Zero);
-    }
-}
-"@
-# press enter key
-# [KeyboardSimulator]::SimulateKeyEnter()
-
 Set-PSReadLineKeyHandler -chord Ctrl+r -scriptBlock { SelectandExecHistory }
 function global:SelectandExecHistory()
 {
@@ -65,8 +43,6 @@ function global:SelectandExecHistory()
     [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
     [Microsoft.PowerShell.PSConsoleReadLine]::DeleteLine()
      [Microsoft.PowerShell.PSConsoleReadLine]::Insert($selectCmd)
-    # press enter key
-     [KeyboardSimulator]::SimulateKeyEnter()
    }
 }
 

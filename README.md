@@ -13,10 +13,10 @@ git config --global credential.helper store
 
 ## Windows
 
-### PowerShell
+### PowerShell7
 
 1. MicrosoftStore から PowerShell を Install する
-   1. PowerShell 7.3.9 と表示されること
+   1. PowerShell 7.x.x と表示されること
 2. MicrosoftStore から WindowsTerminal を Install する
    1. 設定 -> スタートアップ
       1. 既定のターミナルアプリケーション: Windows ターミナル

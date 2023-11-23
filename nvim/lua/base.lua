@@ -1,11 +1,16 @@
-vim.cmd("autocmd!")
-vim.cmd('language en_US.UTF-8')
+vim.cmd('autocmd!')
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "plugins.lua" },
+  command = "PackerCompile",
+})
+
 
 vim.wo.number = true
 
-vim.scriptencoding = "utf-8"
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
+vim.scriptencoding = 'utf-8'
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 
 vim.opt.title = true
 vim.opt.syntax = "on"
@@ -29,26 +34,16 @@ vim.opt.smartcase = true
 vim.opt.scrolloff = 10
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
-vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
-vim.opt.inccommand = "split"
-vim.opt.path:append({ "**" })
-vim.opt.wildignore:append({ "*/node_modules/*" })
-
-vim.opt.shadafile = "NONE"
+vim.opt.backupskip = { '/tmp/*', '/private/tmp/*' }
+vim.opt.inccommand = 'split'
+vim.opt.path:append { '**' }
+vim.opt.wildignore:append { '*/node_modules/*' }
 
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*",
-	command = "set nopaste",
+  pattern = '*',
+  command = "set nopaste"
 })
 
 -- Add asterisks in block comments
-vim.opt.formatoptions:append({ "r" })
-
--- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
-vim.cmd("colorscheme neosolarized")
-vim.opt.termguicolors = true
-
+vim.opt.formatoptions:append { 'r' }

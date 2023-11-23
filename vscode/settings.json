@@ -1,6 +1,10 @@
 {
   "$comment": "unique settings(async)",
-  "vscode_custom_css.imports": ["file:///C:/work/dotfiles/vscode/style.css"],
+  "vscode_custom_css.imports": [
+    "file:////Users/maedatakurou/work/development/dotfiles/.config/vscode/style.css"
+  ],
+  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/maedatakurou/.config/nvim/vscode.vim",
+  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "settingsSync.ignoredSettings": [
     "$comment:which terminal to use",
     "terminal.external.osxExec",
@@ -18,18 +22,16 @@
     "vscode-neovim.useWSL",
     "vscode_custom_css.imports"
   ],
-  "vscode-neovim.mouseSelectionStartVisualMode": true,
-  "vscode-neovim.useCtrlKeysForInsertMode": false,
-  "vscode-neovim.useCtrlKeysForNormalMode": true,
   "$comment": "change to path at your .config/vscode/style.css path.",
   "$comment": "e.g.(MAC or Linux): file:///Users/maedatakurou/work/development/dotfiles/vscode/style.css",
   "$comment": "e.g.(Windows): file:///C:/Users/MyUserName/Documents/custom.css",
+  "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "vscode-neovim.useCtrlKeysForInsertMode": false,
+  "vscode-neovim.useCtrlKeysForNormalMode": true,
   "workbench.editor.showTabs": "multiple",
-  "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "window.zoomLevel": 1,
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.list.fastScrollSensitivity": 1,
   "workbench.layoutControl.enabled": false,
   "workbench.editor.enablePreview": false,
@@ -45,8 +47,31 @@
   "editor.wordWrap": "off",
   "prettier.singleQuote": true,
   "prettier.semi": false,
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.fontFamily": "DroidSansMono Nerd Font",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": "normal",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "Ubuntu (WSL)": {
+      "path": "C:\\WINDOWS\\System32\\wsl.exe",
+      "args": ["-d", "Ubuntu"]
+    }
+  },
   "git.confirmSync": false,
   "git.autofetch": true,
   "vsicons.dontShowNewVersionMessage": true,
@@ -81,6 +106,7 @@
     "Ionicons",
     "levelname",
     "maeda",
+    "maedat",
     "maedatakurou",
     "maedatkw",
     "neovim",
@@ -95,6 +121,7 @@
     "primeicons",
     "primevue",
     "pyautogui",
+    "Pyenv",
     "rarfile",
     "selfcare",
     "sheetnames",
@@ -108,17 +135,19 @@
     "zscaler"
   ],
   "bracket-pair-colorizer-2.depreciation-notice": false,
+  "git.enableSmartCommit": true,
+  "react-native-tools.showUserTips": false,
+  "explorer.confirmDelete": false,
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-
-  "git.enableSmartCommit": true,
-  "vscode-neovim.useWSL": true,
-  "react-native-tools.showUserTips": false,
-  "explorer.confirmDelete": false,
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
+  "[lua]": {
+    "editor.defaultFormatter": "JohnnyMorganz.stylua"
+  },
+  "Lua.diagnostics.globals": ["vim"],
   "workbench.activityBar.location": "hidden",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
@@ -128,5 +157,7 @@
   "git.openRepositoryInParentFolders": "never",
   "git.ignoreRebaseWarning": true,
   "window.commandCenter": false,
-  "vscode-neovim.neovimInitVimPaths.linux": "/home/user/.config/nvim/vscode.vim"
+  "vscode-neovim.neovimClean": false,
+  "react-native-tools.networkInspector.consoleLogsColorTheme": "Dark",
+  "workbench.colorTheme": "Visual Studio Dark"
 }

@@ -15,10 +15,16 @@ packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- Enable git command to neovim
-	use("tpope/vim-fugitive")
+	use({
+		"tpope/vim-fugitive",
+		cond = { notCode },
+	})
 
 	-- Show file icons
-	use("ryanoasis/vim-devicons")
+	use({
+		"ryanoasis/vim-devicons",
+		cond = { notCode },
+	})
 
 	-- Preview for markdown file
 	use({
@@ -65,6 +71,7 @@ packer.startup(function(use)
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
+		cond = { notCode },
 	})
 
 	use("windwp/nvim-ts-autotag")
@@ -78,17 +85,27 @@ packer.startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.4",
 		requires = { { "nvim-lua/plenary.nvim" } },
+		cond = { notCode },
 	})
-	use("nvim-telescope/telescope-file-browser.nvim")
+	use({
+		"nvim-telescope/telescope-file-browser.nvim",
+		cond = { notCode },
+	})
 
 	-- icon
 	use("kyazdani42/nvim-web-devicons")
 
 	-- Show git diff sign leftmost column
-	use("lewis6991/gitsigns.nvim")
+	use({
+		"lewis6991/gitsigns.nvim",
+		cond = { notCode },
+	})
 
 	-- Commentary
-	use("tpope/vim-commentary")
+	use({
+		"tpope/vim-commentary",
+		cond = { notCode },
+	})
 
 	-- Theme
 	use({
@@ -101,10 +118,14 @@ packer.startup(function(use)
 		"akinsho/bufferline.nvim",
 		tag = "v4.4.0",
 		requires = "nvim-tree/nvim-web-devicons",
+		cond = { notCode },
 	})
 
 	-- Theme for editor bottom
-	use("nvim-lualine/lualine.nvim") -- Statusline
+	use({
+		"nvim-lualine/lualine.nvim",
+		cond = { notCode },
+	}) -- Statusline
 
 	-- When if you yanked, highlight
 	use("machakann/vim-highlightedyank")

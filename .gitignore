@@ -13,3 +13,5 @@ fish/fish_variables
 fish/functions/
 fish/completions/
 fish/conf.d/z.fish
+nvim/plugin/
+tool_state

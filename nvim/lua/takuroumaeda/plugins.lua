@@ -4,11 +4,6 @@ if not status then
 	return
 end
 
--- When is vscdoe then return 1.
-local notCode = function()
-	return vim.g.vscode == nil
-end
-
 vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
@@ -94,7 +89,6 @@ packer.startup(function(use)
 	use({
 		"svrana/neosolarized.nvim", -- Colorscheme
 		requires = { "tjdevries/colorbuddy.nvim" },
-		cond = { notCode },
 	})
 
 	use({
@@ -106,6 +100,5 @@ packer.startup(function(use)
 	-- Theme for editor bottom
 	use("nvim-lualine/lualine.nvim") -- Statusline
 
-	-- When if you yanked, highlight
-	use("machakann/vim-highlightedyank")
 end)
+

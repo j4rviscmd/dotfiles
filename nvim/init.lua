@@ -1,7 +1,6 @@
 require("takuroumaeda.base")
 require("takuroumaeda.maps")
 require("takuroumaeda.plugins")
-require("takuroumaeda.highlights")
 
 local os = vim.loop.os_uname().sysname
 
@@ -14,5 +13,3 @@ elseif os == "Linux" then
 else
 	error("Unknown OS")
 end
-
-

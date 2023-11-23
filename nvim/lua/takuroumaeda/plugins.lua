@@ -7,8 +7,6 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
-  -- Example
-  -- use 'xxxxxx'
   use 'wbthomason/packer.nvim'
 
   -- When if you yanked, highlight
@@ -17,11 +15,20 @@ packer.startup(function(use)
   -- Enable git command to neovim
   use 'tpope/vim-fugitive'
 
-  -- Show git diff leftmost column
-  use 'airblade/vim-gitgutter'
-
   -- Show file icons
   use 'ryanoasis/vim-devicons'
+
+  -- Icon
+	use("kyazdani42/nvim-web-devicons")
+
+	-- Show git diff sign leftmost column
+	use("lewis6991/gitsigns.nvim")
+
+
+  -- Commentary
+	use({
+		"tpope/vim-commentary",
+	})
 
   -- Editor theme
   use({
@@ -31,25 +38,16 @@ packer.startup(function(use)
     end
   })
 
-  -- View syntax error
-  use 'scrooloose/syntastic'
+  
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v4.4.0",
+		requires = "nvim-tree/nvim-web-devicons",
+	})
 
-  -- Theme for editor bottom
-  use{
-    'vim-airline/vim-airline',
-    config = function()
-      vim.opt.ttimeoutlen = 50
-      vim.g["airline#extensions#tabline#enabled"] = 1
-      vim.g["airline#extensions#tabline#formatter"] = 'unique_tail'
-      vim.g["airline#extensions#tabline#buffer_idx_mode"] = 1
-      vim.g["airline_theme"] = 'luna'
-      vim.g["airline#extensions#default#layout"] = {
-        { 'a', 'b', 'c'},
-        { 'error', 'warning', 'y', 'x' },
-      }
-    end
-  }
-  use('vim-airline/vim-airline-themes')
+	-- Theme for editor bottom
+	use("nvim-lualine/lualine.nvim") -- Statusline
+
 
   -- Preview for markdown file
   use({

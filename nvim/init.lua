@@ -1,16 +1,15 @@
-require('base')
-require('maps')
-require('plugins')
-require('ui')
+require('takuroumaeda.base')
+require('takuroumaeda.maps')
+require('takuroumaeda.plugins')
 
 local os = vim.loop.os_uname().sysname
 
 if os == 'Darwin' then 
-  require('macos')
+  require('takuroumaeda.macos')
 elseif os == 'Windows_NT' then
-  require('windows')
+  require('takuroumaeda.windows')
 elseif os == 'Linux' then
-  require('linux')
+  require('takuroumaeda.linux')
 else
   error("Unknown OS")
 end

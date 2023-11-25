@@ -162,5 +162,6 @@
   "window.commandCenter": false,
   "vscode-neovim.neovimClean": false,
   "react-native-tools.networkInspector.consoleLogsColorTheme": "Dark",
-  "workbench.colorTheme": "Visual Studio Dark"
+  "window.menuBarVisibility": "compact",
+  "workbench.colorTheme": "Default Dark+"
 }

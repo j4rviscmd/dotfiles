@@ -137,4 +137,7 @@ packer.startup(function(use)
   }
   use 'nvim-telescope/telescope-file-browser.nvim'
 
+  -- im-select
+  use 'keaising/im-select.nvim'
+
 end)

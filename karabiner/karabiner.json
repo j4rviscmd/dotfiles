@@ -24,6 +24,8 @@
           "conditions": [
             {
               "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
                 "^com\\.microsoft\\.rdc$",
                 "^com\\.microsoft\\.rdc\\.mac$",
                 "^com\\.microsoft\\.rdc\\.macos$",
@@ -82,6 +84,8 @@
           "conditions": [
             {
               "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
                 "^com\\.microsoft\\.rdc$",
                 "^com\\.microsoft\\.rdc\\.mac$",
                 "^com\\.microsoft\\.rdc\\.macos$",
@@ -140,6 +144,8 @@
           "conditions": [
             {
               "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
                 "^com\\.microsoft\\.rdc$",
                 "^com\\.microsoft\\.rdc\\.mac$",
                 "^com\\.microsoft\\.rdc\\.macos$",
@@ -203,6 +209,8 @@
           "conditions": [
             {
               "bundle_identifiers": [
+                "^com\\.apple\\.Terminal$",
+                "^com\\.googlecode\\.iterm2$",
                 "^com\\.microsoft\\.rdc$",
                 "^com\\.microsoft\\.rdc\\.mac$",
                 "^com\\.microsoft\\.rdc\\.macos$",

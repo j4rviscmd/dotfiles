@@ -7,7 +7,7 @@ local os = vim.loop.os_uname().sysname
 
 if os == "Darwin" then
 	im_select.setup({
-		default_im_select = "com.apple.keylayout.ABCDEFG",
+		default_im_select = "com.apple.keylayout.ABC",
 		set_previous_events = {},
 	})
 elseif os == "Windows_NT" then

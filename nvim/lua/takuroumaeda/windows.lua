@@ -1,5 +1,6 @@
 -- using windows clipboard with yunk
 vim.opt.clipboard:prepend { 'unnamed', 'unnamedplus' }
+
 vim.g.clipboard = {
   name = 'WslClipboard',
   copy = {
@@ -12,6 +13,3 @@ vim.g.clipboard = {
   },
   cache_enabled = 0,
 }
-
--- vim.cmd([[autocmd InsertLeave * :silent !/usr/local/bin/im-select com.apple.keylayout.ABC]])
-

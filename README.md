@@ -13,7 +13,7 @@ git config --global credential.helper store
 
 ## Windows
 
-### PowerShell7
+### PowerShell 7
 
 1. MicrosoftStore から PowerShell を Install する
    1. PowerShell 7.x.x と表示されること
@@ -193,4 +193,86 @@ pyenv active hoge
 
 # hogeをディアクティブ化
 pyenv deactive
+```
+
+## Node
+
+### Windows
+
+#### バージョン管理ライブラリ volta のインストール
+
+##### LTS 版のインストール
+
+```powershell
+volta install node
+```
+
+##### 最新版のインストール
+
+```powershell
+volta install node@latest
+```
+
+##### バージョン指定してインストール
+
+```powershell
+volta install node@21.2.0
+```
+
+#### バージョンの切替
+
+```powershell
+# 最後にインストールしたバージョンがdefaultとなる
+# すでにインストール済みの場合でも同様
+volta install node
+```
+
+### MacOS
+
+#### バージョン管理ライブラリ n のインストール
+
+```fish
+brew install n
+```
+
+#### Node のインストール
+
+##### LTS 版のインストール
+
+```fish
+# LTS バージョンの確認
+n --lts
+
+# Node インストール
+n lts
+```
+
+##### 最新版のインストール
+
+```fish
+# 最新バージョンの確認
+n ls-remote latest
+
+# Nodeインストール
+n latest
+```
+
+##### バージョン指定してインストール
+
+```fish
+# インストール可能なバージョンを表示(最新から20件)
+n lsr
+
+# 全てのインストール可能なバージョンを表示
+n --all lsr
+
+# Nodeインストール
+n 21.2.0
+```
+
+#### バージョンの切替
+
+```fish
+# nコマンドを実行するとインストール済みのバージョン一覧が表示されので、選択してEnter
+n
 ```

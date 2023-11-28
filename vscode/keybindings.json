@@ -99,6 +99,11 @@
     "when": "!filesExplorerFocus"
   },
   {
+    "key": "ctrl+[",
+    "command": "vscode-neovim.escape",
+    "when": "neovim.mode == insert && editorTextFocus"
+  },
+  {
     "key": "ctrl+o",
     "command": "workbench.action.toggleSidebarVisibility",
     "when": "filesExplorerFocus"

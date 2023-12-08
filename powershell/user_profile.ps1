@@ -30,21 +30,20 @@ function .. {
     Set-Location ..
 }
 
-# peco
-Set-PSReadLineKeyHandler -chord Ctrl+r -scriptBlock { SelectandExecHistory }
-function global:SelectandExecHistory()
-{
-   $selectCmd = (tail -20 (Get-PSReadLineOption).HistorySavePath) | peco --select-1 --on-cancel error
-   # if ($?) {
-   if (-not $selectCmd) {
-    [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
-    # return
-   } else {
-    [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
-    [Microsoft.PowerShell.PSConsoleReadLine]::DeleteLine()
-     [Microsoft.PowerShell.PSConsoleReadLine]::Insert($selectCmd)
-   }
-}
+# Set-PSReadLineKeyHandler -chord Ctrl+r -scriptBlock { SelectandExecHistory }
+# function global:SelectandExecHistory()
+# {
+#    $selectCmd = (tail -20 (Get-PSReadLineOption).HistorySavePath) | peco --select-1 --on-cancel error
+#    # if ($?) {
+#    if (-not $selectCmd) {
+#     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
+#     # return
+#    } else {
+#     [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
+#     [Microsoft.PowerShell.PSConsoleReadLine]::DeleteLine()
+#      [Microsoft.PowerShell.PSConsoleReadLine]::Insert($selectCmd)
+#    }
+# }
 
 
 

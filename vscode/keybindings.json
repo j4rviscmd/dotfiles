@@ -79,8 +79,8 @@
     "$comment_": "enable undo delete recent file key & useCtrlKeysForNormalMode: true and reboot"
   },
   {
-    "key": "ctrl+space",
-    "command": "editor.action.triggerSuggest",
+    "key": "ctrl+.",
+    "command": "editor.action.quickFix",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   },
   {

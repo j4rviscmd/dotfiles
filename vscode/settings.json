@@ -14,7 +14,8 @@
     "vscode-neovim.neovimExecutablePaths.linux",
     "vscode-neovim.neovimExecutablePaths.win32",
     "terminal.integrated.profiles.windows",
-    "vscode-neovim.useWSL"
+    "vscode-neovim.useWSL",
+    "apc.imports"
   ],
   "settingsSync.ignoredExtensions": [
     "amazonwebservices.aws-toolkit-vscode",
@@ -152,8 +153,8 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "indentRainbow.excludedLanguages": ["markdown"],
   "apc.imports": [
-    "/C:/work/dotfiles/vscode/fonts.css",
-    "/C:/work/dotfiles/vscode/fonts.js"
+    "/Users/maedatakurou/work/development/dotfiles/.config/vscode/fonts.css",
+    "/Users/maedatakurou/work/development/dotfiles/.config/vscode/fonts.js"
   ],
   "window.density.editorTabHeight": "compact",
   "workbench.activityBar.location": "hidden"

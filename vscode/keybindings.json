@@ -94,11 +94,6 @@
     "when": "neovim.mode == normal && editorTextFocus"
   },
   {
-    "key": "ctrl+o",
-    "command": "workbench.explorer.fileView.focus",
-    "when": "!filesExplorerFocus"
-  },
-  {
     "key": "ctrl+[",
     "command": "vscode-neovim.escape",
     "when": "neovim.mode == insert && editorTextFocus"
@@ -106,7 +101,7 @@
   {
     "key": "ctrl+o",
     "command": "workbench.action.toggleSidebarVisibility",
-    "when": "filesExplorerFocus"
+    "when": "neovim.mode != insert"
   },
   {
     "$comment_": "expand if folder in file tree operation",

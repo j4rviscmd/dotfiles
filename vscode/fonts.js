@@ -4,6 +4,10 @@ const status_host = document.querySelector(
 
 const map = [
   {
+    selector: '[aria-label^="-- NORMAL --"]',
+    property: '--asvetliakov-normal',
+  },
+  {
     selector: '[aria-label^="-- INSERT --"]',
     property: '--asvetliakov-insert',
   },

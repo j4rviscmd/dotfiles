@@ -1,27 +1,38 @@
 :root {
-  --asvetliakov-insert: #096300;
+  --asvetliakov-normal: #33ccff;
+  --asvetliakov-insert: #b8d200;
   --asvetliakov-visual: #fc4444;
   --asvetliakov-visual-block: #e57575;
-  --asvetliakov-visual-line: #a50808;
+  --asvetliakov-visual-line: #fc6c85;
   --asvetliakov-replace: #964ff2;
 }
 
+[aria-label^='-- NORMAL --'] {
+  color: black;
+  background-color: var(--asvetliakov-normal) !important;
+}
+
 [aria-label^='-- INSERT --'] {
+  color: black;
   background-color: var(--asvetliakov-insert) !important;
 }
 
 [aria-label^='-- VISUAL --'] {
+  color: black;
   background-color: var(--asvetliakov-visual) !important;
 }
 
 [aria-label^='-- VISUAL LINE --'] {
+  color: black;
   background-color: var(--asvetliakov-visual-line) !important;
 }
 
 [aria-label^='-- VISUAL BLOCK --'] {
+  color: black;
   background-color: var(--asvetliakov-visual-block) !important;
 }
 
 [aria-label^='-- REPLACE --'] {
+  color: black;
   background-color: var(--asvetliakov-replace) !important;
 }

@@ -1,5 +1,5 @@
 vim.cmd("autocmd!")
-vim.cmd('language en_US.UTF-8')
+vim.cmd("language en_US.UTF-8")
 
 vim.wo.number = true
 

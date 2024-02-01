@@ -1,10 +1,5 @@
 {
   "$comment": "unique settings(async)",
-  "vscode_custom_css.imports": [
-    "file:////Users/maedatakurou/work/development/dotfiles/.config/vscode/style.css"
-  ],
-  "vscode-neovim.neovimInitVimPaths.darwin": "/Users/maedatakurou/.config/nvim/vscode.vim",
-  "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
   "settingsSync.ignoredSettings": [
     "$comment:which terminal to use",
     "terminal.external.osxExec",
@@ -19,24 +14,24 @@
     "vscode-neovim.neovimExecutablePaths.linux",
     "vscode-neovim.neovimExecutablePaths.win32",
     "terminal.integrated.profiles.windows",
-    "vscode-neovim.useWSL",
-    "vscode_custom_css.imports"
+    "vscode-neovim.useWSL"
   ],
-  "$comment": "change to path at your .config/vscode/style.css path.",
-  "$comment": "e.g.(MAC or Linux): file:///Users/maedatakurou/work/development/dotfiles/vscode/style.css",
-  "$comment": "e.g.(Windows): file:///C:/Users/MyUserName/Documents/custom.css",
+  "settingsSync.ignoredExtensions": [
+    "amazonwebservices.aws-toolkit-vscode",
+    "github.copilot",
+    "github.copilot-chat"
+  ],
   "vscode-neovim.mouseSelectionStartVisualMode": true,
   "vscode-neovim.useCtrlKeysForInsertMode": false,
   "vscode-neovim.useCtrlKeysForNormalMode": true,
-  "workbench.editor.showTabs": "multiple",
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.iconTheme": "vscode-icons",
   "workbench.list.fastScrollSensitivity": 1,
-  "workbench.layoutControl.enabled": false,
   "workbench.editor.enablePreview": false,
   "workbench.colorCustomizations": {
-    "tab.activeBackground": "#4C4C4Ccc"
+    "tab.activeBackground": "#4C4C4Ccc",
+    "editorCursor.foreground": "#ADACAC"
   },
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
@@ -50,31 +45,8 @@
   "editor.wordWrap": "off",
   "prettier.singleQuote": true,
   "prettier.semi": false,
-  "terminal.external.osxExec": "iTerm.app",
-  "terminal.integrated.fontFamily": "DroidSansMono Nerd Font",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.fontWeight": "normal",
-  "terminal.integrated.profiles.windows": {
-    "PowerShell": {
-      "source": "PowerShell",
-      "icon": "terminal-powershell"
-    },
-    "Command Prompt": {
-      "path": [
-        "${env:windir}\\Sysnative\\cmd.exe",
-        "${env:windir}\\System32\\cmd.exe"
-      ],
-      "args": [],
-      "icon": "terminal-cmd"
-    },
-    "Git Bash": {
-      "source": "Git Bash"
-    },
-    "Ubuntu (WSL)": {
-      "path": "C:\\WINDOWS\\System32\\wsl.exe",
-      "args": ["-d", "Ubuntu"]
-    }
-  },
   "git.confirmSync": false,
   "git.autofetch": true,
   "vsicons.dontShowNewVersionMessage": true,
@@ -107,6 +79,9 @@
     "Iconicons",
     "inappwebview",
     "Ionicons",
+    "iterm",
+    "jotai",
+    "karabiner",
     "levelname",
     "maeda",
     "maedat",
@@ -126,15 +101,19 @@
     "pyautogui",
     "Pyenv",
     "rarfile",
+    "regexs",
     "selfcare",
     "sheetnames",
     "shinagawa",
     "societyos",
+    "Takurou",
+    "Tauri",
     "todos",
     "udid",
     "unrar",
     "viewmatcher",
     "Vuetify",
+    "zenhan",
     "zscaler"
   ],
   "bracket-pair-colorizer-2.depreciation-notice": false,
@@ -151,7 +130,6 @@
     "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
   "Lua.diagnostics.globals": ["vim"],
-  "workbench.activityBar.location": "hidden",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
@@ -159,9 +137,24 @@
   "terminal.integrated.useWslProfiles": false,
   "git.openRepositoryInParentFolders": "never",
   "git.ignoreRebaseWarning": true,
-  "window.commandCenter": false,
   "vscode-neovim.neovimClean": false,
   "react-native-tools.networkInspector.consoleLogsColorTheme": "Dark",
-  "window.menuBarVisibility": "compact",
-  "workbench.colorTheme": "Default Dark+"
+  "workbench.colorTheme": "Solarized Dark",
+  "files.eol": "\n",
+  "security.workspace.trust.untrustedFiles": "open",
+  "zenMode.centerLayout": false,
+  "zenMode.fullScreen": false,
+  "files.associations": {
+    "*.tsx": "typescriptreact"
+  },
+  "aws.telemetry": false,
+  "window.commandCenter": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "indentRainbow.excludedLanguages": ["markdown"],
+  "apc.imports": [
+    "/C:/work/dotfiles/vscode/fonts.css",
+    "/C:/work/dotfiles/vscode/fonts.js"
+  ],
+  "window.density.editorTabHeight": "compact",
+  "workbench.activityBar.location": "hidden"
 }

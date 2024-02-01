@@ -31,16 +31,16 @@ packer.startup(function(use)
 	})
 
   -- Editor theme
-  use({
-    'blueshirts/darcula',
-    config = function()
-      if vim.g.vscode then
-        vim.cmd[[colorscheme default]]
-      else
-        vim.cmd([[colorscheme darcula]])
-      end
-    end
-  })
+  -- use({
+  --   'blueshirts/darcula',
+  --   config = function()
+  --     if vim.g.vscode then
+  --       vim.cmd[[colorscheme default]]
+  --     else
+  --       vim.cmd([[colorscheme darcula]])
+  --     end
+  --   end
+  -- })
 
   
 	use({
@@ -120,19 +120,19 @@ packer.startup(function(use)
     config = function() require("nvim-autopairs").setup {} end
   }
 
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-      require('nvim-treesitter.install').update({ with_sync = true })
-    end
-  }
+  -- use {
+  --   'nvim-treesitter/nvim-treesitter',
+  --   run = function()
+  --     require('nvim-treesitter.install').update({ with_sync = true })
+  --   end
+  -- }
 
-  use 'windwp/nvim-ts-autotag'
-    require'nvim-treesitter.configs'.setup {
-    autotag = {
-      enable = true,
-    }
-  }
+  -- use 'windwp/nvim-ts-autotag'
+  --   require'nvim-treesitter.configs'.setup {
+  --   autotag = {
+  --     enable = true,
+  --   }
+  -- }
 
   use {
     "nvim-telescope/telescope.nvim",

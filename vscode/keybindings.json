@@ -99,11 +99,6 @@
     "when": "neovim.mode == insert && editorTextFocus"
   },
   {
-    "key": "ctrl+o",
-    "command": "workbench.action.toggleSidebarVisibility",
-    "when": "neovim.mode != insert"
-  },
-  {
     "$comment_": "expand if folder in file tree operation",
     "key": "Enter",
     "command": "list.toggleExpand",
@@ -209,5 +204,24 @@
     "key": "f",
     "command": "-notebook.find",
     "when": "notebookEditorFocused && !inputFocus"
+  },
+  {
+    "command": "runCommands",
+    "key": "ctrl+o",
+    "when": "neovim.mode != insert && !explorerViewletVisible",
+    "args": {
+      "commands": [
+        "workbench.action.toggleSidebarVisibility",
+        "workbench.view.explorer"
+      ]
+    }
+  },
+  {
+    "command": "runCommands",
+    "key": "ctrl+o",
+    "when": "neovim.mode != insert && explorerViewletVisible",
+    "args": {
+      "commands": ["workbench.action.toggleSidebarVisibility"]
+    }
   }
 ]

@@ -211,7 +211,7 @@
     "when": "neovim.mode != insert && !explorerViewletVisible",
     "args": {
       "commands": [
-        "workbench.action.toggleSidebarVisibility",
+        // "workbench.action.toggleSidebarVisibility",
         "workbench.view.explorer"
       ]
     }
@@ -223,5 +223,17 @@
     "args": {
       "commands": ["workbench.action.toggleSidebarVisibility"]
     }
+  },
+  {
+    "$comment_": "show search word(grep)",
+    "key": "ctrl+g",
+    "when": "!searchViewletVisible && neovim.mode != insert",
+    "command": "workbench.view.search"
+  },
+  {
+    "$comment_": "not show search word(grep)",
+    "key": "ctrl+g",
+    "when": "searchViewletVisible",
+    "command": "workbench.action.toggleSidebarVisibility"
   }
 ]

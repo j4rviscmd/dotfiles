@@ -24,7 +24,8 @@ Set-PSReadlineOption -AddToHistoryHandler {
 
 # Alias
 Set-Alias ll ls
-Set-Alias vim nvim
+# Set-Alias vim nvim
+Set-Alias vim code
 Set-Alias grep findstr
 function .. {
     Set-Location ..

@@ -235,5 +235,10 @@
     "key": "ctrl+g",
     "when": "searchViewletVisible",
     "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "p",
+    "command": "-filesExplorer.paste",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
   }
 ]

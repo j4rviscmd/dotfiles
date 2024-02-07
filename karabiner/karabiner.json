@@ -143,6 +143,7 @@
                 "conditions": [
                   {
                     "bundle_identifiers": [
+                      "com\\.microsoft\\.VSCode",
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
                       "^com\\.microsoft\\.rdc$",

@@ -1,6 +1,9 @@
 # Prompt
+# Import-Module posh-git
+# oh-my-posh init pwsh --config "$env:USERPROFILE\.config\powershell\takurou.omp.json"| Invoke-Expression
 Import-Module posh-git
-oh-my-posh init pwsh --config "$env:USERPROFILE\.config\powershell\takurou.omp.json"| Invoke-Expression
+oh-my-posh init pwsh --config "c:\dev\work\dotfiles\powershell\json.omp.json" | Invoke-Expression
+# oh-my-posh init pwsh --config "c:\dev\work\dotfiles\powershell\takurou.omp.json" | Invoke-Expression
 
 Import-Module Terminal-Icons
 
@@ -23,12 +26,15 @@ Set-PSReadlineOption -AddToHistoryHandler {
 }
 
 # Alias
-Set-Alias ll ls
-# Set-Alias vim nvim
+# Set-Alias ll ls
+# Set-Alias ll exa -lag --icons --ignore-glob=".DS_Store|.localized" --sort=type --time-style=long-iso
 Set-Alias vim code
 Set-Alias grep findstr
 function .. {
     Set-Location ..
+}
+function ll {
+    exa -lag --icons --ignore-glob=".DS_Store|.localized" --sort=type --time-style=long-iso --no-permissions $args 
 }
 
 # Set-PSReadLineKeyHandler -chord Ctrl+r -scriptBlock { SelectandExecHistory }
@@ -50,5 +56,5 @@ function .. {
 
 # nvim
 # sample $env:MYENV = "This is my env."
-$env:XDG_CONFIG_HOME = $HOME + "\.config"
+# $env:XDG_CONFIG_HOME = $HOME + "\.config"
 

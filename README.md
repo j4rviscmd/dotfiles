@@ -1,170 +1,51 @@
-# Build development environment
+# Build development environment for MACOS
+
+## iTerm2
+
+If Wezterm implemented hotkey, I recommend it.
+
+## Fish
 
 ## Git
-
-```fish
-git config --global user.name "Your Username"
-git config --global user.email "your.email@example.com"
-git config --global credential.helper store
-```
 
 [Git で毎回パスワードを聞かれないようにする](https://qiita.com/aqua_ix/items/0433f85330087c62bffa)
 [git を https 経由で使うときのパスワードを保存する](https://qiita.com/usamik26/items/c655abcaeee02ea59695)
 
-## Windows
-
-### PowerShell 7
-
-1. MicrosoftStore から PowerShell を Install する
-   1. PowerShell 7.x.x と表示されること
-2. MicrosoftStore から WindowsTerminal を Install する
-   1. 設定 -> スタートアップ
-      1. 既定のターミナルアプリケーション: Windows ターミナル
-   2. 設定 -> 外観
-      1. タブ行にアクリル素材を使用する
-   3. 設定 -> 規定値 -> 外観
-      1. 配色: One Half Dark
-      2. フォント: HackNerdFontMono-BoldItalic
-      3. フォントサイズ: 12
-      4. 背景の不透明度: 50%
-      5. アクリル素材を有効にする: true
-   4. 設定 -> 操作
-      1. タブに切り替え, index:0: alt + 1
-         1. 任意で index:4 くらいまで割り当て
-      2. 新しいタブ: alt + t
-   5. 設定 -> 歯車アイコン
-      1. Color theme を作成する
-      ```json
-      {
-        "background": "#001B26",
-        "black": "#282C34",
-        "blue": "#61AFEF",
-        "brightBlack": "#5A6374",
-        "brightBlue": "#61AFEF",
-        "brightCyan": "#56B6C2",
-        "brightGreen": "#98C379",
-        "brightPurple": "#C678DD",
-        "brightRed": "#E06C75",
-        "brightWhite": "#DCDFE4",
-        "brightYellow": "#E5C07B",
-        "cursorColor": "#FFFFFF",
-        "cyan": "#56B6C2",
-        "foreground": "#DCDFE4",
-        "green": "#98C379",
-        "name": "One Half Dark (modded)",
-        "purple": "#C678DD",
-        "red": "#E06C75",
-        "selectionBackground": "#FFFFFF",
-        "white": "#DCDFE4",
-        "yellow": "#E5C07B"
-      }
-      ```
-3. Package マネージャをインストール
-   1. irm get.scoop.sh | iex
-4. 各パッケージをインストール
-   1. scoop install curl sudo jq
-   2. scoop install neovim gcc
-   3. scoop install gow
-   4. scoop install peco
-   5. winget install -e --id Git.Git
-   6. mkdir .config/powershell
-   7. dotfiles リポジトリの.config/powershell をペースト
-   8. nvim $PROFILE.CurrentUserCurrentHost
-      1. . $env:USERPROFILE\.config\powershell\user_profile.ps1
-   9. Install-Module posh-git -Scope CurrentUser -Force
-   10. scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json
-   11. Install-Module -Name Terminal-Icons -Repository PSGallery -Force
-   12. Install-Module -Name z -Force
-   13. Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
-5. nvim セットアップ
-   1. Packer をインストール
-      1. git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
-   2. dotfiles リポジトリの.config/nvim をペースト
-      1. nvim 内で以下のコマンドを実行する(一度では plugin が入りきらないことがあるため何度かループすること)
-         1. PackerInstall
-         2. PackerCompile
-6. SymbolicLink の作成(任意)
-   1. sudo New-Item -ItemType SymbolicLink -Name work -Target "C:\work"
-   2. sudo New-Item -ItemType SymbolicLink -Name vscode -Target "C:\Users\maeda\AppData\Roaming\Code\User"
-
 ### VSCode
 
-#### settings.json
+settings.json
 
 ```json
-"vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\maeda\\.config\\nvim\\vscode.vim",
-"vscode-neovim.neovimExecutablePaths.win32": "C:\\Users\\maeda\\scoop\\shims\\nvim.exe",
-"vscode_custom_css.imports": "C:\\work\\dotfiles\\vscode\\style.css",
-```
-
-### Pyenv
-
-```powershell
-git clone https://github.com/pyenv-win/pyenv-win.git "$HOME\.pyenv"
-[System.Environment]::SetEnvironmentVariable('PYENV',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
-[System.Environment]::SetEnvironmentVariable('PYENV_ROOT',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
-[System.Environment]::SetEnvironmentVariable('PYENV_HOME',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
-[System.Environment]::SetEnvironmentVariable('PATH', $env:USERPROFILE + "\.pyenv\pyenv-win\bin;" + $env:USERPROFILE + "\.pyenv\pyenv-win\shims;" + [System.Environment]::GetEnvironmentVariable('PATH', "User"),"User")
-
-pyenv --version
-```
-
-## WSL2(Ubuntu, Fish)
-
-### VSCode
-
-#### settings.json
-
-```json
-"vscode-neovim.useWSL": true,
 "vscode-neovim.neovimInitVimPaths.linux": "/home/maedat/.config/nvim/vscode.vim",
 "vscode-neovim.neovimExecutablePaths.linux": "/snap/bin/nvim",
 "vscode_custom_css.imports": "/mnt/c/Users/Admin/AppData/Roaming/Code/User",
 ```
 
-### NeoVim
+### Pyenv
 
-### Share clipboard
-
-1. download win32yank.exe
-
-[DL リンク](https://github.com/equalsraf/win32yank/releases)
-
-2. Add win32yank directory to windows bin environment variable
-
-e.g.: C:\software\win32yank-x64
-
-3. init.vim
-
-```vim
-set clipboard=unnamed
-let g:clipboard = {
-        \   'name': 'myClipboard',
-        \   'copy': {
-        \      '+': 'win32yank.exe -i',
-        \      '*': 'win32yank.exe -i',
-        \    },
-        \   'paste': {
-        \      '+': 'win32yank.exe -o',
-        \      '*': 'win32yank.exe -o',
-        \   },
-        \   'cache_enabled': 1,
-        \ }
+```shell
+...
+pyenv --version
 ```
 
-### Docker
+### Neovim
 
-[Python/Ubuntu22.04/pyenv/fish 環境を Docker で構築する方法](https://zenn.dev/efficientyk/articles/0fde4dcd4a9520)
+Download neovim
+<https://github.com/neovim/neovim/releases>
 
-## MacOS(Fish)
-
-```json
-
+```shell
+New-Item -ItemType SymbolicLink -Path "C:\Users\takur\AppData\Local\nvim" -Target "C:\dev\work\dotfiles\nvim\"
 ```
+
+## Win32yank.exe
+
+Download Win32yank.exe and set env path  
+ Add win32yank directory to windows bin environment variable
+<https://github.com/equalsraf/win32yank/releases>
 
 ### Pyenv's command
 
-```fish
+```shell
 # 現在のバージョンを表示
 pyenv version
 
@@ -195,84 +76,24 @@ pyenv active hoge
 pyenv deactive
 ```
 
+## Docker
+
+<https://docs.docker.jp/get-docker.html>
+
 ## Node
 
-### Windows
+First install package manager volta
+<https://docs.volta.sh/guide/getting-started>
 
-#### バージョン管理ライブラリ volta のインストール
-
-##### LTS 版のインストール
-
-```powershell
+```shell
 volta install node
-```
-
-##### 最新版のインストール
-
-```powershell
 volta install node@latest
-```
-
-##### バージョン指定してインストール
-
-```powershell
 volta install node@21.2.0
 ```
 
-#### バージョンの切替
+Toggle version
 
-```powershell
-# 最後にインストールしたバージョンがdefaultとなる
-# すでにインストール済みの場合でも同様
-volta install node
-```
-
-### MacOS
-
-#### バージョン管理ライブラリ n のインストール
-
-```fish
-brew install n
-```
-
-#### Node のインストール
-
-##### LTS 版のインストール
-
-```fish
-# LTS バージョンの確認
-n --lts
-
-# Node インストール
-n lts
-```
-
-##### 最新版のインストール
-
-```fish
-# 最新バージョンの確認
-n ls-remote latest
-
-# Nodeインストール
-n latest
-```
-
-##### バージョン指定してインストール
-
-```fish
-# インストール可能なバージョンを表示(最新から20件)
-n lsr
-
-# 全てのインストール可能なバージョンを表示
-n --all lsr
-
-# Nodeインストール
-n 21.2.0
-```
-
-#### バージョンの切替
-
-```fish
-# nコマンドを実行するとインストール済みのバージョン一覧が表示されので、選択してEnter
-n
+```shell
+volta list node
+volta pin node@14.15.0
 ```

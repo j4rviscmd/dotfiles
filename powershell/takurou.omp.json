@@ -7,32 +7,16 @@
       "alignment": "left",
       "segments": [
         {
-          "type": "shell",
-          "style": "diamond",
-          "foreground": "#ffffff",
-          "background": "#0077c2",
-          "leading_diamond": "\u256d\u2500\ue0b6",
-          "template": " {{ .Name }} "
-        },
-        {
-          "type": "root",
-          "style": "diamond",
-          "foreground": "#FFFB38",
-          "background": "#ef5350",
-          "template": "<parentBackground>\ue0b0</> \uf0e7 ",
-          "properties": {
-            "root_icon": "\uf292"
-          }
-        },
-        {
           "type": "path",
-          "style": "powerline",
-          "powerline_symbol": "\ue0b0",
           "foreground": "#E4E4E4",
           "background": "#444444",
-          "template": " {{ .Path }} ",
+          "powerline_symbol": "\ue0b4",
+          "trailing_diamond": "\ue0b4",
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
           "properties": {
-            "style": "full"
+            "style": "full",
+            "enable_hyperlink": true
           }
         },
         {
@@ -100,9 +84,7 @@
           "type": "exit",
           "style": "plain",
           "foreground": "#e0f8ff",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}#ef5350{{ end }}"
-          ],
+          "foreground_templates": ["{{ if gt .Code 0 }}#ef5350{{ end }}"],
           "template": "❯ {{ if gt .Code 0 }}\uf00d{{ else }}\uf42e{{ end }} ",
           "properties": {
             "always_enabled": true

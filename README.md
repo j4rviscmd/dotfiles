@@ -11,7 +11,7 @@ If Wezterm implemented hotkey, I recommend it.
 [Git で毎回パスワードを聞かれないようにする](https://qiita.com/aqua_ix/items/0433f85330087c62bffa)
 [git を https 経由で使うときのパスワードを保存する](https://qiita.com/usamik26/items/c655abcaeee02ea59695)
 
-### VSCode
+## VSCode
 
 settings.json
 
@@ -21,65 +21,35 @@ settings.json
 "vscode_custom_css.imports": "/mnt/c/Users/Admin/AppData/Roaming/Code/User",
 ```
 
-### Pyenv
+## Anaconda
 
-<https://envader.plus/course/8/scenario/1074>
+Install Anaconda.
+<https://zenn.dev/eito_blog/articles/9c2c241432ad7f>
 
-Install pyenv.
+Usage conda command.
 
 ```shell
-brew update
-brew install pyenv
-pyenv --version
+# Create virtualenv
+conda create -n ${ENV_NAME} python=${PYTHON_VERSION}
+
+# Start virtualenv
+conda activate ${ENV_NAME}
+
+# Install library
+conda install ${LIBRARY_NAME}
+
+# Delete virtualenv
+conda remove -n -${ENV_NAME} --all
 ```
 
-Add a path.
+If you export and share to other developer
 
 ```shell
+# Export
+conda env export > environment.yaml
 
-```
-
-Usage pyenv command.
-
-```shell
-# 現在のバージョンを表示
-pyenv version
-
-# インストール済みのpythonバージョン一覧
-pyenv versions
-
-# インストール可能なpythonバージョン一覧
-pyenv install -l
-
-# インストール
-pyenv install 3.10.0
-
-# 適用
-## globalに適用する
-pyenv global 3.10.0
-
-## localに適用
-# local環境に適用
-pyenv local 3.10.0
-```
-
-### Virtualenv
-
-```shell
-brew install virtualenv
-```
-
-Usage virtualenv command.
-
-```shell
-# local環境を生成
-python -m virtualenv ${ENV_NAME}
-
-# hogeをアクティブ化
-${ENV_NAME}/Scripts/active
-
-# hogeをディアクティブ化
-${ENV_NAME}/Scripts/deactive
+# Import
+conda env create --file environment.yaml
 ```
 
 ### Neovim

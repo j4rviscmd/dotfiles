@@ -130,6 +130,12 @@ Once Anaconda is installed, configure it for use with PowerShell.
 conda init powershell
 ```
 
+Update conda command.
+
+```shell
+conda update -n base -c defaults conda -y
+```
+
 Copy the contents of outputted documents/profile.ps1 to powershell user_profile.ps1
 
 Usage conda command.
@@ -140,6 +146,9 @@ conda create -n ${ENV_NAME} python=${PYTHON_VERSION}
 
 # Start virtualenv
 conda activate ${ENV_NAME}
+
+# Stop virtualenv
+conda deactivate
 
 # Install library
 conda install ${LIBRARY_NAME}

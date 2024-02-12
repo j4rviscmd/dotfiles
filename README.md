@@ -26,6 +26,12 @@ settings.json
 Install Anaconda.
 <https://zenn.dev/eito_blog/articles/9c2c241432ad7f>
 
+Update conda command.
+
+```shell
+conda update -n base -c defaults conda -y
+```
+
 Usage conda command.
 
 ```shell
@@ -34,6 +40,9 @@ conda create -n ${ENV_NAME} python=${PYTHON_VERSION}
 
 # Start virtualenv
 conda activate ${ENV_NAME}
+
+# Stop virtualenv
+conda deactivate
 
 # Install library
 conda install ${LIBRARY_NAME}

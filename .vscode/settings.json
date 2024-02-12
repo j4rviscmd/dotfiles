@@ -1,4 +1,10 @@
 {
-  "cSpell.words": ["takur", "USERPROFILE", "Wezterm", "winget"],
+  "cSpell.words": [
+    "deactive",
+    "USERPROFILE",
+    "Virtualenv",
+    "Wezterm",
+    "winget"
+  ],
   "Lua.diagnostics.globals": ["vim", "True"]
 }

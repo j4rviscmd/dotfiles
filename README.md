@@ -23,27 +23,23 @@ settings.json
 
 ### Pyenv
 
+<https://envader.plus/course/8/scenario/1074>
+
+Install pyenv.
+
 ```shell
-...
+brew update
+brew install pyenv
 pyenv --version
 ```
 
-### Neovim
-
-Download neovim
-<https://github.com/neovim/neovim/releases>
+Add a path.
 
 ```shell
-New-Item -ItemType SymbolicLink -Path "C:\Users\takur\AppData\Local\nvim" -Target "C:\dev\work\dotfiles\nvim\"
+
 ```
 
-## Win32yank.exe
-
-Download Win32yank.exe and set env path  
- Add win32yank directory to windows bin environment variable
-<https://github.com/equalsraf/win32yank/releases>
-
-### Pyenv's command
+Usage pyenv command.
 
 ```shell
 # 現在のバージョンを表示
@@ -65,15 +61,34 @@ pyenv global 3.10.0
 ## localに適用
 # local環境に適用
 pyenv local 3.10.0
+```
 
+### Virtualenv
+
+```shell
+brew install virtualenv
+```
+
+Usage virtualenv command.
+
+```shell
 # local環境を生成
-pyenv virtualenv 3.10.0 hoge
+python -m virtualenv ${ENV_NAME}
 
 # hogeをアクティブ化
-pyenv active hoge
+${ENV_NAME}/Scripts/active
 
 # hogeをディアクティブ化
-pyenv deactive
+${ENV_NAME}/Scripts/deactive
+```
+
+### Neovim
+
+Download neovim
+<https://github.com/neovim/neovim/releases>
+
+```shell
+New-Item -ItemType SymbolicLink -Path "C:\Users\takur\AppData\Local\nvim" -Target "C:\dev\work\dotfiles\nvim\"
 ```
 
 ## Docker

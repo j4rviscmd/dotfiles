@@ -1,16 +1,11 @@
 # Prompt
-# Import-Module posh-git
-# oh-my-posh init pwsh --config "$env:USERPROFILE\.config\powershell\takurou.omp.json"| Invoke-Expression
 Import-Module posh-git
 oh-my-posh init pwsh --config "c:\dev\work\dotfiles\powershell\json.omp.json" | Invoke-Expression
-# oh-my-posh init pwsh --config "c:\dev\work\dotfiles\powershell\takurou.omp.json" | Invoke-Expression
-
 Import-Module Terminal-Icons
 
 # Auto suggestions
 Import-Module PSReadLine
 Set-PSReadLineOption -PredictionSource History
-# Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineKeyHandler -Key "Ctrl+f" -Function ForwardWord
 Set-PSReadLineOption -EditMode Emacs
 
@@ -26,8 +21,6 @@ Set-PSReadlineOption -AddToHistoryHandler {
 }
 
 # Alias
-# Set-Alias ll ls
-# Set-Alias ll exa -lag --icons --ignore-glob=".DS_Store|.localized" --sort=type --time-style=long-iso
 Set-Alias vim code
 Set-Alias grep findstr
 function .. {
@@ -37,24 +30,10 @@ function ll {
     exa -lag --icons --ignore-glob=".DS_Store|.localized" --sort=type --time-style=long-iso --no-permissions $args 
 }
 
-# Set-PSReadLineKeyHandler -chord Ctrl+r -scriptBlock { SelectandExecHistory }
-# function global:SelectandExecHistory()
-# {
-#    $selectCmd = (tail -20 (Get-PSReadLineOption).HistorySavePath) | peco --select-1 --on-cancel error
-#    # if ($?) {
-#    if (-not $selectCmd) {
-#     [Microsoft.PowerShell.PSConsoleReadLine]::AcceptLine()
-#     # return
-#    } else {
-#     [Microsoft.PowerShell.PSConsoleReadLine]::InvokePrompt()
-#     [Microsoft.PowerShell.PSConsoleReadLine]::DeleteLine()
-#      [Microsoft.PowerShell.PSConsoleReadLine]::Insert($selectCmd)
-#    }
-# }
 
-
-
-# nvim
-# sample $env:MYENV = "This is my env."
-# $env:XDG_CONFIG_HOME = $HOME + "\.config"
-
+#region conda initialize
+# !! Contents within this block are managed by 'conda init' !!
+If (Test-Path "C:\dev\dev-software\miniconda3\Scripts\conda.exe") {
+    (& "C:\dev\dev-software\miniconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+}
+#endregion

@@ -118,64 +118,44 @@ settings.json
 ]
 ```
 
-### Pyenv
+## Anaconda
 
-Install pyenv
+Install Anaconda
+<https://zenn.dev/makio/articles/69e38f5c90033e>
+
+Once Anaconda is installed, configure it for use with PowerShell.
+<https://qiita.com/yniji/items/668f805a72a6ced6a2bd>
 
 ```shell
-git clone https://github.com/pyenv-win/pyenv-win.git "$HOME\.pyenv"
-[System.Environment]::SetEnvironmentVariable('PYENV',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
-[System.Environment]::SetEnvironmentVariable('PYENV_ROOT',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
-[System.Environment]::SetEnvironmentVariable('PYENV_HOME',$env:USERPROFILE + "\.pyenv\pyenv-win\","User")
-[System.Environment]::SetEnvironmentVariable('PATH', $env:USERPROFILE + "\.pyenv\pyenv-win\bin;" + $env:USERPROFILE + "\.pyenv\pyenv-win\shims;" + [System.Environment]::GetEnvironmentVariable('PATH', "User"),"User")
-
-pyenv --version
+conda init powershell
 ```
 
-Usage pyenv command.
+Copy the contents of outputted documents/profile.ps1 to powershell user_profile.ps1
+
+Usage conda command.
 
 ```shell
-# 現在のバージョンを表示
-pyenv version
+# Create virtualenv
+conda create -n ${ENV_NAME} python=${PYTHON_VERSION}
 
-# インストール済みのpythonバージョン一覧
-pyenv versions
+# Start virtualenv
+conda activate ${ENV_NAME}
 
-# インストール可能なpythonバージョン一覧
-pyenv install -l
+# Install library
+conda install ${LIBRARY_NAME}
 
-# インストール
-pyenv install 3.10.0
-
-# 適用
-## globalに適用する
-pyenv global 3.10.0
-
-## localに適用
-# local環境に適用
-pyenv local 3.10.0
+# Delete virtualenv
+conda remove -n -${ENV_NAME} --all
 ```
 
-### Virtualenv
-
-Install virtualenv
+If you export and share to other developer
 
 ```shell
-python -m pip install virtualenv
+# Export
+conda env export > environment.yaml
 
-```
-
-Usage virtualenv command.
-
-```shell
-# local環境を生成
-python -m virtualenv ${ENV_NAME}
-
-# hogeをアクティブ化
-${ENV_NAME}/Scripts/active
-
-# hogeをディアクティブ化
-${ENV_NAME}/Scripts/deactive
+# Import
+conda env create --file environment.yaml
 ```
 
 ## Docker

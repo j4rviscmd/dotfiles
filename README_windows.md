@@ -142,7 +142,7 @@ conda config --get channels
 Update conda command.
 
 ```shell
-conda update -n base -c defaults conda -y
+conda update -n base -c conda-forge conda -y
 ```
 
 Copy the contents of outputted documents/profile.ps1 to powershell user_profile.ps1

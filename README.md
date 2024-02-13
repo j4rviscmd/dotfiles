@@ -38,7 +38,7 @@ conda config --get channels
 Update conda command.
 
 ```shell
-conda update -n base -c defaults conda -y
+conda update -n base -c conda-forge conda -y
 ```
 
 Usage conda command.

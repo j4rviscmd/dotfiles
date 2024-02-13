@@ -23,13 +23,13 @@ Create a symbolic link
 New-Item -ItemType SymbolicLink -Path "C:\Users\takur\.config\wezterm\wezterm.lua" -Target "C:\dev\work\dotfiles\wezterm\wezterm.lua"
 ```
 
-Set solarized theme config
-Create symbolic link of solarized theme dir
+Set solarized theme config  
+Create symbolic link of solarized theme dir  
 <https://github.com/gfguthrie/wezterm-canonical-solarized>
 
-```shell
+````shell
 sudo New-Item -ItemType SymbolicLink -Path "C:\Users\takur\.config\wezterm\canonical_solarized.lua" -Target "C:\dev\work\dotfiles\wezterm\canonical_solarized.lua"
-```
+``
 
 ## PowerShell7
 
@@ -41,9 +41,15 @@ Create profile
 
 ```shell
 New-Item -path $profile -type file -force
+````
+
+Open a profile.
+
+```shell
+code $PROFILE.CurrentUserCurrentHost
 ```
 
-user_profile.ps1
+Write a tunnel code.
 
 ```shell
 . ("c:\dev\work\dotfiles\powershell\user_profile.ps1")
@@ -56,13 +62,11 @@ user_profile.ps1
    1. scoop install curl sudo jq
    2. winget install -e --id Git.Git
    3. dotfiles リポジトリの.config/powershell をペースト
-   4. code $PROFILE.CurrentUserCurrentHost
-      `. ("c:\dev\work\dotfiles\powershell\user_profile.ps1")`
-   5. `Install-Module posh-git -Scope CurrentUser -Force`
-   6. `scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json`
-   7. `Install-Module -Name Terminal-Icons -Repository PSGallery -Force`
-   8. `Install-Module -Name z -Force`
-   9. `Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck`
+   4. `Install-Module posh-git -Scope CurrentUser -Force`
+   5. `scoop install https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/oh-my-posh.json`
+   6. `Install-Module -Name Terminal-Icons -Repository PSGallery -Force`
+   7. `Install-Module -Name z -Force`
+   8. `Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck`
 
 3. nvim セットアップ
    1. Packer をインストール
@@ -71,11 +75,11 @@ user_profile.ps1
       1. nvim 内で以下のコマンドを実行する(一度では plugin が入りきらないことがあるため何度かループすること)
          1. PackerInstall
          2. PackerCompile
-4. Install Cargo
+4. Install Cargo  
    <https://learn.microsoft.com/ja-jp/windows/dev-environment/rust/setup>
-5. Exa command install
+5. Exa command install  
    `cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support`
-6. SymbolicLink の作成(任意)
+6. SymbolicLink の作成(任意)  
    `sudo New-Item -ItemType SymbolicLink -Name work -Target "C:\work"`
 
 ```shell
@@ -84,7 +88,7 @@ git config --global user.email "your.email@example.com"
 git config --global credential.helper store
 ```
 
-[Git で毎回パスワードを聞かれないようにする](https://qiita.com/aqua_ix/items/0433f85330087c62bffa)
+[Git で毎回パスワードを聞かれないようにする](https://qiita.com/aqua_ix/items/0433f85330087c62bffa)  
 [git を https 経由で使うときのパスワードを保存する](https://qiita.com/usamik26/items/c655abcaeee02ea59695)
 
 ---

@@ -72,7 +72,7 @@ user_profile.ps1
          1. PackerInstall
          2. PackerCompile
 4. Install Cargo
-   <https://www.rust-lang.org/tools/install>
+   <https://learn.microsoft.com/ja-jp/windows/dev-environment/rust/setup>
 5. Exa command install
    `cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support`
 6. SymbolicLink の作成(任意)
@@ -128,6 +128,15 @@ Once Anaconda is installed, configure it for use with PowerShell.
 
 ```shell
 conda init powershell
+```
+
+The default repository is deleted because it is paid for commercial use.
+
+```shell
+conda config --get channels
+conda config --remove channels defaults
+conda config --add channels conda-forge
+conda config --get channels
 ```
 
 Update conda command.

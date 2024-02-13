@@ -26,6 +26,15 @@ settings.json
 Install Anaconda.
 <https://zenn.dev/eito_blog/articles/9c2c241432ad7f>
 
+The default repository is deleted because it is paid for commercial use.
+
+```shell
+conda config --get channels
+conda config --remove channels defaults
+conda config --add channels conda-forge
+conda config --get channels
+```
+
 Update conda command.
 
 ```shell

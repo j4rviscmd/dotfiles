@@ -5,14 +5,10 @@
 Download neovim
 <https://github.com/neovim/neovim/releases>
 
-```shell
-New-Item -ItemType SymbolicLink -Path "C:\Users\takur\AppData\Local\nvim" -Target "C:\dev\work\dotfiles\nvim\"
-```
-
 ## Win32yank.exe
 
 Download Win32yank.exe and set env path  
- Add win32yank directory to windows bin environment variable
+ Add win32yank directory to windows bin environment variable  
 <https://github.com/equalsraf/win32yank/releases>
 
 ## Wezterm
@@ -80,7 +76,9 @@ Write a tunnel code.
 5. Exa command install  
    `cargo install --git https://github.com/skyline75489/exa --branch chesterliu/dev/win-support`
 6. SymbolicLink の作成(任意)  
-   `sudo New-Item -ItemType SymbolicLink -Name work -Target "C:\work"`
+   `New-Item -ItemType SymbolicLink -Name work -Target "C:\dev\work"`
+   `New-Item -ItemType SymbolicLink -Name settings.json -Target "C:\Users\takur\AppData\Roaming\Code\User\settings.json"`
+   `New-Item -ItemType SymbolicLink -Name keybindings.json -Target "C:\Users\takur\AppData\Roaming\Code\User\keybindings.json"`
 
 ```shell
 git config --global user.name "Your Username"

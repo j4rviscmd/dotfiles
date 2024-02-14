@@ -17,6 +17,7 @@ set -U fish_user_paths $fish_user_paths $HOME/.cargo/bin
 set -gx ANDROID_HOME $HOME/Library/Android/sdk $ANDROID_HOME
 set -gx PATH $ANDROID_HOME/platform-tools $PATH
 set -gx JAVA_HOME /Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home $JAVA_HOME
+set -gx COMPOSE_HTTP_TIMEOUT 600 $COMPOSE_HTTP_TIMEOUT
 set -gx PATH $JAVA_HOME/bin $PATH
 
 # fish theme

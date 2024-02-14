@@ -64,7 +64,7 @@ If you export and share to other developer
 
 ```shell
 # Export
-conda env export > environment.yaml
+conda env export --from-history > environment.yaml
 
 # Import
 conda env create --file environment.yaml

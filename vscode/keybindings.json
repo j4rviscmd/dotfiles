@@ -60,7 +60,11 @@
     "command": "runCommands",
     "when": "neovim.mode == visual && editorTextFocus",
     "args": {
-      "commands": ["editor.action.commentLine", "vscode-neovim.escape"]
+      "commands": [
+        "editor.action.commentLine",
+        "vscode-neovim.escape",
+        "vscode-neovim.escape"
+      ]
     }
   },
   {
@@ -240,5 +244,10 @@
     "key": "p",
     "command": "-filesExplorer.paste",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "-renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
   }
 ]

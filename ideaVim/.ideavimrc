@@ -1,3 +1,6 @@
+" Solarized Theme
+" https://qiita.com/HeRo/items/363b2aa18e7f225a8069#intellij-idea-%E3%81%AE%E8%A8%AD%E5%AE%9A
+
 " 1st, Enable ide shortcut Ctrl + A(Select all)/C(Copy)
 " IdeVim -> Settings
 " Ctrl + A/C: undefined -> IDE
@@ -15,7 +18,8 @@ set softtabstop=2
 set multiple-cursors
 set NERDTree
 
-
+" Action list
+" https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
 
 nnoremap gcc :action CommentByLineComment<CR><Esc>
 vnoremap gc :action CommentByLineComment<CR><Esc>
@@ -39,4 +43,5 @@ nmap <leader>b :action Back<CR>
 Plug 'machakann/vim-highlightedyank'
 " Commentary plugin
 Plug 'tpope/vim-commentary'
+
 " ----------------------------

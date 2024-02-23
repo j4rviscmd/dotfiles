@@ -13,6 +13,11 @@ Download Win32yank.exe and set env path
 
 ## Wezterm
 
+```shell
+scoop bucket add extras
+scoop install wezterm
+```
+
 Create a symbolic link
 
 ```shell

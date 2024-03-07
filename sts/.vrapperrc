@@ -1,0 +1,30 @@
+set encoding=utf-8
+scriptencoding utf-8
+
+set nobackup
+set noswapfile
+set autoread
+set virtualedit=onemore
+set cursorline
+set nowrap
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+set tapstop=4
+set shiftwidth=4
+set expandtab
+
+set imd
+
+set clipboard=unnamed
+
+inoremap jj <esc>
+
+eclipseaction HoverTooltip org.eclipse.ui.edit.text.showInformation
+nnoremap <Space>h :HoverTooltip<CR>
+
+" eclipseaction SearchRef org.eclipse.jdt.ui.edit.text.java.search.references.in.project
+eclipseaction SearchRef org.eclipse.jdt.ui.edit.text.java.open.editor
+nnoremap <Space>d :SearchRef<CR>

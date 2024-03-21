@@ -249,5 +249,29 @@
     "key": "r",
     "command": "-renameFile",
     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "command": "runCommands",
+    "key": "ctrl+i",
+    "when": "neovim.mode!=insert && !explorerViewletVisible",
+    "args": {
+      "commands": ["workbench.action.quickOpen"]
+    }
+  },
+  {
+    "command": "runCommands",
+    "key": "ctrl+n",
+    "when": "inQuickOpen",
+    "args": {
+      "commands": ["workbench.action.quickOpenSelectNext"]
+    }
+  },
+  {
+    "command": "runCommands",
+    "key": "ctrl+p",
+    "when": "inQuickOpen",
+    "args": {
+      "commands": ["workbench.action.quickOpenSelectPrevious"]
+    }
   }
 ]

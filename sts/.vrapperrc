@@ -1,4 +1,6 @@
 " 設定 -> 一般 -> キーよりデフォルト割当キーをアンバインドする"
+" アドオンインストール時に java extensiton pack も入れること"
+" -> 入れると visual modeの gc でコメントアウトされる "
 
 set encoding=utf-8
 scriptencoding utf-8
@@ -36,3 +38,6 @@ nnoremap <C-p> :tabprevious<cr>
 
 eclipseuiaction HistoryBack org.eclipse.ui.navigate.backwardHistory
 nnoremap <Space>b :HistoryBack<cr>
+
+eclipseuiaction CommentOut org.eclipse.jdt.ui.edit.text.java.toggle.comment
+nnoremap gcc :CommentOut<cr>

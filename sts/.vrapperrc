@@ -30,8 +30,9 @@ eclipseaction ShowInformation org.eclipse.ui.edit.text.showInformation
 nnoremap <Space>h :ShowInformation
 
 
-eclipseuiaction eclipsegotoimpl org.eclipse.jdt.ui.edit.text.java.open.implementation
-nnoremap <Space>d :eclipsegotoimpl<cr>
+" eclipseuiaction eclipsegotoRef org.eclipse.jdt.ui.edit.text.java.open.implementation
+" nnoremap <Space>d :eclipsegotoRef<cr>
+nnoremap <Space>d <C-]>
 
 nnoremap <C-n> :tabnext<cr>
 nnoremap <C-p> :tabprevious<cr>

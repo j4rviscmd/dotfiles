@@ -41,3 +41,6 @@ nnoremap <Space>b :HistoryBack<cr>
 
 eclipseuiaction CommentOut org.eclipse.jdt.ui.edit.text.java.toggle.comment
 nnoremap gcc :CommentOut<cr>
+
+eclipseuiaction ContentAssist org.eclipse.ui.edit.text.contentAssist.proposals
+inoremap <C-.> :ContentAssist<cr>

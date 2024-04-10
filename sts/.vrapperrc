@@ -23,8 +23,10 @@ set imd
 set clipboard=unnamed
 
 
-eclipseaction HoverTooltip org.eclipse.ui.edit.text.showInformation
-nnoremap <Space>h :HoverTooltip<CR>
+eclipseaction ShowInformation org.eclipse.ui.edit.text.showInformation
+" nnoremap <Space>h :ShowInformation
+nnoremap <Space>h :ShowInformation
+
 
 eclipseuiaction eclipsegotoimpl org.eclipse.jdt.ui.edit.text.java.open.implementation
 nnoremap <Space>d :eclipsegotoimpl<cr>

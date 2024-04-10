@@ -1,3 +1,5 @@
+" 設定 -> 一般 -> キーよりデフォルト割当キーをアンバインドする"
+
 set encoding=utf-8
 scriptencoding utf-8
 
@@ -20,11 +22,15 @@ set imd
 
 set clipboard=unnamed
 
-inoremap jj <esc>
 
 eclipseaction HoverTooltip org.eclipse.ui.edit.text.showInformation
 nnoremap <Space>h :HoverTooltip<CR>
 
-" eclipseaction SearchRef org.eclipse.jdt.ui.edit.text.java.search.references.in.project
-eclipseaction SearchRef org.eclipse.jdt.ui.edit.text.java.open.editor
-nnoremap <Space>d :SearchRef<CR>
+eclipseuiaction eclipsegotoimpl org.eclipse.jdt.ui.edit.text.java.open.implementation
+nnoremap <Space>d :eclipsegotoimpl<cr>
+
+nnoremap <C-n> :tabnext<cr>
+nnoremap <C-p> :tabprevious<cr>
+
+eclipseuiaction HistoryBack org.eclipse.ui.navigate.backwardHistory
+nnoremap <Space>b :HistoryBack<cr>

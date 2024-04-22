@@ -122,7 +122,11 @@
   "react-native-tools.showUserTips": false,
   "explorer.confirmDelete": false,
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
   },
   "[shellscript]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"

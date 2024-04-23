@@ -44,8 +44,13 @@ end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /Users/maedatakurou/anaconda3/bin/conda
+if status is-interactive && test -f /Users/maedatakurou/anaconda3/bin/conda
     eval /Users/maedatakurou/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 end
 # <<< conda initialize <<<
+
+# When terminal started, not activate base.
+# ```shell
+# conda config --set auto_activate_base false
+# ```
 

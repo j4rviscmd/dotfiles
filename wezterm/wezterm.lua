@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 -- Spawn a fish shell in login mode
 config.default_prog = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe", "-l", "-NoLogo" }
-config.default_cwd = "C:\\dev\\work"
+config.default_cwd = "C:\\work"
 
 -- ###############################
 -- # Start up                    #
@@ -28,7 +28,8 @@ local mux = wezterm.mux
 
 -- Adjust startup window position
 wezterm.on("gui-startup", function(cmd)
-	local tab, pane, window = mux.spawn_window(cmd or { position = { x = 1915, y = 0 } })
+	local tab, pane, window = mux.spawn_window(cmd or { position = { x = 0, y = 0 } })
+	-- local tab, pane, window = mux.spawn_window(cmd or { position = { x = 1915, y = 0 } })
 end)
 
 -- Adjust startup windows position
@@ -52,19 +53,7 @@ config.window_padding = {
 }
 
 -- Solarized theme
-local canonical_solarized = require("canonical_solarized")
-canonical_solarized.apply_to_config(config)
-config.color_scheme = "Canonical Solarized Dark"
-config.colors.brights = {
-	"grey",
-	"red",
-	"lime",
-	"yellow",
-	"blue",
-	"fuchsia",
-	"aqua",
-	"white",
-}
+config.color_scheme = "Solarized (dark) (terminal.sexy)"
 
 -- Tabbar
 config.hide_tab_bar_if_only_one_tab = true

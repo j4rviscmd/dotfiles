@@ -13,7 +13,7 @@ config.default_cwd = "C:\\work"
 -- ###############################
 
 -- Background opacity
-config.window_background_opacity = 0.9
+config.window_background_opacity = 1.0
 config.win32_system_backdrop = "Auto"
 
 -- Full screen window at startup

@@ -1,6 +1,5 @@
 # Prompt
-Import-Module posh-git
-oh-my-posh init pwsh --config "c:\dev\work\dotfiles\powershell\json.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "c:/work/dotfiles/powershell/json.omp.json" | Invoke-Expression
 Import-Module Terminal-Icons
 
 # Auto suggestions
@@ -16,6 +15,7 @@ Set-PSReadlineOption -AddToHistoryHandler {
         "SKIPHISTORY" {return $false}
         "^[a-z]$" {return $false}
         "exit" {return $false}
+        "\.\." {return $false}
     }
     return $true
 }
@@ -33,7 +33,7 @@ function ll {
 
 #region conda initialize
 # !! Contents within this block are managed by 'conda init' !!
-If (Test-Path "C:\dev\dev-software\miniconda3\Scripts\conda.exe") {
-    (& "C:\dev\dev-software\miniconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
+If (Test-Path "C:\Users\maedat\miniconda3\Scripts\conda.exe") {
+    (& "C:\Users\maedat\miniconda3\Scripts\conda.exe" "shell.powershell" "hook") | Out-String | ?{$_} | Invoke-Expression
 }
 #endregion

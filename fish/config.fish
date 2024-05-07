@@ -44,6 +44,7 @@ end
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
+# https://github.com/IlanCosman/tide/issues/143#issuecomment-923107133
 if status is-interactive && test -f /Users/maedatakurou/anaconda3/bin/conda
     eval /Users/maedatakurou/anaconda3/bin/conda "shell.fish" "hook" $argv | source
 end

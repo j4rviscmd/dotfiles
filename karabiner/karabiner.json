@@ -91,6 +91,7 @@
                     "bundle_identifiers": [
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
+                      "^com\\.github\\.wez\\.wezterm$",
                       "^com\\.microsoft\\.rdc$",
                       "^com\\.microsoft\\.rdc\\.mac$",
                       "^com\\.microsoft\\.rdc\\.macos$",
@@ -146,6 +147,7 @@
                       "com\\.microsoft\\.VSCode",
                       "^com\\.apple\\.Terminal$",
                       "^com\\.googlecode\\.iterm2$",
+                      "^com\\.github\\.wez\\.wezterm$",
                       "^com\\.microsoft\\.rdc$",
                       "^com\\.microsoft\\.rdc\\.mac$",
                       "^com\\.microsoft\\.rdc\\.macos$",

@@ -56,7 +56,7 @@ wezterm.on("gui-startup", function(cmd)
 	end
 	if os == "x86_64-pc-windows-msvc" then
 		-- 会社PCでは "auto_activate_base Falseが無効化されないため"
-		pane:send_text("conda deactivate\n")
+		pane:send_text("conda deactivate\r\n")
 	end
 end)
 

@@ -1,3 +1,9 @@
+# ENV
+$env:XDG_CONFIG_HOME = "$HOME\.config"
+
+# 確認のための出力（オプション）
+# Write-Output "XDG_CONFIG_HOME is set to $env:XDG_CONFIG_HOME"
+
 # Prompt
 oh-my-posh init pwsh --config "c:/work/dotfiles/powershell/json.omp.json" | Invoke-Expression
 Import-Module Terminal-Icons
@@ -21,7 +27,9 @@ Set-PSReadlineOption -AddToHistoryHandler {
 }
 
 # Alias
-Set-Alias vim code
+# Set-Alias vim code
+Set-Alias vim nvim
+Set-Alias vi nvim
 Set-Alias grep findstr
 function .. {
     Set-Location ..

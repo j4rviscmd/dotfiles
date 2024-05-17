@@ -51,7 +51,8 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
 		end,
 	})
 
@@ -68,10 +69,9 @@ return packer.startup(function(use)
 	--   },
 	-- }
 
-	-- use 'famiu/bufdelete.nvim'
 	use({
 		"akinsho/bufferline.nvim",
-		tag = "v4.4.0",
+		tag = "*",
 		requires = "nvim-tree/nvim-web-devicons",
 	})
 
@@ -146,7 +146,10 @@ return packer.startup(function(use)
 	use("nvim-telescope/telescope-file-browser.nvim")
 
 	-- im-select
-	use("keaising/im-select.nvim")
+	-- Enable macOS only
+	if os == "Darwin" then
+		use("keaising/im-select.nvim")
+	end
 
 	-- LSP source for nvim-cmp
 	use("hrsh7th/cmp-nvim-lsp")

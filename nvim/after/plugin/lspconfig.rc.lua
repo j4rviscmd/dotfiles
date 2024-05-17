@@ -37,6 +37,7 @@ mason_lspconfig.setup({
 	ensure_installed = {
 		"tsserver",
 		"lua_ls",
+		"ruff_lsp",
 	},
 	automatic_installation = true,
 })

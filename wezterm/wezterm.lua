@@ -31,8 +31,9 @@ if os == "x86_64-pc-windows-msvc" then
 	default_cwd = "C:\\work"
 	config.font_size = 10
 	-- Background opacity
-	config.window_background_opacity = 0.8
-	config.win32_system_backdrop = "Acrylic"
+	config.window_background_opacity = 0.9
+	-- config.macos_window_background_blur = 20
+	-- config.win32_system_backdrop = "Acrylic"
 end
 
 config.default_cwd = default_cwd
@@ -47,10 +48,12 @@ wezterm.on("gui-startup", function(cmd)
 	local tab, pane, window = mux.spawn_window(cmd or {})
 	window:gui_window():maximize()
 	-- startup exec command
-	pane:send_text("tmux\n")
+	if os == "aarch64-apple-darwin" then
+		pane:send_text("tmux\n")
+	end
 	if os == "x86_64-pc-windows-msvc" then
 		-- 会社PCでは "auto_activate_base Falseが無効化されないため"
-		pane:send_text("conda deactivate\n")
+		pane:send_text("tmux && conda deactivate\n")
 	end
 end)
 

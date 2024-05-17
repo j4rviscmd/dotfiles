@@ -34,9 +34,6 @@ git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data
 
 ```sh
 scoop install gcc
-
-↓不要かも
-# npm install -g tree-sitter-cli
 ```
 
 ## Telescope
@@ -49,12 +46,6 @@ scoop install ripgrep
 
 <https://github.com/nvim-telescope/telescope.nvim?tab=readme-ov-file#getting-started>
 
-## LSP
+<!-- ## im-select.exe
 
-```sh
-pip install ruff
-```
-
-## im-select.exe
-
-<https://github.com/keaising/im-select.nvim>
+<https://github.com/keaising/im-select.nvim> -->

@@ -12,7 +12,8 @@ mason_null_ls.setup({
 	ensure_installed = {
 		"prettierd",
 		"stylua",
-		"ruff",
+		"pylint",
+		"black",
 	},
 	-- automatic_installation = true,
 	handlers = {},
@@ -37,11 +38,11 @@ null_ls.setup({
 			disabled_filetypes = { "markdown" },
 		}),
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.ruff,
+		null_ls.builtins.formatting.black,
 
 		-- Ruby静的解析
 		-- null_ls.builtins.diagnostics.rubocop,
-		null_ls.builtins.diagnostics.ruff,
+		null_ls.builtins.diagnostics.pylint,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
@@ -51,8 +52,6 @@ null_ls.setup({
 				buffer = bufnr,
 				callback = function()
 					vim.lsp.buf.format({ async = false })
-					-- 保存後に再度構文エラーチェックプラグインをONにする
-					vim.diagnostic.config({ virtual_lines = true })
 				end,
 			})
 		end

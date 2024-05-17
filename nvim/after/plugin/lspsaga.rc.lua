@@ -44,7 +44,7 @@ local opts = { noremap = true, silent = true }
 
 -- vim.keymap.set('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
 vim.keymap.set("n", "<leader>h", "<Cmd>Lspsaga hover_doc<CR>", opts)
-vim.keymap.set("n", "<leader>e", "<Cmd>Lspsaga show_cursor_diagnostics<CR>", opts)
+vim.keymap.set("n", "<leader>e", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts)
 
 local cursorRow = -1
 local cursorColumn = -1

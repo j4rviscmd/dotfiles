@@ -1,19 +1,19 @@
 local status, mason = pcall(require, "mason")
 if not status then
-	print("mason is not installed.")
-	return
+  print("mason is not installed.")
+  return
 end
 
 local status2, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status2 then
-	print("mason-spconfig is not installed.")
-	return
+  print("mason-spconfig is not installed.")
+  return
 end
 
 local status3, lspconfig = pcall(require, "lspconfig")
 if not status3 then
-	print("lspconfig is not installed.")
-	return
+  print("lspconfig is not installed.")
+  return
 end
 
 -- if status3 then
@@ -24,40 +24,40 @@ end
 -- end
 
 mason.setup({
-	ui = {
-		icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
-	},
+  ui = {
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗",
+    },
+  },
 })
 
 mason_lspconfig.setup({
-	ensure_installed = {
-		"tsserver",
-		"lua_ls",
-		"ruff_lsp",
-	},
-	automatic_installation = true,
+  ensure_installed = {
+    "tsserver",
+    "lua_ls",
+    "jedi_language_server",
+  },
+  automatic_installation = true,
 })
 
 mason_lspconfig.setup_handlers({
-	-- LSPの一括登録
-	function(server_name)
-		lspconfig[server_name].setup({})
-	end,
+  -- LSPの一括登録
+  function(server_name)
+    lspconfig[server_name].setup({})
+  end,
 
-	-- 個別登録
-	lua_ls = function()
-		lspconfig.lua_ls.setup({
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { "vim" },
-					},
-				},
-			},
-		})
-	end,
+  -- 個別登録
+  lua_ls = function()
+    lspconfig.lua_ls.setup({
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" },
+          },
+        },
+      },
+    })
+  end,
 })

@@ -71,7 +71,8 @@ return packer.startup(function(use)
 
 	use({
 		"akinsho/bufferline.nvim",
-		tag = "*",
+		-- https://github.com/akinsho/bufferline.nvim/issues/903
+		-- tag = "*",
 		requires = "nvim-tree/nvim-web-devicons",
 	})
 
@@ -187,5 +188,9 @@ return packer.startup(function(use)
 	-- Loading UI
 	use("j-hui/fidget.nvim")
 
-	use("https://git.sr.ht/~whynothugo/lsp_lines.nvim")
+	-- use("steven-liou/lsp_lines.nvim")
+	-- use("antoinemadec/FixCursorHold.nvim")
+
+	-- Show indent
+	use("lukas-reineke/indent-blankline.nvim")
 end)

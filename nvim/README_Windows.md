@@ -6,6 +6,22 @@
 scoop install neovim
 ```
 
+## Symbolic link
+
+作成先の dir へ cd してから実行
+
+```sh
+New-Item -ItemType SymbolicLink -Name {new_link_name} -Target "{target_dir/file}"
+New-Item -ItemType SymbolicLink -Name nvim -Target "C:\work\dotfiles\nvim"
+```
+
+### Unbind
+
+```sh
+Remove-Item -Path "{symbolic_link_path}"
+Remove-Item -Path "C:\work\nvim"
+```
+
 ## Packer.nvim
 
 ```sh
@@ -42,19 +58,3 @@ pip install ruff
 ## im-select.exe
 
 <https://github.com/keaising/im-select.nvim>
-
-## Symbolic link
-
-作成先の dir へ cd してから実行
-
-```sh
-New-Item -ItemType SymbolicLink -Name {new_link_name} -Target "{target_dir/file}"
-New-Item -ItemType SymbolicLink -Name nvim -Target "C:\work\dotfiles\nvim"
-```
-
-### Unbind
-
-```sh
-Remove-Item -Path "{symbolic_link_path}"
-Remove-Item -Path "C:\work\nvim"
-```

@@ -1,7 +1,6 @@
 local status, telescope = pcall(require, "telescope")
 if not status then
-	return
-end
+	return end
 
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
@@ -17,6 +16,9 @@ telescope.setup({
 			n = {
 				["q"] = actions.close,
 			},
+      i = {
+       ['<C-[>'] = actions.close,
+      }
 		},
 	},
 	extensions = {
@@ -53,18 +55,20 @@ telescope.setup({
 	},
 })
 
-telescope.load_extension("file_browser")
 
-vim.keymap.set("n", ";f", function()
+vim.keymap.set("n", "<C-i>", function()
 	builtin.find_files({
 		no_ignore = false,
 		hidden = true,
+		layout_config = { height = 40 },
 	})
 end)
 
-vim.keymap.set("n", ";r", function()
+vim.keymap.set("n", "<C-g>", function()
 	-- Use ripgrep package
-	builtin.live_grep()
+	builtin.live_grep({
+		layout_config = { height = 40 },
+  })
 end)
 
 vim.keymap.set("n", "\\\\", function()
@@ -83,19 +87,7 @@ vim.keymap.set("n", ";e", function()
 	builtin.diagnostics()
 end)
 
-vim.keymap.set("n", "sf", function()
-	telescope.extensions.file_browser.file_browser({
-		path = "%:p:h",
-		cwd = telescope_buffer_dir(),
-		respect_gitignore = false,
-		hidden = true,
-		grouped = true,
-		previewer = true,
-		initial_mode = "normal",
-		layout_config = { height = 40 },
-	})
-end)
-
+telescope.load_extension("file_browser")
 vim.keymap.set("n", "<C-o>", function()
 	telescope.extensions.file_browser.file_browser({
 		path = "%:p:h",

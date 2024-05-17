@@ -3,10 +3,16 @@ if not status then
 	return
 end
 
+
+local custom_solarized_dark = require'lualine.themes.solarized_dark'
+custom_solarized_dark.normal.a.fg = '#839496'
+custom_solarized_dark.normal.a.bg = '#073642'
+
+
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "solarized_dark",
+		theme = custom_solarized_dark,
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
 		disabled_filetypes = {},
@@ -40,7 +46,7 @@ lualine.setup({
 			{
 				"filename",
 				file_status = true, -- displays file status (readonly status, modified status)
-				path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+				path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
 			},
 		},
 		lualine_x = { "location" },
@@ -50,3 +56,4 @@ lualine.setup({
 	tabline = {},
 	extensions = { "fugitive" },
 })
+

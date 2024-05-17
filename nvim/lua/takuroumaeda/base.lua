@@ -1,5 +1,6 @@
 vim.cmd("autocmd!")
 vim.cmd("language en_US.UTF-8")
+vim.g.mapleader = " "
 
 vim.wo.number = true
 
@@ -50,3 +51,8 @@ vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 vim.opt.termguicolors = true
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "plugins.lua" },
+  command = "PackerCompile",
+})

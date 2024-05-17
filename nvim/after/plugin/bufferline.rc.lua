@@ -11,6 +11,7 @@ bufferline.setup({
 		show_buffer_close_icons = false,
 		show_close_icon = false,
 		color_icons = true,
+    -- close_command = require('bufdelete').bufdelete,
 	},
 	highlights = {
 		separator = {
@@ -27,6 +28,7 @@ bufferline.setup({
 		buffer_selected = {
 			guifg = "#fdf6e3",
 			gui = "bold",
+      underline = true,
 		},
 		fill = {
 			guibg = "#073642",

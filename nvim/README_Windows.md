@@ -6,7 +6,7 @@
 scoop install neovim
 ```
 
-## Symbolic link
+### Symbolic link
 
 作成先の dir へ cd してから実行
 
@@ -15,20 +15,20 @@ New-Item -ItemType SymbolicLink -Name {new_link_name} -Target "{target_dir/file}
 New-Item -ItemType SymbolicLink -Name nvim -Target "C:\work\dotfiles\nvim"
 ```
 
-### Unbind
+#### Unbind
 
 ```sh
 Remove-Item -Path "{symbolic_link_path}"
 Remove-Item -Path "C:\work\nvim"
 ```
 
-## Packer.nvim
+### Packer.nvim
 
 ```sh
 git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 ```
 
-## Tree-Sitter
+### Tree-Sitter
 
 <https://github.com/nvim-treesitter/nvim-treesitter>
 
@@ -36,7 +36,7 @@ git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data
 scoop install gcc
 ```
 
-## Telescope
+### Telescope
 
 LIVE_GREP
 

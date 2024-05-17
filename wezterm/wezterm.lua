@@ -34,6 +34,9 @@ if os == "x86_64-pc-windows-msvc" then
 	config.window_background_opacity = 0.9
 	-- config.macos_window_background_blur = 20
 	-- config.win32_system_backdrop = "Acrylic"
+
+	-- Title bar
+	config.window_decorations = "TITLE|RESIZE"
 end
 
 config.default_cwd = default_cwd
@@ -42,7 +45,7 @@ config.default_cwd = default_cwd
 -- # Start up                    #
 -- ###############################
 
--- Maximize windows & start tmux
+-- Maximize window & start tmux
 local mux = wezterm.mux
 wezterm.on("gui-startup", function(cmd)
 	local tab, pane, window = mux.spawn_window(cmd or {})
@@ -53,7 +56,7 @@ wezterm.on("gui-startup", function(cmd)
 	end
 	if os == "x86_64-pc-windows-msvc" then
 		-- 会社PCでは "auto_activate_base Falseが無効化されないため"
-		pane:send_text("tmux && conda deactivate\n")
+		pane:send_text("conda deactivate\n")
 	end
 end)
 
@@ -92,23 +95,80 @@ config.hide_tab_bar_if_only_one_tab = true
 -- # ShortcutKey                 #
 -- ###############################
 
--- timeout_milliseconds defaults to 1000 and can be omitted
--- leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 },
-
 config.disable_default_key_bindings = true
 config.debug_key_events = true
 
 local act = wezterm.action
-config.keys = {
-	-- paste from the clipboard
-	{ key = "v", mods = "CTRL|CMD", action = act.PasteFrom("Clipboard") },
-	{
-		-- Create new tab
-		key = "q",
-		mods = "CMD",
-		action = act.QuitApplication,
-	},
-}
+
+if os == "x86_64-pc-windows-msvc" then
+	-- timeout_milliseconds defaults to 1000 and can be omitted
+	config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
+	config.keys = {
+		{
+			key = "%",
+			mods = "LEADER|SHIFT",
+			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = '"',
+			mods = "LEADER|SHIFT",
+			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
+		},
+		-- paste from the clipboard
+		{ key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+		{
+			key = "h",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Left"),
+		},
+		{
+			key = "l",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Right"),
+		},
+		{
+			key = "k",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Up"),
+		},
+		{
+			key = "j",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Down"),
+		},
+		{
+			key = "h",
+			mods = "LEADER|CTRL",
+			action = act.AdjustPaneSize({ "Left", 5 }),
+		},
+		{
+			key = "j",
+			mods = "LEADER|CTRL",
+			action = act.AdjustPaneSize({ "Down", 5 }),
+		},
+		{
+			key = "k",
+			mods = "LEADER|CTRL",
+			action = act.AdjustPaneSize({ "Up", 5 }),
+		},
+		{
+			key = "l",
+			mods = "LEADER|CTRL",
+			action = act.AdjustPaneSize({ "Right", 5 }),
+		},
+	}
+else
+	config.keys = {
+		-- paste from the clipboard
+		{ key = "v", mods = "CMD", action = act.PasteFrom("Clipboard") },
+		{
+			-- Quit app
+			key = "q",
+			mods = "CMD",
+			action = act.QuitApplication,
+		},
+	}
+end
 
 -- Bind mouse right-click with Copy & Paste
 -- <https://github.com/wez/wezterm/discussions/3541#discussioncomment-5633570>

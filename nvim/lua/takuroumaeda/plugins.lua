@@ -148,7 +148,7 @@ return packer.startup(function(use)
 
 	-- im-select
 	-- Enable macOS only
-	if os == "Darwin" then
+	if vim.loop.os_uname().sysname == "Darwin" then
 		use("keaising/im-select.nvim")
 	end
 

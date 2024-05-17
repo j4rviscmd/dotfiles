@@ -24,7 +24,7 @@
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
           "foreground": "#011627",
-          "background": "#FFFB38",
+          "background": "#a0bc5a",
           "background_templates": [
             "{{ if or (.Working.Changed) (.Staging.Changed) }}#2c65f5{{ end }}",
             "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#c5e478{{ end }}",
@@ -62,8 +62,6 @@
           "type": "time",
           "style": "diamond",
           "invert_powerline": true,
-          "foreground": "#ffffff",
-          "background": "#40c4ff",
           "leading_diamond": " \ue0b6",
           "trailing_diamond": "\ue0b4",
           "template": "{{ .CurrentDate | date .Format }} ",

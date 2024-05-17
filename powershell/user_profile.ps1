@@ -5,7 +5,7 @@ $env:XDG_CONFIG_HOME = "$HOME\.config"
 # Write-Output "XDG_CONFIG_HOME is set to $env:XDG_CONFIG_HOME"
 
 # Prompt
-oh-my-posh init pwsh --config "c:/work/dotfiles/powershell/json.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "c:/work/dotfiles/powershell/takurou.omp.json" | Invoke-Expression
 Import-Module Terminal-Icons
 
 # Auto suggestions

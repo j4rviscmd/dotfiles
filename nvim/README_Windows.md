@@ -1,5 +1,11 @@
 # Setup
 
+## Neovim
+
+```sh
+scoop install neovim
+```
+
 ## Packer.nvim
 
 ```sh

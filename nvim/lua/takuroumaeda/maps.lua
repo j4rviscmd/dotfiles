@@ -18,3 +18,6 @@ keymap.set("n", "<C-w><C-l>", "<C-w>>6")
 -- vim.api.nvim_del_keymap("n", "<C-w>w")
 keymap.set("n", "<C-w>w", "")
 keymap.set("n", "<C-w><C-w>", "")
+
+-- commandモード時に<C-r>でペースト
+keymap.set("c", "<C-r>", "<C-r>0")

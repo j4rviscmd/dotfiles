@@ -1,7 +1,8 @@
 # key bind
 alias ll 'env EXA_ICON_SPACING=2 exa -l -a -g --icons --ignore-glob=".DS_Store|.localized" --sort=type --time-style=long-iso --no-permissions'
 alias vi 'nvim'
-alias vim 'code'
+# alias vim 'code'
+alias vim 'nvim'
 
 
 # path

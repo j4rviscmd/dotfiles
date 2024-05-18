@@ -1,147 +1,201 @@
-local status, packer = pcall(require, 'packer')
-if(not status) then
-  print('Packer is not installed')
-  return
-end
-
 vim.cmd [[packadd packer.nvim]]
 
-packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
+local status, packer = pcall(require, "packer")
+if not status then
+    print "Packer is not installed"
+    return
+end
 
-  -- When if you yanked, highlight
-  use 'machakann/vim-highlightedyank'
+return packer.startup(function(use)
+    use { "wbthomason/packer.nvim" }
 
-  -- Enable git command to neovim
-  use 'tpope/vim-fugitive'
+    -- Startup screen
+    use {
+        "eoh-bse/minintro.nvim",
+        config = function()
+            require("minintro").setup()
+        end,
+    }
 
-  -- Show file icons
-  use 'ryanoasis/vim-devicons'
+    -- Easy motion
+    use {
+        "phaazon/hop.nvim",
+        branch = "v2", -- optional but strongly recommended
+    }
 
-  -- Icon
-	use("kyazdani42/nvim-web-devicons")
+    -- When if you yanked, highlight
+    use "machakann/vim-highlightedyank"
 
-	-- Show git diff sign leftmost column
-	use("lewis6991/gitsigns.nvim")
+    -- enable git command to neovim
+    -- use 'tpope/vim-fugitive'
 
+    -- Show file icons
+    use "ryanoasis/vim-devicons"
 
-  -- Commentary
-	use({
-		"tpope/vim-commentary",
-	})
+    -- Icon
+    use "kyazdani42/nvim-web-devicons"
 
-  -- Editor theme
-  -- use({
-  --   'blueshirts/darcula',
-  --   config = function()
-  --     if vim.g.vscode then
-  --       vim.cmd[[colorscheme default]]
-  --     else
-  --       vim.cmd([[colorscheme darcula]])
-  --     end
-  --   end
-  -- })
+    -- Show git diff sign leftmost column
+    use "lewis6991/gitsigns.nvim"
 
-  
-	use({
-		"akinsho/bufferline.nvim",
-		tag = "v4.4.0",
-		requires = "nvim-tree/nvim-web-devicons",
-	})
+    -- Commentary
+    use "tpope/vim-commentary"
 
-	-- Theme for editor bottom
-	use("nvim-lualine/lualine.nvim") -- Statusline
+    use "ConradIrwin/vim-bracketed-paste"
 
+    -- Solarized dark theme
+    use {
+        "maxmx03/solarized.nvim",
+    }
 
-  -- Preview for markdown file
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-    config = function()
-      vim.g["mkdp_auto_start"] = 0
-      vim.g["mkdp_auto_close"] = 1
-      vim.g["mkdp_refresh_slow"] = 0
-      vim.g["mkdp_command_for_global"] = 0
-      vim.g["mkdp_open_to_the_world"] = 0
-      vim.g["mkdp_open_ip"] = ''
-      vim.g["mkdp_browser"] = ''
-      vim.g["mkdp_echo_preview_url"] = 0
-      vim.g["mkdp_browserfunc"] = ''
-      vim.g["mkdp_preview_options"] = {
-        ['mkit'] = {},
-        ['katex'] = {},
-        ['uml'] = {},
-        ['maid'] = {},
-        ['disable_sync_scroll'] = 0,
-        ['sync_scroll_type'] = 'relative',
-        ['hide_yaml_meta'] = 1,
-        ['sequence_diagrams'] = {},
-        ['flowchart_diagrams'] = {},
-        ['content_editable'] = 'v:false',
-        ['disable_filename'] = 0,
-        ['toc'] = {}
-      }
-      vim.g["mkdp_markdown_css"] = ''
-      vim.g["mkdp_highlight_css"] = ''
-      vim.g["mkdp_page_title"] = ''
-      vim.g["mkdp_filetypes"] = {'markdown'}
-      vim.g["mkdp_theme"] = 'dark'
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+            local ts_update = require("nvim-treesitter.install").update { with_sync = true }
+            ts_update()
+        end,
+    }
+
+    -- git source controller
+    -- TODO packer向けインストール手順公開され次第FIX
+    -- use {'SuperBo/fugit2.nvim',
+    --   opts = {
+    --     libgit2_path = '/opt/homebrew/lib/libgit2.dylib'
+    --   },
+    --   requires = {
+    --     {'MunifTanjim/nui.nvim'},
+    --     { "nvim-tree/nvim-web-devicons" },
+    --     {'nvim-lua/plenary.nvim'},
+    --   },
+    -- }
+
+    use {
+        "akinsho/bufferline.nvim",
+        -- https://github.com/akinsho/bufferline.nvim/issues/903
+        -- tag = "*",
+        requires = "nvim-tree/nvim-web-devicons",
+    }
+
+    -- Theme for editor bottom
+    use "nvim-lualine/lualine.nvim"
+
+    -- Preview for markdown file
+    -- TODO move to config file.
+    use {
+        "iamcco/markdown-preview.nvim",
+        run = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+        config = function()
+            vim.g["mkdp_auto_start"] = 0
+            vim.g["mkdp_auto_close"] = 1
+            vim.g["mkdp_refresh_slow"] = 0
+            vim.g["mkdp_command_for_global"] = 0
+            vim.g["mkdp_open_to_the_world"] = 0
+            vim.g["mkdp_open_ip"] = ""
+            vim.g["mkdp_browser"] = ""
+            vim.g["mkdp_echo_preview_url"] = 0
+            vim.g["mkdp_browserfunc"] = ""
+            vim.g["mkdp_preview_options"] = {
+                ["mkit"] = {},
+                ["katex"] = {},
+                ["uml"] = {},
+                ["maid"] = {},
+                ["disable_sync_scroll"] = 0,
+                ["sync_scroll_type"] = "relative",
+                ["hide_yaml_meta"] = 1,
+                ["sequence_diagrams"] = {},
+                ["flowchart_diagrams"] = {},
+                ["content_editable"] = "v:false",
+                ["disable_filename"] = 0,
+                ["toc"] = {},
+            }
+            vim.g["mkdp_markdown_css"] = ""
+            vim.g["mkdp_highlight_css"] = ""
+            vim.g["mkdp_page_title"] = ""
+            vim.g["mkdp_filetypes"] = { "markdown" }
+            vim.g["mkdp_theme"] = "dark"
+        end,
+    }
+
+    -- prettier
+    -- use({
+    --   "prettier/vim-prettier",
+    --   run = "npm install",
+    -- })
+
+    use {
+        "windwp/nvim-autopairs",
+        config = function()
+            require "nvim-autopairs"
+        end,
+    }
+
+    use {
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require "nvim-treesitter"
+        end,
+    }
+
+    use {
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.6",
+        requires = { { "nvim-lua/plenary.nvim" } },
+    }
+
+    use "nvim-telescope/telescope-file-browser.nvim"
+
+    -- im-select
+    -- Enable macOS only
+    if vim.loop.os_uname().sysname == "Darwin" then
+        use "keaising/im-select.nvim"
     end
-  })
 
-  -- prettier
-  use {
-    'prettier/vim-prettier',
-    branch = 'release/0.x',
-    run = 'npm install',
-    config = function()
-      vim.g["prettier_autoformat"] = 1
-      vim.g["prettier_autoformat_require_pragma"] = 0
-      vim.g["prettier_quickfix_enabled"] = 1
-      vim.g["prettier_quickfix_auto_focus"] = 0
-    end
-  }
+    -- LSP source for nvim-cmp
+    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-buffer"
+    use "hrsh7th/nvim-cmp"
 
-  -- Nerdtree
-  use {'scrooloose/nerdtree',
-    config= function()
-      vim.g["NERDTreeShowBookmarks"] = 1
-      vim.g["NERDTreeShowHidden"] = 1
-      vim.g["NERDTreeQuitOnOpen"] = 1
-      vim.g["NERDTreeWinSize"] = 200
-      vim.g["NERDTreeIgnore"] = { '.DS_Store', '\\.git$', }
-    end
-  }
+    -- VSCode like pictograms
+    use "onsails/lspkind-nvim"
 
-  use {
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  }
+    -- LSP
+    use "neovim/nvim-lspconfig"
+    use "williamboman/mason.nvim"
+    use "williamboman/mason-lspconfig.nvim"
 
-  -- use {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   run = function()
-  --     require('nvim-treesitter.install').update({ with_sync = true })
-  --   end
-  -- }
+    -- LSP UIs: Lspsaga
+    use {
+        "nvimdev/lspsaga.nvim",
+        after = "nvim-lspconfig",
+    }
 
-  -- use 'windwp/nvim-ts-autotag'
-  --   require'nvim-treesitter.configs'.setup {
-  --   autotag = {
-  --     enable = true,
-  --   }
-  -- }
+    -- Linter, Formatter
+    use "jay-babu/mason-null-ls.nvim"
+    use {
+        "nvimtools/none-ls.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+        },
+    }
 
-  use {
-    "nvim-telescope/telescope.nvim",
-    tag = '0.1.4',
-    requires = { {'nvim-lua/plenary.nvim'} },
-  }
-  use 'nvim-telescope/telescope-file-browser.nvim'
+    -- Snipet engine
+    use "L3MON4D3/LuaSnip"
 
-  -- im-select
-  use 'keaising/im-select.nvim'
+    use "folke/lsp-colors.nvim"
 
+    -- Loading UI
+    use "j-hui/fidget.nvim"
+
+    -- use("steven-liou/lsp_lines.nvim")
+    -- use("antoinemadec/FixCursorHold.nvim")
+
+    -- Show indent
+    use "lukas-reineke/indent-blankline.nvim"
+
+    use {
+        "kmontocam/nvim-conda",
+        requires = { "nvim-lua/plenary.nvim" },
+    }
 end)

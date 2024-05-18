@@ -4,37 +4,68 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- Spawn a fish shell in login mode
-config.default_prog = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe", "-l", "-NoLogo" }
-config.default_cwd = "C:\\work"
+-- x86_64-pc-windows-msvc - Windows
+-- x86_64-apple-darwin - macOS (Intel)
+-- aarch64-apple-darwin - macOS (Apple Silicon)
+-- x86_64-unknown-linux-gnu - Linux
+local os = wezterm.target_triple
+
+local default_cwd
+
+-- Config of MacOS
+if os == "aarch64-apple-darwin" then
+	-- Spawn a fish shell in login mode
+	config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
+	default_cwd = "/Users/maedatakurou/work/development"
+	config.font_size = 14
+
+	-- Background opacity
+	config.window_background_opacity = 0.8
+	config.macos_window_background_blur = 20
+end
+
+-- Config of Windows
+if os == "x86_64-pc-windows-msvc" then
+	-- Spawn a power shell in login mode
+	config.default_prog = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe", "-l", "-NoLogo" }
+	default_cwd = "C:\\work"
+	config.font_size = 10
+	-- Background opacity
+	config.window_background_opacity = 0.9
+	-- config.macos_window_background_blur = 20
+	-- config.win32_system_backdrop = "Acrylic"
+
+	-- Title bar
+	config.window_decorations = "TITLE|RESIZE"
+end
+
+config.default_cwd = default_cwd
 
 -- ###############################
 -- # Start up                    #
 -- ###############################
 
--- Background opacity
-config.window_background_opacity = 1.0
-config.win32_system_backdrop = "Auto"
-
--- Full screen window at startup
--- local mux = wezterm.mux
--- wezterm.on("gui-startup", function(cmd)
--- 	local tab, pane, window = mux.spawn_window(cmd or {})
--- 	window:gui_window():toggle_fullscreen()
--- end)
---
-
+-- Maximize window & start tmux
 local mux = wezterm.mux
-
--- Adjust startup window position
 wezterm.on("gui-startup", function(cmd)
-	local tab, pane, window = mux.spawn_window(cmd or { position = { x = 0, y = 0 } })
-	-- local tab, pane, window = mux.spawn_window(cmd or { position = { x = 1915, y = 0 } })
+	local tab, pane, window = mux.spawn_window(cmd or {})
+	window:gui_window():maximize()
+	-- startup exec command
+	if os == "aarch64-apple-darwin" then
+		pane:send_text("tmux\n")
+	end
+	if os == "x86_64-pc-windows-msvc" then
+		-- 会社PCでは "auto_activate_base Falseが無効化されないため"
+		pane:send_text("conda deactivate\r\n")
+	end
 end)
 
--- Adjust startup windows position
-config.initial_cols = 117
-config.initial_rows = 61
+-- local mux = wezterm.mux
+
+-- -- Adjust startup window position
+-- wezterm.on("gui-startup", function(cmd)
+-- 	local tab, pane, window = mux.spawn_window(cmd or { position = { x = 0, y = 0 } })
+-- end)
 
 -- ###############################
 -- # User Interface              #
@@ -42,14 +73,16 @@ config.initial_rows = 61
 
 -- Set font
 config.font = wezterm.font("Hack Nerd Font Mono", { weight = "Regular", stretch = "Normal", italic = false })
-config.font_size = 10
+-- config.font = wezterm.font('Noto Sans Mono CJK JP')
+
 config.bold_brightens_ansi_colors = false
+config.cell_width = 1.1
 
 config.window_padding = {
 	left = 10,
 	right = 10,
-	top = 10,
-	bottom = 10,
+	top = 0,
+	bottom = 0,
 }
 
 -- Solarized theme
@@ -62,138 +95,80 @@ config.hide_tab_bar_if_only_one_tab = true
 -- # ShortcutKey                 #
 -- ###############################
 
--- timeout_milliseconds defaults to 1000 and can be omitted
--- leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 },
-
 config.disable_default_key_bindings = true
+config.debug_key_events = true
 
 local act = wezterm.action
-config.keys = {
-	-- Paste from clipboard
-	{ key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
-	{
-		-- Create new tab
-		key = "t",
-		mods = "ALT",
-		action = act.SpawnTab("CurrentPaneDomain"),
-	},
-	{
-		-- Split horizontal
-		key = "d",
-		mods = "CTRL",
-		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-	},
-	{
-		-- Split horizontal
-		key = "d",
-		mods = "CTRL|SHIFT",
-		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
-	},
-	-- Switch activate tab for Windows
-	{
-		-- Switch active tab 1
-		key = "1",
-		mods = "ALT",
-		action = act.ActivateTab(0),
-	},
-	{
-		-- Switch active tab 2
-		key = "2",
-		mods = "ALT",
-		action = act.ActivateTab(1),
-	},
-	{
-		-- Switch active tab 3
-		key = "3",
-		mods = "ALT",
-		action = act.ActivateTab(2),
-	},
-	{
-		-- Switch active tab 4
-		key = "4",
-		mods = "ALT",
-		action = act.ActivateTab(3),
-	},
-	{
-		-- Switch active tab 5
-		key = "5",
-		mods = "ALT",
-		action = act.ActivateTab(4),
-	},
-	-- Switch activate tab for MAC
-	{
-		-- Switch active tab 1
-		key = "1",
-		mods = "CMD",
-		action = act.ActivateTab(0),
-	},
-	{
-		-- Switch active tab 2
-		key = "2",
-		mods = "CMD",
-		action = act.ActivateTab(1),
-	},
-	{
-		-- Switch active tab 3
-		key = "3",
-		mods = "CMD",
-		action = act.ActivateTab(2),
-	},
-	{
-		-- Switch active tab 4
-		key = "4",
-		mods = "CMD",
-		action = act.ActivateTab(3),
-	},
-	{
-		-- Switch active tab 5
-		key = "5",
-		mods = "CMD",
-		action = act.ActivateTab(4),
-	},
-	-- Activate Pane Direction for Windows
-	{
-		key = "h",
-		mods = "ALT",
-		action = act.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "l",
-		mods = "ALT",
-		action = act.ActivatePaneDirection("Right"),
-	},
-	{
-		key = "k",
-		mods = "ALT",
-		action = act.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "j",
-		mods = "ALT",
-		action = act.ActivatePaneDirection("Down"),
-	},
-	-- Activate Pane Direction for MAC
-	{
-		key = "h",
-		mods = "CMD",
-		action = act.ActivatePaneDirection("Left"),
-	},
-	{
-		key = "l",
-		mods = "CMD",
-		action = act.ActivatePaneDirection("Right"),
-	},
-	{
-		key = "k",
-		mods = "CMD",
-		action = act.ActivatePaneDirection("Up"),
-	},
-	{
-		key = "j",
-		mods = "CMD",
-		action = act.ActivatePaneDirection("Down"),
-	},
-}
+
+if os == "x86_64-pc-windows-msvc" then
+	-- timeout_milliseconds defaults to 1000 and can be omitted
+	config.leader = { key = "t", mods = "CTRL", timeout_milliseconds = 1000 }
+	config.keys = {
+		{
+			key = "%",
+			mods = "LEADER|SHIFT",
+			action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+		},
+		{
+			key = '"',
+			mods = "LEADER|SHIFT",
+			action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
+		},
+		-- paste from the clipboard
+		{ key = "v", mods = "CTRL", action = act.PasteFrom("Clipboard") },
+		{
+			key = "h",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Left"),
+		},
+		{
+			key = "l",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Right"),
+		},
+		{
+			key = "k",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Up"),
+		},
+		{
+			key = "j",
+			mods = "LEADER",
+			action = act.ActivatePaneDirection("Down"),
+		},
+		{
+			key = "h",
+			mods = "LEADER|CTRL",
+			action = act.AdjustPaneSize({ "Left", 5 }),
+		},
+		{
+			key = "j",
+			mods = "LEADER|CTRL",
+			action = act.AdjustPaneSize({ "Down", 5 }),
+		},
+		{
+			key = "k",
+			mods = "LEADER|CTRL",
+			action = act.AdjustPaneSize({ "Up", 5 }),
+		},
+		{
+			key = "l",
+			mods = "LEADER|CTRL",
+			action = act.AdjustPaneSize({ "Right", 5 }),
+		},
+	}
+else
+	config.keys = {
+		-- paste from the clipboard
+		{ key = "v", mods = "CMD", action = act.PasteFrom("Clipboard") },
+		{
+			-- Quit app
+			key = "q",
+			mods = "CMD",
+			action = act.QuitApplication,
+		},
+	}
+end
 
 -- Bind mouse right-click with Copy & Paste
 -- <https://github.com/wez/wezterm/discussions/3541#discussioncomment-5633570>

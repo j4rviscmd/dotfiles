@@ -1,23 +1,24 @@
 local status, mason_null_ls = pcall(require, "mason-null-ls")
 if not status then
-	return
+  return
 end
 
 local status2, null_ls = pcall(require, "null-ls")
 if not status2 then
-	return
+  return
 end
 
-mason_null_ls.setup({
-	ensure_installed = {
-		"prettierd",
-		"stylua",
-		"pylint",
-		"black",
-	},
-	-- automatic_installation = true,
-	handlers = {},
-})
+mason_null_ls.setup {
+  ensure_installed = {
+    "prettierd",
+    "stylua",
+    "pylint",
+    "black",
+    "markdownlint",
+  },
+  -- automatic_installation = true,
+  handlers = {},
+}
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -32,29 +33,30 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 -- FileType: ファイルのタイプが検出された時に発火します。
 -- VimEnter: Neovimが起動した時に発火します。
 
-null_ls.setup({
-	sources = {
-		null_ls.builtins.formatting.prettierd.with({
-			disabled_filetypes = { "markdown" },
-		}),
-		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.black,
+null_ls.setup {
+  sources = {
+    null_ls.builtins.formatting.prettierd.with {
+      disabled_filetypes = { "markdown" },
+    },
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.black,
 
-		-- Ruby静的解析
-		-- null_ls.builtins.diagnostics.rubocop,
-		null_ls.builtins.diagnostics.pylint,
-	},
-	on_attach = function(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({ async = false })
-				end,
-			})
-		end
-	end,
-	debug = true,
-})
+    -- Ruby静的解析
+    -- null_ls.builtins.diagnostics.rubocop,
+    null_ls.builtins.diagnostics.pylint,
+    null_ls.builtins.diagnostics.markdownlint,
+  },
+  on_attach = function(client, bufnr)
+    if client.supports_method "textDocument/formatting" then
+      vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          vim.lsp.buf.format { async = false }
+        end,
+      })
+    end
+  end,
+  debug = true,
+}

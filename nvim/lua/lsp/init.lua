@@ -6,6 +6,7 @@ local languages = {
   "lsp.markdown",
   "lsp.python",
   "lsp.typescript",
+  "lsp.tailwind",
   "lsp.lua",
   "lsp.rust",
 }
@@ -47,8 +48,11 @@ for _, name in ipairs(languages) do
   for ft, formatters in pairs(lang.formatters or {}) do
     M.formatters_by_ft[ft] = formatters
   end
+  -- Why: 複数言語モジュールが同一filetypeを共有する(tailwindとtypescriptでtsx等)ため、
+  -- 代入だと後勝ちで先のモジュールのチェックが消える。マージする
+  local executables = lang.executables or {}
   for _, ft in ipairs(lang.filetypes or {}) do
-    M.executables_by_ft[ft] = lang.executables or {}
+    M.executables_by_ft[ft] = vim.list_extend(M.executables_by_ft[ft] or {}, executables)
   end
   if lang.on_setup then
     lang.on_setup()

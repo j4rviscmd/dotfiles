@@ -1,0 +1,94 @@
+# ============================================================
+# Starship プロンプト設定
+# ミニマルデザイン + Solarized Dark配色
+# ============================================================
+
+scan_timeout = 100
+
+# カスタムカラーパレット: Solarized Dark
+palette = 'solarized_dark'
+
+# コマンドタイムアウト設定（ミリ秒）
+command_timeout = 3000
+
+# プロンプトフォーマット: cwd → branch → status → prompt (2行構成)
+format = """
+$directory\
+$git_branch\
+$git_status\
+$line_break\
+$character"""
+
+# 起動時の空行を無効化
+add_newline = false
+
+# ============================================================
+# カレントディレクトリ表示（親階層+カレントの2階層、ホームは~に省略）
+# ============================================================
+[directory]
+disabled = false
+truncation_length = 2
+truncate_to_repo = false
+style = "bold solarized_blue"
+format = "[$path]($style) "
+
+# ============================================================
+# Gitブランチ表示（ネイティブモジュール）
+# 従来は custom.git_ctx (bash + git fork) で worktree名/branch名を出していたが、
+# Windows の pwsh + psmux 環境で bash 起動のスパイクにより command_timeout(3s) を
+# 超えることがあったため、fork 0回のネイティブモジュールに移行。
+# クロスプラットフォーム(macOS/Windows/Linux)で同一動作し、worktree内でもbranch名を表示。
+# NOTE: detached HEAD 時の "none" 表示はネイティブで再現不可（条件分岐がないため）。
+#       detached は日常発生しないため許容。必要なら別モジュールで補完。
+# ============================================================
+[git_branch]
+symbol = ''
+format = '[$branch]($style) '
+style = 'bold solarized_yellow'
+
+# ============================================================
+# Gitステータス表示（色分け + スペース区切り）
+# ============================================================
+[git_status]
+format = '([$staged](solarized_green)[$modified](solarized_yellow)[$untracked](solarized_cyan)[$conflicted](solarized_red)[$stashed](solarized_violet) )'
+staged = "+${count}"
+modified = "~${count}"
+untracked = "?${count}"
+conflicted = "=${count}"
+stashed = "\\$$count"
+renamed = "»${count}"
+deleted = "✘${count}"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+
+# ============================================================
+# プロンプト文字
+# ============================================================
+[character]
+success_symbol = "[❯](bold solarized_green)"
+error_symbol = "[❯](bold solarized_red)"
+
+# ============================================================
+# Solarized Dark カラーパレット定義
+# ============================================================
+[palettes.solarized_dark]
+# ベースカラー
+solarized_base03 = "#002b36"
+solarized_base02 = "#073642"
+solarized_base01 = "#586e75"
+solarized_base00 = "#657b83"
+solarized_base0 = "#839496"
+solarized_base1 = "#93a1a1"
+solarized_base2 = "#eee8d5"
+solarized_base3 = "#fdf6e3"
+
+# アクセントカラー
+solarized_yellow = "#b58900"
+solarized_orange = "#cb4b16"
+solarized_red = "#dc322f"
+solarized_magenta = "#d33682"
+solarized_violet = "#6c71c4"
+solarized_blue = "#268bd2"
+solarized_cyan = "#2aa198"
+solarized_green = "#859900"

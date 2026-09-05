@@ -1,0 +1,678 @@
+{
+    // ================================================================
+    // Sync & Unique Settings
+    // ================================================================
+    "$comment": "unique settings(async)",
+    "settingsSync.ignoredSettings": [
+        "terminal.external.osxExec",
+        "terminal.integrated.fontFamily",
+        "vscode-neovim.neovimInitVimPaths.darwin",
+        "vscode-neovim.neovimInitVimPaths.linux",
+        "vscode-neovim.neovimInitVimPaths.win32",
+        "vscode-neovim.neovimExecutablePaths.darwin",
+        "vscode-neovim.neovimExecutablePaths.linux",
+        "vscode-neovim.neovimExecutablePaths.win32",
+        "workbench.activityBar.location",
+        "vscode-neovim.useWSL"
+    ],
+    "vscode-neovim.neovimExecutablePaths.win32": "e:\\tools\\nvim-win64\\bin\\nvim.exe",
+    "vscode-neovim.neovimInitVimPaths.win32": "E:\\work\\dotfiles\\nvim\\vscode.vim",
+    // Why: ユーザ名入りの絶対パスを排除するため~表記に変更。拡張機能(vscode-neovim 1.19.0)は設定値を展開せずnvimの-uへそのまま渡すため、~の展開はnvim側に依存する(nvim 0.12で-E282にならないことを検証済み)
+    // Note: ~/.configは本repoへのシンボリックリンク(CLAUDE.md「~/.configにシンボリックシンクして運用」)なので、実体は本repoのnvim/vscode.vim
+    "vscode-neovim.neovimInitVimPaths.darwin": "~/.config/nvim/vscode.vim",
+
+    // ================================================================
+    // Neovim
+    // ================================================================
+    "vscode-neovim.mouseSelectionStartVisualMode": true,
+    "vscode-neovim.useCtrlKeysForInsertMode": false,
+    "vscode-neovim.useCtrlKeysForNormalMode": true,
+    "vscode-neovim.ctrlKeysForNormalMode": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "h",
+        "i",
+        "j",
+        "k",
+        "l",
+        "o",
+        "r",
+        "t",
+        "u",
+        "v",
+        "w",
+        "x",
+        "y",
+        "z",
+        "/",
+        "]",
+        "right",
+        "left",
+        "up",
+        "down",
+        "backspace",
+        "delete",
+        "f"
+    ],
+    "vscode-neovim.neovimClean": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+
+    // ================================================================
+    // Editor - Core
+    // ================================================================
+    "editor.fontFamily": "UDEV Gothic NFLG",
+    "editor.fontSize": 13.5,
+    "editor.lineHeight": 1.25,
+    "editor.fontLigatures": true,
+    "editor.wordWrap": "off",
+    "editor.wordWrapColumn": 8000,
+    "editor.cursorBlinking": "solid",
+    "editor.minimap.enabled": false,
+    "editor.glyphMargin": false,
+    "editor.fastScrollSensitivity": 1,
+    "editor.smoothScrolling": false,
+    "editor.mouseWheelScrollSensitivity": 1,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.stickyScroll.enabled": false,
+    "editor.lightbulb.enabled": "off",
+    "editor.codeLens": false,
+    "editor.editContext": false,
+    "editor.snippetSuggestions": "bottom",
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.inlineSuggest.edits.showCollapsed": true,
+
+    // ================================================================
+    // Editor - Formatting
+    // ================================================================
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false,
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.codeActionsOnSave": {
+        "source.organizeImports.biome": "explicit"
+    },
+    "prettier.requireConfig": true,
+
+    // ================================================================
+    // Biome
+    // ================================================================
+    "biome.enabled": true,
+    "biome.requireConfiguration": true,
+    "biome.suggestInstallingGlobally": false,
+    "biome.lsp.bin": "/opt/homebrew/bin/biome",
+
+    // ================================================================
+    // Ruff (Python)
+    // ================================================================
+    "ruff.organizeImports": true,
+    "ruff.lint.enable": true,
+    "ruff.lineLength": 80,
+    "ruff.fixAll": true,
+
+    // ================================================================
+    // Terminal
+    // ================================================================
+    // "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    // "terminal.integrated.fontFamily": "NOTONOTO35 Console HS",
+    "terminal.integrated.fontFamily": "UDEV Gothic NF",
+    "terminal.integrated.lineHeight": 1.05,
+    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontWeight": "normal",
+    "terminal.integrated.defaultProfile.osx": "Zsh",
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "/bin/zsh",
+            "args": ["-l"]
+        }
+    },
+    "terminal.integrated.scrollback": 5000,
+    "terminal.integrated.defaultLocation": "editor",
+    "terminal.integrated.confirmOnKill": "never",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.rightClickBehavior": "paste",
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "terminal.integrated.inheritEnv": false,
+    "terminal.integrated.allowChords": true,
+    "terminal.integrated.useWslProfiles": false,
+    "terminal.integrated.commandsToSkipShell": [
+        "tmux-pane-editors.toggleTmuxMode",
+        "tmux-pane-editors.navigate",
+        "tmux-pane-editors.resize",
+        "workbench.action.closeActiveEditor",
+        "workbench.action.nextEditorInGroup",
+        "workbench.action.previousEditorInGroup"
+    ],
+    "terminal.integrated.localEchoExcludePrograms": ["vim", "vi", "tmux"],
+    "terminal.integrated.mouseWheelZoom": true,
+    "terminal.integrated.suggest.cdPath": "relative",
+    "terminal.integrated.suggest.upArrowNavigatesHistory": false,
+    "terminal.integrated.stickyScroll.enabled": false,
+    "terminal.integrated.initialHint": false,
+
+    // ================================================================
+    // Workbench & Window
+    // ================================================================
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.iconTheme": "gruvbox-material-icon-theme",
+    "workbench.list.fastScrollSensitivity": 1,
+    "workbench.colorCustomizations": {
+        "jumpy2.beaconColor": "#ffaf00af",
+        "jumpy2.labelFontColor": "#002b36",
+        "jumpy2.labelBackgroundColor": "#ffaf00",
+        "jumpy2.labelBorderColor": "#ff8700",
+        "jumpy2.checkered_labelFontColor": "#ffaf00",
+        "jumpy2.checkered_labelBackgroundColor": "#073642",
+        "jumpy2.checkered_labelBorderColor": "#586e75"
+    },
+    "workbench.settings.applyToAllProfiles": [
+        "editor.wordWrap",
+        "editor.wordWrapColumn"
+    ],
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.tree.enableStickyScroll": false,
+    "workbench.panel.opensMaximized": "never",
+    "workbench.secondarySideBar.defaultVisibility": "hidden",
+    "workbench.navigationControl.enabled": false,
+    "workbench.editor.tabActionCloseVisibility": false,
+    "workbench.editor.centeredLayoutAutoResize": false,
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.editor.showTabs": "multiple",
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.browser.showInTitleBar": false,
+    "workbench.layoutControl.enabled": false,
+    "window.density.editorTabHeight": "compact",
+    "window.menuBarVisibility": "compact",
+    "window.restoreWindows": "one",
+    "window.nativeTabs": false,
+    "zenMode.centerLayout": false,
+    "zenMode.fullScreen": false,
+
+    // ================================================================
+    // Git
+    // ================================================================
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "git.openRepositoryInParentFolders": "never",
+    "git.ignoreRebaseWarning": true,
+    "git.inputValidation": true,
+    "git.defaultBranchName": "develop",
+    "git.replaceTagsWhenPull": true,
+    "git.postCommitCommand": "sync",
+
+    // ================================================================
+    // GitLens
+    // ================================================================
+    "gitlens.advanced.messages": {
+        "suppressCreatePullRequestPrompt": true
+    },
+    "gitlens.views.repositories.showUpstreamStatus": false,
+    "gitlens.outputLevel": "error",
+
+    // ================================================================
+    // Files, Search & Explorer
+    // ================================================================
+    "files.eol": "\n",
+    "files.defaultLanguage": "plaintext",
+    "files.hotExit": "onExitAndWindowClose",
+    "files.associations": {
+        "*.tsx": "typescriptreact"
+    },
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/.git": false,
+        "**/node_modules": true,
+        "**/__pycache__": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/.hg/store/**": true,
+        "**/.dart_tool": true,
+        "**/node_modules/*/**": true,
+        "**/dist/**": true,
+        "**/build/**": true,
+        "**/.vscode/**": true,
+        "**/coverage/**": true,
+        "**/__generated__/**": true
+    },
+    "search.useIgnoreFiles": false,
+    "search.exclude": {
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/package-lock.json": true,
+        "**/poetry-lock.json": true,
+        "**/.git/*/**": true,
+        "/tmp/**": true
+    },
+    "explorer.confirmDelete": false,
+    "explorer.confirmPasteNative": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.autoOpenDroppedFile": false,
+    "explorer.compactFolders": false,
+
+    // ================================================================
+    // Language-specific Settings
+    // ================================================================
+    "[python]": {
+        "editor.indentSize": 4,
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "[shellscript]": {
+        "editor.defaultFormatter": "Anthropic.claude-code"
+    },
+    "[lua]": {
+        "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.wordWrap": "off"
+    },
+    "[java]": {
+        "editor.defaultFormatter": "Anthropic.claude-code"
+    },
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+
+    // ================================================================
+    // Python
+    // ================================================================
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.inlayHints.callArgumentNames": "onUnambiguous",
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.inlayHints.pytestParameters": false,
+    "python.analysis.inlayHints.variableTypes": true,
+    "python.terminal.activateEnvironment": false,
+
+    // ================================================================
+    // Java
+    // ================================================================
+    "java.saveActions.organizeImports": true,
+    "java.help.showReleaseNotes": false,
+    "java.server.launchMode": "Standard",
+    "java.project.resourceFilters": ["\\.git"],
+
+    // ================================================================
+    // Dart
+    // ================================================================
+    "dart.debugExternalPackageLibraries": false,
+    "dart.debugSdkLibraries": false,
+    "dart.showInspectorNotificationsForWidgetErrors": false,
+
+    // ================================================================
+    // Rust (rust-analyzer)
+    // ================================================================
+    "rust-analyzer.diagnostics.enable": true,
+    "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.procMacro.enable": true,
+
+    // ================================================================
+    // Lua
+    // ================================================================
+    "Lua.diagnostics.globals": ["vim"],
+    "Lua.format.enable": false,
+
+    // ================================================================
+    // TypeScript & JavaScript
+    // ================================================================
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.preferTypeOnlyAutoImports": true,
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.tsserver.log": "off",
+
+    // ================================================================
+    // AI, Copilot & Chat
+    // ================================================================
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "github.copilot.selectedCompletionModel": "",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": true,
+        "scminput": false
+    },
+    "github.copilot.chat.anthropic.tools.websearch.maxUses": 20,
+    "chat.commandCenter.enabled": false,
+    "chat.tools.autoApprove": true,
+    "chat.tools.terminal.autoApprove": {
+        "sudo*": false,
+        "git push*": false,
+        "bash -c*": false,
+        "sh -c*": false,
+        "rm*": false,
+        "rmdir*": false,
+        "del*": false,
+        "kill*": false,
+        "curl -fsSL*": false,
+        "wget*": false,
+        "eval*": true,
+        "chmod*": true,
+        "chown*": true,
+        "/^Remove-Item\\b/i": false,
+        "*": true
+    },
+    "chat.agent.maxRequests": 300,
+    "chat.instructionsFilesLocations": {
+        "~/.config/opencode/AGENTS.md": true
+    },
+    "chatgpt.commentCodeLensEnabled": false,
+
+    // ================================================================
+    // Amazon Q
+    // ================================================================
+    "amazonQ.shareContentWithAWS": false,
+    "amazonQ.telemetry": false,
+
+    // ================================================================
+    // Copilot Usage Tracking
+    // ================================================================
+    "copilotInsights.statusBar.showName": true,
+    "copilotInsights.showMood": false,
+    "copilotInsights.progressBarMode": "used",
+    "copilotInsights.statusBar.showNumericalQuota": false,
+    "copilotUsage.displayMode": "remaining",
+    "copilotUsage.labelStyle": "text",
+    "zaiUsage.statusBarPriority": -999,
+    "zaiUsage.displayMode": "remaining",
+
+    // ================================================================
+    // cSpell
+    // ================================================================
+    "cSpell.userWords": [
+        "aarch",
+        "amazonq",
+        "apscheduler",
+        "asis",
+        "autodocs",
+        "blockquotes",
+        "bunx",
+        "chakra",
+        "chromedriver",
+        "chrono",
+        "clippy",
+        "Codeee",
+        "CODEOWNERS",
+        "dateutil",
+        "docomo",
+        "dotenv",
+        "dotenvy",
+        "dotfiles",
+        "electropop",
+        "firestore",
+        "Flexbox",
+        "frieren",
+        "fuga",
+        "GHOSTTY",
+        "googleapiclient",
+        "hoge",
+        "htmlcov",
+        "icns",
+        "idx",
+        "indexs",
+        "isort",
+        "iterrows",
+        "Karabiner",
+        "kwargs",
+        "lazygit",
+        "Matemasie",
+        "msvc",
+        "mylib",
+        "neovim",
+        "Neovimmer",
+        "nestjs",
+        "noconsole",
+        "Noto",
+        "oklch",
+        "Ollama",
+        "onefile",
+        "opencode",
+        "osascript",
+        "PDCA",
+        "piyo",
+        "PKCE",
+        "plotly",
+        "pochi",
+        "pwsh",
+        "pycache",
+        "pyenv",
+        "pyinstaller",
+        "pyproject",
+        "pytest",
+        "reduxjs",
+        "relativedelta",
+        "reqwest",
+        "rgba",
+        "rustdoc",
+        "rustup",
+        "rviscmd",
+        "serde",
+        "shadcn",
+        "shellenv",
+        "skipna",
+        "sonner",
+        "Spotipy",
+        "SQLITEVEC",
+        "Streamlit",
+        "stylua",
+        "synthpop",
+        "tailwindcss",
+        "tanstack",
+        "Tauri",
+        "tauricon",
+        "toastify",
+        "tobe",
+        "todos",
+        "typecheck",
+        "Unlisten",
+        "venv",
+        "vercel",
+        "virtua",
+        "vite",
+        "vscodeee",
+        "worktree",
+        "worktrees",
+        "xattr"
+    ],
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/{info,lfs,logs,refs,objects}/**",
+        ".git/{index,*refs,*HEAD}",
+        ".vscode",
+        ".vscode-insiders"
+    ],
+    "cSpell.enabledNotifications": {
+        "Average Word Length too Long": false,
+        "Lines too Long": false,
+        "Maximum Word Length Exceeded": false
+    },
+
+    // ================================================================
+    // Extensions
+    // ================================================================
+    "animations.Enabled": false,
+    "bracket-pair-colorizer-2.depreciation-notice": false,
+    "react-native-tools.showUserTips": false,
+    "react-native-tools.networkInspector.consoleLogsColorTheme": "Dark",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "indentRainbow.excludedLanguages": ["markdown"],
+    "tailwindCSS.files.exclude": [
+        "**/node_modules/**",
+        "**/.hg/**",
+        "**/.svn/**",
+        "**/.git/**"
+    ],
+    "headwind.runOnSave": true,
+    "emmet.excludeLanguages": ["markdown", "typescript", "typescriptreact"],
+    "custom-ui-style.electron": {
+        "frame": true,
+        // windowsの場合、transparentをtrueにするとwindow移動(win+arrow)が反応しないためfalseに設定.透過はする
+        "transparent": false,
+        "opacity": 0.93
+    },
+    "lldb.suppressUpdateNotifications": true,
+    "jumpy2.customKeys": "abcdefhijklmnoprstuvwxyz", // cspell:disable-line
+    "periscope.rgGlobExcludes": [
+        "/dist/",
+        "/node_modules/",
+        "poetry.lock",
+        "package-lock.json"
+    ],
+    "notebook.defaultFormatter": "esbenp.prettier-vscode",
+
+    // ================================================================
+    // Oil Code
+    // ================================================================
+    "oil-code.disableVimKeymaps": false,
+    "oil-code.enableWorkspaceEdit": true,
+    "oil-code.hasNerdFont": true,
+    "oil-code.disableOpenCwdNothingOpen": true,
+
+    // ================================================================
+    // LazyGit
+    // ================================================================
+    // "lazygit-vscode.lazygitPath": "E:\\tools\\lazygit_0.61.1_windows_x86_64\\lazygit.exe",
+    "lazygit-vscode.configPath": "~/.config/lazygit/config.yml",
+    "lazygit-vscode.autoMaximizeWindow": false,
+    "lazygit-vscode.panels": {
+        "panel": "keep",
+        "sidebar": "keep",
+        "secondarySidebar": "keep"
+    },
+
+    // ================================================================
+    // Markdown Preview Enhanced
+    // ================================================================
+    "markdown-preview-enhanced.liveUpdate": true,
+    "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+    "markdown-preview-enhanced.enableScriptExecution": false,
+
+    // ================================================================
+    // Comment Translate
+    // ================================================================
+    "commentTranslate.sourceLanguage": "en",
+    "commentTranslate.targetLanguage": "ja",
+    "commentTranslate.browse.enabled": false, // hoverせずとも翻訳できるようにする
+    "commentTranslate.hover.content": true,
+    "commentTranslate.selectTargetLanguageWhenReplacing": true,
+
+    // ================================================================
+    // Linting & Formatting Configs
+    // ================================================================
+    "importSorter.importStringConfiguration.tabSize": 2,
+    "css.lint.unknownAtRules": "ignore",
+    "markdownlint.config": {
+        "MD022": false,
+        "MD029": false,
+        "MD031": false,
+        "MD032": false,
+        "MD033": false,
+        "MD041": false,
+        "MD058": false
+    },
+
+    // ================================================================
+    // Diff Editor
+    // ================================================================
+    "diffEditor.ignoreTrimWhitespace": true,
+    "diffEditor.wordWrap": "off",
+    "diffEditor.hideUnchangedRegions.enabled": true,
+
+    // ================================================================
+    // Security, Privacy & Telemetry
+    // ================================================================
+    "security.workspace.trust.untrustedFiles": "open",
+    "security.workspace.trust.enabled": false,
+    "aws.telemetry": false,
+    "redhat.telemetry.enabled": false,
+    "update.enableWindowsBackgroundUpdates": false,
+
+    // ================================================================
+    // Remote
+    // ================================================================
+    "remote.WSL.downloadInBackground": false,
+    "remote.SSH.remotePlatform": {
+        "localhost": "linux"
+    },
+    "remote.defaultExtensionsIfInstalledLocally": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "GitHub.vscode-pull-request-github"
+    ],
+
+    // ================================================================
+    // Debug
+    // ================================================================
+    "debug.console.wordWrap": false,
+
+    // ================================================================
+    // Misc
+    // ================================================================
+    "extensions.ignoreRecommendations": true,
+    "json.schemaDownload.trustedDomains": {
+        "https://biomejs.dev": true,
+        "https://developer.microsoft.com/json-schemas/": true,
+        "https://json-schema.org/": true,
+        "https://json.schemastore.org/": true,
+        "https://models.dev": true,
+        "https://opencode.ai": true,
+        "https://raw.githubusercontent.com/": true,
+        "https://raw.githubusercontent.com/devcontainers/spec/": true,
+        "https://raw.githubusercontent.com/microsoft/vscode/": true,
+        "https://schema.tauri.app": true,
+        "https://schemastore.azurewebsites.net/": true,
+        "https://ui.shadcn.com": true,
+        "https://www.schemastore.org/": true
+    },
+    "workbench.editor.useModal": "off",
+    // "update.enabled": true,
+    "update.mode": "none",
+    "window.commandCenter": false,
+    "vscodeee.workbench.editor.autoMaximizeOnFocus": false,
+    "vscodeee.workbench.editor.editorGroupIndexInTab": true,
+    "window.zoomLevel": 0,
+    "terminal.integrated.enablePersistentSessions": true,
+    "workbench.preferredDarkColorTheme": "Solarized Deep",
+    "vscodeee.cursorAutoHide.enabled": true,
+    "vscodeee.activePaneBorder.color": "#cccc",
+    "vscodeee.activePaneBorder.enabled": true,
+    "vscodeee.activePaneBorder.width": 1.5,
+    "vscodeee.terminal.horizontalPadding": 10,
+    "workbench.activityBar.location": "hidden",
+    "vscodeee.quickOpen.excludeTerminals": true,
+    "workbench.colorTheme": "Solarized Deep",
+}

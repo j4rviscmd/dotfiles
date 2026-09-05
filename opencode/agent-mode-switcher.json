@@ -1,0 +1,47 @@
+{
+    "currentMode": "economy",
+    "showToastOnStartup": true,
+    "presets": {
+        "economy": {
+            "description": "Cost-efficient free model for routine tasks",
+            "opencode": {
+                "plan": {
+                    "model": "zai-coding-plan/glm-5.3-flash"
+                },
+                "build": {
+                    "model": "zai-coding-plan/glm-5.3-flash"
+                },
+                "compaction": {
+                    "model": "zai-coding-plan/glm-5.3-flash"
+                },
+                "general": {
+                    "model": "zai-coding-plan/glm-5.3-flash"
+                },
+                "doc-generator": {
+                    "model": "zai-coding-plan/glm-5.3-flash"
+                },
+                "code-architect": {
+                    "model": "zai-coding-plan/glm-5.3-flash"
+                },
+                "code-explorer": {
+                    "model": "zai-coding-plan/glm-4.5-air"
+                },
+                "code-reviewer": {
+                    "model": "zai-coding-plan/glm-5.3-flash"
+                },
+                "code-simplifier": {
+                    "model": "zai-coding-plan/glm-5.3-flash"
+                },
+                "summary": {
+                    "model": "zai-coding-plan/glm-4.5-air"
+                },
+                "title": {
+                    "model": "zai-coding-plan/glm-4.5-air"
+                },
+                "explore": {
+                    "model": "zai-coding-plan/glm-4.5-air"
+                }
+            }
+        }
+    }
+}

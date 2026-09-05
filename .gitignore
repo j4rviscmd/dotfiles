@@ -1,0 +1,94 @@
+# cspell:disable
+# 秘匿環境変数SSOT(誤commit絶対禁止)
+.env
+configstore/
+mume/
+flutter/
+fontforge/
+linearmouse/
+firebase/
+rest-client/
+yarn/
+homebrew/
+
+fish/fishd.tmp*
+fish/fish_variables
+fish/functions/
+fish/completions/
+fish/conf.d/z.fish
+nvim/plugin/
+nvim/zenhan.exe
+tool_state
+
+/karabiner/automatic_backups/
+# Karabinerのimportストック(実稼働はkarabiner.json側)
+/karabiner/assets/
+.nuxt/devtools/*.json
+gh_token.txt
+discord_webhook_opencode.txt
+discord_webhook_opencode_normal.txt
+e5_pw.txt
+gcloud/
+context7_api_key.txt
+gh_mcp_token.txt
+logs/
+*.log
+uv/
+memory.json
+raycast/
+
+# ローカル環境固有のzsh設定（機密情報含む）
+.zshrc.local
+.zshenv.local
+
+# Hammerspoon: 自宅Wi-Fi SSID（環境固有情報）
+.hammerspoon/home-wifi.local
+
+# zsh履歴・自動生成ファイル
+.zsh_history
+.zsh_plugins.zsh
+.zcompdump*
+# Node.js
+node_modules/
+
+# WSL2 / Linux環境で自動生成されるディレクトリ
+libvirt/
+systemd/
+pulse/
+dconf/
+gtk-*/
+ibus/
+Code/
+BraveSoftware/
+google-chrome/
+microsoft-edge/
+VirtualBox/
+procps/
+
+# Claude Code関連
+claude/
+
+# Bash履歴（機密情報を含む可能性）
+.bash_history
+.bash_sessions/
+
+# opencode plugin settings
+opencode/discord-notify-queue.*
+opencode/package-lock.json
+
+powershell/*.txt
+
+# Git worktrees
+.worktrees/
+
+**/plans/*
+
+opencode-notifier-state.json
+# SwiftPM (symlink targets contain username, do not track)
+swiftpm/
+
+github-copilot/
+
+# Claw-Code
+.claw/
+.playwright-mcp/

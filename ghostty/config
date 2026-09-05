@@ -1,0 +1,73 @@
+theme = Solarized Dark Patched
+cursor-style = block
+cursor-style-blink = false
+
+background-opacity = 0.8
+background-blur-radius = 20
+background = #031219
+
+# font-family = "PlemolJP Console NF"
+# font-family = Hack Nerd Font Mono
+# Note: README.md の Font セクションが本フォントを指定済み（commit d3618af）。
+#       config側が取り残されていたため README に合わせて反映
+font-family = Moralerspace Neon HW
+font-size = 13
+
+window-padding-x = 4
+window-padding-y = 4
+
+# 新規タブ/ウィンドウのCWDは継承せず常に固定
+# Why: 継承系は既定で true のため、false にしないと直前フォーカス先の CWD が優先され
+#      working-directory が実質無効になる（Ghostty ghostty.5.md の
+#      tab/window-inherit-working-directory 項目参照）
+working-directory = ~/work/dev
+tab-inherit-working-directory = false
+window-inherit-working-directory = false
+
+window-save-state = always
+macos-titlebar-style = tabs
+
+# cmd+f でオートコンプリート候補を受け入れる
+# 右矢印キーのエスケープシーケンス(\x1b[C)を送信
+# NOTE: ctrl+fはopencodeのpage downと競合するため削除
+#       zsh-autosuggestionsはデフォルトでctrl+f(forward-char)で受け入れ可能
+keybind = super+f=text:\x1b[C
+
+# ctrl+v でペースト
+# keybind = ctrl+v=paste
+
+# 左Option を Alt として扱う (右Option は macOS 特殊文字入力のまま)
+# Why: nvim の <M-.>(code_action/quickfix) 用。Windows(WezTerm)の Alt と挙動を揃える
+macos-option-as-alt = left
+
+# cmd+. で quickfix (VSCode と同じキー)
+# alt+. と同じ ESC前置の '.' を送り、nvim は <M-.>(code_action) として受ける
+# Why: cmd+. はそのままでは素の '.' しか送れずtmuxで修飾が剥がれるため
+keybind = super+.=text:\x1b.
+
+# ctrl+. を無効化(何も送らない)
+# Why: 修飾キーが無視され素の '.' がターミナルへ送られ、nvim insertモードで
+#      誤入力になるため
+keybind = ctrl+.=ignore
+
+# Ghosttyのsplit(pane)操作系デフォルトキーバインドを無効化
+# Why: tmuxでpane運用のため不要。cmd+d等の誤爆防止(デフォルト値はghostty +list-keybinds)
+keybind = super+d=ignore
+keybind = super+shift+d=ignore
+keybind = super+shift+enter=ignore
+keybind = super+[=ignore
+keybind = super+]=ignore
+keybind = super+alt+arrow_up=ignore
+keybind = super+alt+arrow_down=ignore
+keybind = super+alt+arrow_left=ignore
+keybind = super+alt+arrow_right=ignore
+keybind = super+ctrl+arrow_up=ignore
+keybind = super+ctrl+arrow_down=ignore
+keybind = super+ctrl+arrow_left=ignore
+keybind = super+ctrl+arrow_right=ignore
+keybind = super+ctrl+==ignore
+
+# Claude Code画像ペースト用設定
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = false

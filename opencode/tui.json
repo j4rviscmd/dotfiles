@@ -1,0 +1,11 @@
+{
+    "$schema": "https://opencode.ai/tui.json",
+    "theme": "systemp",
+    "keybinds": {
+        "leader": "ctrl+x",
+        "messages_page_up": "pageup,ctrl+b",
+        "messages_page_down": "pagedown,ctrl+f",
+        "input_move_left": "left",
+        "input_move_right": "right"
+    }
+}

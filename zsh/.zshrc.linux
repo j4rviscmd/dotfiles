@@ -1,0 +1,78 @@
+# ============================================================
+# Linux/WSL2固有設定
+# ============================================================
+#
+# ## WSL2セットアップ手順
+#
+# 1. zshインストール:
+#    sudo apt install zsh
+#
+# 2. デフォルトシェル変更:
+#    chsh -s $(which zsh)
+#
+# 3. Homebrewインストール:
+#    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#
+# 4. 必要ツールのインストール:
+#    brew install antidote starship zoxide eza pyenv fnm
+#
+# 5. dotfilesをシンボリックリンク:
+#    ln -sf ~/dotfiles/.zshrc ~/.zshrc
+#    ln -sf ~/dotfiles/.zshrc.linux ~/.zshrc.linux
+#    ln -sf ~/dotfiles/.zsh_plugins.txt ~/.zsh_plugins.txt
+#
+# ============================================================
+
+# ============================================================
+# Homebrew設定（Linuxbrew）
+# ============================================================
+if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+# ============================================================
+# antidote プラグインマネージャー
+# ============================================================
+if command -v brew &>/dev/null; then
+  source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+elif [ -f "$HOME/.antidote/antidote.zsh" ]; then
+  # Homebrewがない場合はgit cloneでインストールしたantidoteを使用
+  source "$HOME/.antidote/antidote.zsh"
+fi
+
+# ============================================================
+# libgit2設定
+# ============================================================
+if [ -d "/home/linuxbrew/.linuxbrew/opt/libgit2/lib" ]; then
+  export LD_LIBRARY_PATH="/home/linuxbrew/.linuxbrew/opt/libgit2/lib:$LD_LIBRARY_PATH"
+fi
+
+# ============================================================
+# fnm (Fast Node Manager)
+# ============================================================
+if command -v fnm &>/dev/null; then
+  eval "$(fnm env)"
+fi
+
+# ============================================================
+# Android/Java設定 (必要に応じてコメント解除)
+# ============================================================
+# export ANDROID_HOME="$HOME/Android/Sdk"
+# export PATH="$ANDROID_HOME/platform-tools:$PATH"
+# export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+# export PATH="$JAVA_HOME/bin:$PATH"
+
+# ============================================================
+# WSL2固有設定
+# ============================================================
+# Windows側のブラウザを開く（必要に応じてコメント解除）
+# export BROWSER="/mnt/c/Program Files/Google/Chrome/Application/chrome.exe"
+
+# WSL2でのクリップボード連携（必要に応じてコメント解除）
+# alias pbcopy="clip.exe"
+# alias pbpaste="powershell.exe -command 'Get-Clipboard' | tr -d '\r'"
+
+# ============================================================
+# tauri2.0設定
+# ============================================================
+export PKG_CONFIG_PATH="/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH"

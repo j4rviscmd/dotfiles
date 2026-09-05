@@ -1,0 +1,11 @@
+# 自宅Wi-FiのSSIDを1行に1つずつ記載してください
+# # で始まる行はコメントとして無視されます
+# このファイルを home-wifi.local という名前で ~/.hammerspoon/ に配置してください
+#
+# 例:
+#   MyHomeWiFi-5G
+#   MyHomeWiFi-2G
+#   テザリング
+#   iPhone Air
+
+MyHomeWiFi

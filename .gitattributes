@@ -1,0 +1,5 @@
+* text=auto eol=lf
+# bat は cmd のパース安定性のため CRLF を維持
+# Caution: bat を git add すると "CRLF will be replaced by LF" 警告が出るが、リポジトリ格納時はLF正規化・チェックアウト時にCRLFへ復元される仕様のため警告は無視してよい（例外が効いていないわけではない）
+# Note: この例外は 71bac0c で psmux/scripts/run-sh.bat を追加した際に導入
+*.bat text eol=crlf

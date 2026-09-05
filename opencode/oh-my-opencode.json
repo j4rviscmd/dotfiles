@@ -1,0 +1,62 @@
+{
+    "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+    "agents": {
+        "sisyphus": {
+            "model": "github-copilot/claude-sonnet-4.6"
+        },
+        "oracle": {
+            "model": "github-copilot/claude-sonnet-4.6",
+            "variant": "high"
+        },
+        "librarian": {
+            "model": "github-copilot/claude-sonnet-4.6",
+            "variant": "high"
+        },
+        "explore": {
+            "model": "github-copilot/gpt-5-mini"
+        },
+        "multimodal-looker": {
+            "model": "github-copilot/claude-sonnet-4.6"
+        },
+        "prometheus": {
+            "model": "github-copilot/claude-sonnet-4.6",
+            "variant": "max"
+        },
+        "metis": {
+            "model": "github-copilot/claude-sonnet-4.6",
+            "variant": "max"
+        },
+        "momus": {
+            "model": "github-copilot/claude-sonnet-4.6",
+            "variant": "medium"
+        },
+        "atlas": {
+            "model": "github-copilot/claude-sonnet-4.6"
+        }
+    },
+    "categories": {
+        "visual-engineering": {
+            "model": "github-copilot/claude-sonnet-4.6"
+        },
+        "ultrabrain": {
+            "model": "github-copilot/claude-sonnet-4.6",
+            "variant": "high"
+        },
+        "artistry": {
+            "model": "github-copilot/claude-sonnet-4.6",
+            "variant": "max"
+        },
+        "quick": {
+            "model": "zai-coding-plan/glm-5-flash"
+        },
+        "unspecified-low": {
+            "model": "github-copilot/claude-sonnet-4.6"
+        },
+        "unspecified-high": {
+            "model": "github-copilot/claude-sonnet-4.6"
+        },
+        "writing": {
+            "model": "github-copilot/claude-sonnet-4.6"
+        }
+    }
+}

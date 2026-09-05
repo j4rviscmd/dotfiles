@@ -1,0 +1,1077 @@
+[
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "when": "terminalFocus",
+        "args": {
+            "text": "\u001b\r"
+        }
+    },
+    // ===========================================================
+    // VSCode UI関連のカスタムキーバインド
+    // ===========================================================
+    // **2面**
+    {
+        "$comment": "レイアウト(すでにエディタファイルが開いている場合用)",
+        "key": "ctrl+t shift+] 2",
+        "command": "runCommands",
+        "when": "editorFocus",
+        "args": {
+            "commands": [
+                "workbench.action.editorLayoutTwoColumns",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateLeft",
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.navigateRight"
+            ]
+        }
+    },
+    {
+        "$comment": "レイアウト(エディタファイルが開いていない場合用)",
+        "key": "ctrl+t shift+] 2",
+        "command": "runCommands",
+        "when": "!editorFocus",
+        "args": {
+            "commands": [
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.files.newUntitledFile",
+                "workbench.action.editorLayoutTwoColumns",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateLeft",
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.navigateRight"
+            ]
+        }
+    },
+    // **3面**
+    {
+        "$comment": "レイアウト(すでにエディタファイルが開いている場合用)",
+        "key": "ctrl+t shift+] 3",
+        "command": "runCommands",
+        "when": "editorFocus",
+        "args": {
+            "commands": [
+                "workbench.action.editorLayoutTwoColumns",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateLeft",
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.navigateDown",
+                "workbench.action.createTerminalEditorSameGroup",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateUp",
+                "workbench.action.unlockEditorGroup"
+                // // {
+                // //     "command": "workbench.action.terminal.sendSequence",
+                // //     "args": { "text": "claude\n" }
+                // // },
+            ]
+        }
+    },
+    {
+        "$comment": "レイアウト(エディタファイルが開いていない場合用)",
+        "key": "ctrl+t shift+] 3",
+        "command": "runCommands",
+        "when": "!editorFocus",
+        "args": {
+            "commands": [
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.files.newUntitledFile",
+                "workbench.action.editorLayoutTwoColumns",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateLeft",
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.navigateDown",
+                "workbench.action.createTerminalEditorSameGroup",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateUp",
+                "workbench.action.unlockEditorGroup"
+                // {
+                //     "command": "workbench.action.terminal.sendSequence",
+                //     "args": { "text": "claude\n" }
+                // },
+            ]
+        }
+    },
+    // **4面**
+    {
+        "$comment": "レイアウト(すでにエディタファイルが開いている場合用)",
+        "key": "ctrl+t shift+] 4",
+        "command": "runCommands",
+        "when": "editorFocus",
+        "args": {
+            "commands": [
+                "workbench.action.editorLayoutThreeColumns",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateLeft",
+                "workbench.action.navigateLeft",
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.navigateDown",
+                "workbench.action.createTerminalEditorSameGroup",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateUp",
+                "workbench.action.unlockEditorGroup"
+                // // {
+                // //     "command": "workbench.action.terminal.sendSequence",
+                // //     "args": { "text": "claude\n" }
+                // // },
+            ]
+        }
+    },
+    {
+        "$comment": "レイアウト(エディタファイルが開いていない場合用)",
+        "key": "ctrl+t shift+] 4",
+        "command": "runCommands",
+        "when": "!editorFocus",
+        "args": {
+            "commands": [
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.files.newUntitledFile",
+                "workbench.action.editorLayoutThreeColumns",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateLeft",
+                "workbench.action.navigateLeft",
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.navigateDown",
+                "workbench.action.createTerminalEditorSameGroup",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateUp",
+                "workbench.action.unlockEditorGroup"
+                // {
+                //     "command": "workbench.action.terminal.sendSequence",
+                //     "args": { "text": "claude\n" }
+                // },
+            ]
+        }
+    },
+    // **6面**
+    {
+        "$comment": "レイアウト(すでにエディタファイルが開いている場合用)",
+        "key": "ctrl+t shift+] 6",
+        "command": "runCommands",
+        "when": "editorFocus",
+        "args": {
+            "commands": [
+                "workbench.action.editorLayoutThreeColumns",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateLeft",
+                "workbench.action.navigateLeft",
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.navigateDown",
+                "workbench.action.createTerminalEditorSameGroup",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateUp",
+                "workbench.action.unlockEditorGroup"
+                // {
+                //     "command": "workbench.action.terminal.sendSequence",
+                //     "args": { "text": "claude\n" }
+                // },
+            ]
+        }
+    },
+    {
+        "$comment": "レイアウト(エディタファイルが開いていない場合用)",
+        "key": "ctrl+t shift+] 6",
+        "command": "runCommands",
+        "when": "!editorFocus",
+        "args": {
+            "commands": [
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.files.newUntitledFile",
+                "workbench.action.editorLayoutThreeColumns",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.decreaseViewWidth",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateRight",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.createTerminalEditor",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateLeft",
+                "workbench.action.navigateLeft",
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.navigateDown",
+                "workbench.action.createTerminalEditorSameGroup",
+                "workbench.action.lockEditorGroup",
+                "workbench.action.navigateUp",
+                "workbench.action.unlockEditorGroup"
+                // {
+                //     "command": "workbench.action.terminal.sendSequence",
+                //     "args": { "text": "claude\n" }
+                // },
+            ]
+        }
+    },
+    {
+        "$comment": "ターミナル起動しっぱでアプリ終了を回避するためのショトカ",
+        "key": "cmd+q",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.terminal.killAll", // 全ターミナルのタスク kill
+                "workbench.action.quit" // quit vscode
+            ]
+        }
+    },
+    {
+        "$comment": "winの場合、terminalでの貼り付け有効化",
+        "key": "ctrl+v",
+        "when": "isWindows && terminalFocus",
+        "command": "runCommands",
+        "args": {
+            "commands": ["editor.action.clipboardPasteAction"]
+        }
+    },
+    {
+        "command": "runCommands",
+        "key": "ctrl+r",
+        "when": "inQuickOpen",
+        "args": {
+            "commands": ["editor.action.clipboardPasteAction"]
+        }
+    },
+    {
+        "key": "ctrl+v",
+        "when": "isMac && inputFocus && inQuickOpen",
+        "command": "runCommands",
+        "args": {
+            "commands": ["editor.action.clipboardPasteAction"]
+        }
+    },
+    // ===========================================================
+    // ファイルエクスプローラー関連のカスタムキーバインド
+    // 必要なCLI: fzf, ripgrep(rg), bat
+    // ===========================================================
+    {
+        "command": "runCommands",
+        "key": "ctrl+i",
+        "when": "neovim.mode!=insert",
+        "args": {
+            "commands": ["workbench.action.quickOpen"]
+        }
+    },
+    //   {
+    //   "command": "runCommands",
+    //   "key": "ctrl+i",
+    //   "when": "neovim.mode!=insert && !terminalFocus",
+    //   "args": {
+    //       "commands": [
+    //           "workbench.action.createTerminalEditor",
+    //           {
+    //               "command": "workbench.action.terminal.sendSequence",
+    //               "args": {
+    //                   "text": "file=$(fzf --preview 'bat --color=always {}') && code \"$file\"; exit 0;\n"
+    //               }
+    //           }
+    //       ]
+    //   }
+    //   },
+    {
+        "command": "runCommands",
+        "key": "ctrl+g",
+        "when": "neovim.mode != insert && !terminalFocus",
+        "args": {
+            "commands": ["periscope.resumeSearch"]
+        }
+    },
+    // {
+    //     "command": "runCommands",
+    //     "key": "ctrl+g",
+    //     "when": "neovim.mode != insert && !terminalFocus",
+    //     "args": {
+    //         "commands": [
+    //             "workbench.action.createTerminalEditor",
+    //             {
+    //                 "command": "workbench.action.terminal.sendSequence",
+    //                 "args": {
+    //                     "text": "rg --line-number --color=always '' | fzf --ansi --delimiter ':' --bind 'enter:become(code -g {1}:{2})' || exit 0\n"
+    //                 }
+    //             }
+    //         ]
+    //     }
+    // },
+    {
+        "$": "explorer open",
+        "command": "runCommands",
+        "key": "ctrl+o",
+        "when": "neovim.mode != insert && !explorerViewletVisible && !terminalFocus",
+        "args": {
+            "commands": [
+                //
+                "workbench.explorer.fileView.focus"
+            ]
+        }
+    },
+    {
+        "$": "各サイドバー & 拡張機能パネルなどが開いた時向け",
+        "command": "runCommands",
+        "key": "ctrl+o",
+        "when": "!terminalFocus && (neovim.mode != insert) && (explorerViewletVisible || foldersViewVisible || sideBarVisible)",
+        "args": {
+            "commands": [
+                "workbench.action.closePanel",
+                "workbench.action.closeSidebar",
+                "workbench.action.closeAuxiliaryBar",
+                "workbench.action.activityBarLocation.hide"
+            ]
+        }
+    },
+    {
+        "$comment": "ツリー操作かつフィルタ結果である場合、フィルタを閉じる",
+        "command": "runCommands",
+        "key": "Enter",
+        "when": "listFocus && treeFindOpen && explorerResourceIsFolder",
+        "args": {
+            "commands": ["list.closeFind", "list.expand"]
+        }
+    },
+    {
+        "$comment": "ファイルフィルタリング実行&j,kキーでの移動を有効化",
+        "command": "runCommands",
+        "key": "Enter",
+        "when": "inputFocus && explorerViewletFocus",
+        "args": {
+            "commands": ["list.toggleFilterOnType", "list.expandSelectionDown"]
+        }
+    },
+    {
+        "$comment": "ツリー操作でファイルにフォーカスがある場合、ファイルを開きつつツリーを閉じる",
+        "command": "runCommands",
+        "key": "v",
+        "when": "explorerViewletFocus && (explorerViewletVisible || foldersViewVisible) && !explorerResourceIsFolder && !inputFocus",
+        "args": {
+            "commands": [
+                "explorer.openToSide",
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        }
+    },
+    // {
+    //     "$comment": "ツリー操作でファイルにフォーカスがある場合、ファイルを開きつつツリーを閉じる(Enterキー版)",
+    //     "key": "Enter",
+    //     "command": "runCommands",
+    //     "when": "explorerViewletFocus && (explorerViewletVisible || foldersViewVisible) && !explorerResourceIsFolder && !inputFocus",
+    //     "args": {
+    //         "commands": [
+    //             "list.closeFind",
+    //             "list.select",
+    //             "workbench.action.closePanel",
+    //             "workbench.action.closeSidebar",
+    //             "workbench.action.closeAuxiliaryBar",
+    //             "workbench.action.activityBarLocation.hide"
+    //         ]
+    //     }
+    // },
+    {
+        "$comment": "ファイルツリーのフォルダを開閉",
+        "key": "Enter",
+        "when": "explorerViewletFocus && explorerViewletVisible && explorerResourceIsFolder && !inputFocus && !treeFindOpen",
+        "command": "list.toggleExpand"
+    },
+    {
+        "key": "m r",
+        "command": "renameFile",
+        "when": "(explorerViewletVisible && filesExplorerFocus && !inputFocus) || (foldersViewVisible && !inputFocus)"
+    },
+    {
+        "key": "m c",
+        "command": "filesExplorer.copy",
+        "when": "(explorerViewletVisible && filesExplorerFocus && !inputFocus) || (foldersViewVisible && !inputFocus)"
+    },
+    {
+        "key": "m p",
+        "command": "filesExplorer.paste",
+        "when": "(explorerViewletVisible && filesExplorerFocus && !inputFocus) || (foldersViewVisible && !inputFocus)"
+    },
+    {
+        "command": "runCommands",
+        "key": "m a",
+        "when": "(explorerViewletVisible && filesExplorerFocus && !inputFocus) || (foldersViewVisible && !inputFocus)",
+        "args": {
+            "commands": ["explorer.newFile"]
+        }
+    },
+    {
+        "key": "m d",
+        "command": "deleteFile",
+        "when": "(explorerViewletVisible && filesExplorerFocus && !inputFocus) || (foldersViewVisible && !inputFocus)"
+    },
+    {
+        "key": "m f",
+        "command": "explorer.newFolder",
+        "when": "(explorerViewletVisible && filesExplorerFocus && !inputFocus) || (foldersViewVisible && !inputFocus)"
+    },
+    {
+        "$comment": "ソース管理を表示",
+        "key": "ctrl+s",
+        "command": "workbench.view.scm",
+        "when": "!view.workbench.scm.visible"
+    },
+    {
+        "$comment": "ソース管理を非表示",
+        "key": "ctrl+s",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "view.workbench.scm.visible"
+    },
+    {
+        "$comment": "lazygit(Open)",
+        "key": "ctrl+t g",
+        "when": "neovim.mode == normal && !lazygitFocus",
+        "command": "runCommands",
+        "args": {
+            "commands": ["lazygit-vscode.toggle"]
+        }
+    },
+    {
+        "$comment": "Git sync",
+        "key": "ctrl+t n",
+        "when": "neovim.mode == normal || lazygitFocus || terminalFocus",
+        "command": "runCommands",
+        "args": {
+            "commands": ["git.sync"]
+        }
+    },
+    // ===========================================================
+    // エディタカスタムキーバインド(e.g. Neovim, jumpy2)
+    // ===========================================================
+    {
+        "$comment": "page up",
+        "key": "ctrl+b",
+        "when": "inputFocus && neovim.mode != 'insert' && !terminalFocus",
+        "command": "runCommands",
+        "args": {
+            "commands": ["scrollPageUp"]
+        }
+    },
+    {
+        "$comment": "page down",
+        "key": "ctrl+f",
+        "when": "inputFocus && neovim.mode != 'insert' && !terminalFocus",
+        "command": "runCommands",
+        "args": {
+            "commands": ["scrollPageDown"]
+        }
+    },
+    {
+        "key": "ctrl+v",
+        "when": "inputFocus && neovim.mode == 'insert'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["editor.action.clipboardPasteAction"]
+        }
+    },
+    {
+        "key": "ctrl+n",
+        "command": "selectNextCodeAction",
+        "when": "codeActionMenuVisible && !terminalFocus"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevCodeAction",
+        "when": "codeActionMenuVisible && !terminalFocus"
+    },
+    {
+        "$comment": "Open recent project",
+        "key": "ctrl+t o",
+        "when": "neovim.mode == normal ",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.openRecent"]
+        }
+    },
+    {
+        "key": "shift+;",
+        "command": "vscode-neovim.send",
+        "when": "neovim.mode != 'insert' && !view.workbench.scm.visible && !explorerViewletVisible && !view.workbench.view.search.visible && !inputBoxFocus && !inChatInput && !inQuickOpen && !terminalFocus && !jumpy2.jump-mode",
+        "args": ":"
+    },
+    {
+        "key": "f",
+        "command": "jumpy2.toggle",
+        "when": "neovim.mode =~ /^normal$|^visual$/ && !jumpy2.jump-mode && editorTextFocus"
+    },
+    {
+        "key": "space h",
+        "command": "editor.action.showHover",
+        "when": "neovim.mode != insert && editorTextFocus"
+    },
+    {
+        "$comment": "ビジュアルモードの場合、ブロックコメントアウト",
+        "key": "g c",
+        "command": "runCommands",
+        "when": "neovim.mode == visual && editorTextFocus",
+        "args": {
+            "commands": [
+                "editor.action.commentLine",
+                "vscode-neovim.escape",
+                "vscode-neovim.escape"
+            ]
+        }
+    },
+    {
+        "$comment": "ノーマルモードの場合、行コメントアウト",
+        "key": "g c c",
+        "command": "editor.action.commentLine",
+        "when": "neovim.mode == normal && editorTextFocus && !jumpy2.jump-mode"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "g g",
+        "when": "(editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording) && !jumpy2.jump-mode",
+        "args": "gg"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "space d",
+        "command": "editor.action.goToDeclaration",
+        "when": "neovim.mode == normal && editorTextFocus"
+    },
+    {
+        "key": "space b",
+        "command": "workbench.action.navigateBack",
+        "when": "neovim.mode == normal && editorTextFocus"
+    },
+    {
+        "key": "ctrl+[",
+        "command": "vscode-neovim.escape",
+        "when": "neovim.mode == insert && editorTextFocus"
+    },
+    {
+        "key": "ctrl+n",
+        "when": "neovim.mode == normal && !codeActionMenuVisible && !inQuickOpen && !terminalFocus && focusedView != 'workbench.panel.chat.view.copilot'",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "workbench.action.previousEditorInGroup",
+        "when": "neovim.mode == normal && !codeActionMenuVisible && !inQuickOpen && !terminalFocus && focusedView != 'workbench.panel.chat.view.copilot'"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+d",
+        "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
+        "args": "<C-D>"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+u",
+        "when": "editorTextFocus && neovim.init && neovim.mode != insert || neovim.recording",
+        "args": "<C-U>"
+    },
+
+    // ===========================================================
+    // エディタウィンドウ操作関連カスタムキーバインド
+    // ===========================================================
+    {
+        "key": "ctrl+w k",
+        "when": "editorTextFocus && neovim.init && neovim.mode == normal",
+        "command": "vscode-neovim.send",
+        "args": "<C-W>k"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+w j",
+        "when": "editorTextFocus && neovim.init && neovim.mode == normal",
+        "args": "<C-W>j"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+w h",
+        "when": "editorTextFocus && neovim.init && neovim.mode == normal",
+        "args": "<C-W>h"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+w l",
+        "when": "editorTextFocus && neovim.init && neovim.mode == normal",
+        "args": "<C-W>l"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+w c",
+        "when": "editorTextFocus && neovim.init && neovim.mode == normal",
+        "args": "<C-W>c"
+    },
+    {
+        "$": "エディタpane作成(vertical)",
+        "key": "ctrl+t shift+5",
+        "when": "!terminalFocus",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.splitEditor",
+                "workbench.action.unlockEditorGroup"
+            ]
+        }
+    },
+    {
+        "$": "エディタpane作成(horizontal)",
+        "key": "ctrl+t shift+'",
+        "when": "!terminalFocus",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.splitEditorDown",
+                "workbench.action.unlockEditorGroup"
+            ]
+        }
+    },
+    {
+        "$": "エディタpane-kill",
+        "command": "runCommands",
+        "key": "ctrl+t shift+7",
+        "when": "textInputFocus && !terminalFocus && neovim.mode == normal",
+        "args": {
+            "commands": [
+                "workbench.action.unlockEditorGroup",
+                "workbench.action.closeEditorsInGroup"
+            ]
+        }
+    },
+
+    {
+        "key": "ctrl+t k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+t j",
+        "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "ctrl+t h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+t l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+t ctrl+l",
+        "command": "workbench.action.increaseViewWidth"
+    },
+    {
+        "key": "ctrl+t ctrl+h",
+        "command": "workbench.action.decreaseViewWidth"
+    },
+    {
+        "key": "ctrl+t ctrl+j",
+        "command": "workbench.action.increaseViewHeight"
+    },
+    {
+        "key": "ctrl+t ctrl+k",
+        "command": "workbench.action.decreaseViewHeight"
+    },
+
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+w v",
+        "when": "editorTextFocus && neovim.init && neovim.mode == normal",
+        "args": "<C-W>v"
+    },
+    {
+        "command": "vscode-neovim.send",
+        "key": "ctrl+w s",
+        "when": "editorTextFocus && neovim.init && neovim.mode == normal",
+        "args": "<C-W>s"
+    },
+
+    {
+        "$": "エディタpane-kill",
+        "command": "runCommands",
+        "key": "ctrl+t shift+7",
+        "when": "textInputFocus && !terminalFocus && neovim.mode == normal",
+        "args": {
+            "commands": ["workbench.action.closeEditorsInGroup"]
+        }
+    },
+    // ===========================================================
+    // ターミナルカスタムキーバインド
+    // ===========================================================
+    {
+        "$": "ターミナルウィンドウ作成(horizontal)",
+        "command": "runCommands",
+        "key": "ctrl+t shift+'",
+        "when": "terminalFocus",
+        "args": {
+            "commands": [
+                "workbench.action.lockEditorGroup",
+                "workbench.action.newGroupBelow",
+                "workbench.action.createTerminalEditorSameGroup",
+                "workbench.action.lockEditorGroup"
+            ]
+        }
+    },
+    {
+        "$comment": "ターミナルウィンドウ作成(vertical)",
+        "command": "runCommands",
+        "key": "ctrl+t shift+5",
+        "when": "terminalFocus",
+        "args": {
+            "commands": [
+                "workbench.action.lockEditorGroup",
+                "workbench.action.createTerminalEditorSide",
+                "workbench.action.lockEditorGroup"
+            ]
+        }
+    },
+    {
+        "$comment": "ターミナルkill",
+        "command": "runCommands",
+        "key": "ctrl+t shift+7",
+        "when": "!textInputFocus",
+        "args": {
+            "commands": ["workbench.action.terminal.killEditor"]
+        }
+    },
+    {
+        "$comment": "ターミナルサジェスト次へ",
+        "key": "ctrl+n",
+        "command": "workbench.action.terminal.selectNextSuggestion",
+        "when": "terminalFocus && terminalSuggestWidgetVisible"
+    },
+    {
+        "$comment": "ターミナルサジェスト前へ",
+        "key": "ctrl+p",
+        "command": "workbench.action.terminal.selectPrevSuggestion",
+        "when": "terminalFocus && terminalSuggestWidgetVisible"
+    },
+    {
+        "$comment": "Terminal Page UP",
+        "key": "ctrl+b",
+        "when": "terminalFocus",
+        "commands": ["workbench.action.terminal.scrollUpPage"]
+    },
+    {
+        "$comment": "ターミナル上でctrl+fでサジェストがある時のみオートコンプリート候補を受け入れる",
+        "key": "ctrl+f",
+        "when": "terminalFocus && terminalSuggestWidgetVisible",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\u001b[C"
+        }
+    },
+    {
+        "$comment": "Terminal Page Down",
+        "key": "ctrl+f",
+        "when": "terminalFocus && !terminalSuggestWidgetVisible",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.terminal.scrollDownPage"]
+        }
+    },
+    {
+        "$comment": "Terminal Page Up",
+        "key": "ctrl+b",
+        "when": "terminalFocus && !terminalSuggestWidgetVisible",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.terminal.scrollUpPage"]
+        }
+    },
+    {
+        "key": "ctrl+t 0",
+        "when": "neovim.mode == 'normal'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.explorer.fileView.focus"]
+        }
+    },
+    {
+        "key": "ctrl+t 1",
+        "when": "neovim.mode == 'normal'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.focusFirstEditorGroup"]
+        }
+    },
+    {
+        "key": "ctrl+t 2",
+        "when": "neovim.mode == 'normal'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.focusSecondEditorGroup"]
+        }
+    },
+    {
+        "key": "ctrl+t 3",
+        "when": "neovim.mode == 'normal'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.focusThirdEditorGroup"]
+        }
+    },
+    {
+        "key": "ctrl+t 4",
+        "when": "neovim.mode == 'normal'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.focusFourthEditorGroup"]
+        }
+    },
+    {
+        "key": "ctrl+t 5",
+        "when": "neovim.mode == 'normal'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.focusFifthEditorGroup"]
+        }
+    },
+    {
+        "key": "ctrl+t 6",
+        "when": "neovim.mode == 'normal'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.focusSixthEditorGroup"]
+        }
+    },
+    {
+        "key": "ctrl+t 7",
+        "when": "neovim.mode == 'normal'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.focusSeventhEditorGroup"]
+        }
+    },
+    {
+        "key": "ctrl+t 8",
+        "when": "neovim.mode == 'normal'",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.action.focusEighthEditorGroup"]
+        }
+    },
+    // ===========================================================
+    // ターミナルカスタムキーバインド(tmux/wtmux)
+    // ===========================================================
+    {
+        "$comment": "copy mode - ターミナルにCtrl+T [をパススルー",
+        "key": "ctrl+t [",
+        "when": "terminalFocus && !textInputFocus && !terminalSuggestWidgetVisible",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "\u0014[" }
+    },
+    // {
+    //     "$": "エディタpane-kill",
+    //     "command": "runCommands",
+    //     "key": "ctrl+d",
+    //     "when": "terminalFocus && !textInputFocus && !terminalSuggestWidgetVisible",
+    //     "args": {
+    //         "commands": ["workbench.action.closeEditorsInGroup"]
+    //     }
+    // },
+
+    // ===========================================================
+    // AIエージェント関連カスタムキーバインド
+    // ===========================================================
+    /// Copilot [Start]
+    {
+        "$comment": "Open(ptn1)",
+        "key": "ctrl+[",
+        "when": "neovim.mode == 'normal' && focusedView != 'workbench.panel.chat.view.copilot' && !auxiliaryBarMaximized",
+        "command": "runCommands",
+        "args": {
+            "commands": ["workbench.panel.chat.view.copilot.focus"]
+        }
+    },
+    {
+        "$comment": "Open(ptn(2)",
+        "key": "ctrl+[",
+        "when": "neovim.mode == 'normal' && focusedView != 'workbench.panel.chat.view.copilot' && auxiliaryBarMaximized",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.panel.chat.view.copilot.focus",
+                "workbench.action.toggleAuxiliaryBar"
+            ]
+        }
+    },
+    {
+        "$comment": "Delete words",
+        "key": "ctrl+u",
+        "when": "neovim.mode == 'normal' && focusedView == 'workbench.panel.chat.view.copilot' && inputFocus",
+        "command": "runCommands",
+        "args": {
+            "commands": ["editor.action.clipboardCutAction"]
+        }
+    },
+    {
+        "$comment": "Close",
+        "key": "ctrl+[",
+        "when": "neovim.mode == 'normal' && (focusedView == 'workbench.panel.chat.view.copilot' || terminalFocus)",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.closePanel",
+                "workbench.action.closeAuxiliaryBar", // Copilotデフォルトポジション
+                "workbench.action.closeSidebar",
+                "workbench.action.activityBarLocation.hide" // CopilotがTerminal起動している場合があるので隠す
+            ]
+        }
+    },
+    /// Copilot [End]
+    // {
+    //     "$comment": "Claude Code終了回避 - ctrl+dを無効化",
+    //     "key": "ctrl+d",
+    //     "command": "workbench.action.terminal.sendSequence",
+    //     "args": { "text": "" },
+    //     "when": "terminalFocus && !lazygitFocus"
+    // },
+
+    // ===========================================================
+    // 標準コマンドのも無効化
+    // ===========================================================
+    {
+        "key": "cmd+f",
+        "command": "-workbench.action.terminal.focusFind"
+    },
+    {
+        "key": "cmd+f",
+        "command": "-actions.find",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
+        "key": "d",
+        "command": "-deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "f",
+        "command": "-notebook.find",
+        "when": "notebookEditorFocused && !inputFocus"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "cmd+q",
+        "command": "-workbench.action.quit"
+    },
+    {
+        "key": "p",
+        "command": "-filesExplorer.paste",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+
+    {
+        "key": "ctrl+w",
+        "command": "-workbench.action.terminal.killEditor",
+        "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+,",
+        "command": "-workbench.action.openSettings"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "-workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "-workbench.action.togglePanel"
+    },
+    {
+        "key": "cmd+down",
+        "command": "-selectNextCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "r",
+        "command": "-renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "cmd+up",
+        "command": "-selectPrevCodeAction",
+        "when": "codeActionMenuVisible"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "-selectNextCodeAction",
+        "when": "codeActionMenuVisible && !terminalFocus"
+    },
+    {
+        "key": "ctrl+u",
+        "command": "-vscode-neovim.ctrl-u",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-vscode-neovim.ctrl-d",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal && neovim.init && neovim.mode != 'insert'"
+    },
+    {
+        "key": "ctrl+g",
+        "when": "terminalFocus && terminalProcessSupported || terminalFocus && terminalHasBeenCreated",
+        "command": "-workbench.action.terminal.goToRecentDirectory"
+    },
+    {
+        "key": "ctrl+k ctrl+t",
+        "command": "-workbench.action.selectTheme"
+    }
+]

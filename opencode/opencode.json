@@ -1,0 +1,229 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    // "compaction": {
+    //     "auto": true, // コンテキストがいっぱいになったら自動でコンパクション（デフォルト: true）
+    //     "prune": true // 古いツール出力を削除してトークン節約（デフォルト: true）
+    //     // "reserved": 30000 // コンパクション用のトークンバッファ
+    // },
+    "permission": {
+        "todoread": "allow",
+        "todowrite": "allow",
+        "codesearch": "allow",
+        "glob": "allow",
+        "list": "allow",
+        "question": "allow",
+        "lsp": "allow",
+        "read": "allow",
+        "task": "allow",
+        "websearch": "allow",
+        "grep": "allow",
+        "edit": "allow",
+        "webfetch": "allow",
+        "external_directory": "allow",
+        "doom_loop": "ask",
+        "bash": {
+            // "wc*": "allow",
+            // "head*": "allow",
+            // "tail*": "allow",
+            // "git status*": "allow",
+            // "git diff*": "allow",
+            // "git log*": "allow",
+            // "git show*": "allow",
+            // "git blame*": "allow",
+            // "git rev-parse*": "allow",
+            // "git branch*": "allow",
+            // "git reflog*": "allow",
+            // "git checkout*": "allow",
+            // "git bisect*": "allow",
+            // "git grep*": "allow",
+            // "rg*": "allow",
+            // "ls*": "allow",
+            // "pwd": "allow",
+            // "cat*": "allow",
+            // "git add*": "allow",
+            // "git commit*": "allow",
+            // "git pull*": "allow",
+            // "git fetch*": "allow",
+            // "git remote -v": "allow",
+            // "git remote get-url origin": "allow",
+            // "git ls-remote*": "allow",
+            // "git show-ref*": "allow",
+            // "npm run format*": "allow",
+            // "npm test*": "allow",
+            // "npm run lint*": "allow",
+            // "npm run build": "allow",
+            // "cargo build*": "allow",
+            // "gh issue list*": "allow",
+            // "gh issue view*": "allow",
+            // "gh remote -v": "allow",
+            // "gh pr view*": "allow",
+            // "gh pr diff*": "allow",
+            // "cargo check*": "allow",
+            // "npx tsc*": "allow",
+            // "npx prettier*": "allow",
+            // "npm --version": "allow",
+            // "node --version": "allow",
+            // "git stash*": "allow",
+            // "git rebase --abort": "allow",
+            // "mkdir*": "allow",
+            // "mv*": "ask",
+            "sudo*": "deny",
+            "git push*": "deny",
+            "rm*": "deny",
+            "curl -fsSL*": "deny",
+            "bash*": "deny",
+            "sh*": "deny",
+            "*": "allow"
+        }
+    },
+    "autoupdate": true,
+    "mcp": {
+        "tauri": {
+            "enabled": true,
+            "type": "local",
+            "command": ["npx", "-y", "@hypothesi/tauri-mcp-server"]
+        },
+        "context7": {
+            "enabled": true,
+            "type": "remote",
+            "url": "https://mcp.context7.com/mcp",
+            "headers": {
+                "CONTEXT7_API_KEY": "{env:CONTEXT7_API_KEY}"
+            }
+        },
+        // "gh_grep": {
+        //     "enabled": true,
+        //     "type": "remote",
+        //     "url": "https://mcp.grep.app"
+        // },
+        "github": {
+            "enabled": false,
+            "type": "remote",
+            "url": "https://api.githubcopilot.com/mcp/",
+            "headers": {
+                "Authorization": "Bearer {env:GITHUB_TOKEN}"
+            }
+        },
+        "markdownify": {
+            "enabled": true,
+            "type": "local",
+            "command": [
+                // NOTE: install: git clone https://github.com/zcaceres/markdownify-mcp
+                "sh", "-c",
+                // Why: command配列は~展開されないためsh -cで$HOME展開(パスにユーザ名を含めない)
+                "exec node \"$HOME/work/mcp/markdownify-mcp/dist/index.js\""
+            ],
+            "environment": {
+                // NOTE: install: curl -LsSf https://astral.sh/uv/install.sh | sh
+                "UV_PATH": "~/.local/bin/uv"
+            }
+        },
+        "local-memory": {
+            "enabled": false,
+            "type": "local",
+            // NOTE: install: npm i -g local-memory-mcp
+            "command": ["local-memory", "--mcp"]
+        }
+    },
+    "plugin": [
+        // "opencode-discord-notify@latest",
+        // "file://~/work/dev/opencode-discord-notify/src/index.ts",
+        "@mohak34/opencode-notifier@latest",
+        // "file://~/work/dev/opencode-agent-modes/src/index.ts"
+        // "file://~/work/dev/opencode-agent-modes/.worktrees/startup-toast/src/index.ts"
+        "opencode-agent-modes@latest"
+        // "oh-my-opencode@latest"
+    ],
+    "instructions": ["~/.claude/CLAUDE.md", "~/.config/opencode/AGENTS.md"],
+    "default_agent": "build",
+    "enabled_providers": ["zai-coding-plan"],
+    "agent": {
+        "plan": {
+            "model": "zai-coding-plan/glm-5.3-flash",
+            "mode": "primary",
+            "disable": true,
+            "hidden": true,
+            "color": "#0000FF",
+            "variant": "high" // blue
+        },
+        "build": {
+            "model": "zai-coding-plan/glm-5.3-flash",
+            "mode": "primary",
+            "color": "#808080",
+            "variant": "high" // gray
+        },
+        "compaction": {
+            "model": "zai-coding-plan/glm-5.3-flash",
+            "mode": "primary",
+            "color": "#FFFF00",
+            "variant": "high" // yellow
+        },
+        "general": {
+            "model": "zai-coding-plan/glm-5.3-flash",
+            "mode": "primary",
+            "color": "#00FF00", // green
+            "hidden": true,
+            "variant": "high"
+        },
+        "summary": {
+            // 2〜3文の要約
+            "mode": "primary",
+            "model": "zai-coding-plan/glm-4.5-air",
+            "variant": "high"
+        },
+        "title": {
+            "mode": "primary",
+            // 50文字以内のタイトル生成
+            "model": "zai-coding-plan/glm-4.5-air",
+            "variant": "high"
+        },
+        "explore": {
+            "mode": "primary",
+            // ファイル検索・コード検索のみ(webfetch/websearch可)
+            "model": "zai-coding-plan/glm-4.5-air",
+            "color": "#FF00FF", // pink
+            "hidden": true,
+            "variant": "high"
+        },
+        "code-architect": {
+            "mode": "primary",
+            "model": "zai-coding-plan/glm-5.3-flash",
+            "color": "#00FF00", // green
+            "hidden": true,
+            "variant": "high"
+        },
+        "code-explorer": {
+            "mode": "primary",
+            "model": "zai-coding-plan/glm-4.5-air",
+            "color": "#FFFF00", // yellow
+            "hidden": true,
+            "variant": "high"
+        },
+        "code-reviewer": {
+            "mode": "primary",
+            "model": "zai-coding-plan/glm-5.3-flash",
+            "color": "#FF0000",
+            "hidden": true,
+            "variant": "high"
+        },
+        "code-simplifier": {
+            "mode": "primary",
+            "model": "zai-coding-plan/glm-5.3-flash",
+            "color": "#89CFF0",
+            "hidden": true,
+            "variant": "high"
+        },
+        "doc-generator": {
+            "mode": "primary",
+            "model": "zai-coding-plan/glm-5.3-flash",
+            "color": "#FFA500",
+            "hidden": true,
+            "variant": "high"
+        }
+    },
+    "formatter": {
+        "prettier": {
+            "disabled": true
+        }
+    }
+}

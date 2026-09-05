@@ -1,0 +1,233 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "switchToTab",
+                "index": 8
+            },
+            "id": "User.switchToTab.ED268D78"
+        },
+        {
+            "command": 
+            {
+                "action": "closeTab"
+            },
+            "id": "User.closeTab.0"
+        },
+        {
+            "command": 
+            {
+                "action": "newTab"
+            },
+            "id": "User.newTab.0"
+        }
+    ],
+    "alwaysShowNotificationIcon": false,
+    "alwaysShowTabs": false,
+    "compatibility.enableUnfocusedAcrylic": true,
+    "copyFormatting": "none",
+    "copyOnSelect": true,
+    "defaultInputScope": "alphanumericHalfWidth",
+    "defaultProfile": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+    "disableAnimations": true,
+    "experimental.scrollToChangeOpacity": false,
+    "keybindings": 
+    [
+        {
+            "id": "unbound",
+            "keys": "ctrl+shift+t"
+        },
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "Terminal.DuplicatePaneAuto",
+            "keys": "alt+shift+d"
+        },
+        {
+            "id": "Terminal.SwitchToTab0",
+            "keys": "alt+1"
+        },
+        {
+            "id": "Terminal.SwitchToTab2",
+            "keys": "alt+3"
+        },
+        {
+            "id": "Terminal.SwitchToTab1",
+            "keys": "alt+2"
+        },
+        {
+            "id": "Terminal.SwitchToTab4",
+            "keys": "alt+5"
+        },
+        {
+            "id": "Terminal.SwitchToTab3",
+            "keys": "alt+4"
+        },
+        {
+            "id": "Terminal.SwitchToTab5",
+            "keys": "alt+6"
+        },
+        {
+            "id": "Terminal.SwitchToTab6",
+            "keys": "alt+7"
+        },
+        {
+            "id": "Terminal.SwitchToTab7",
+            "keys": "alt+8"
+        },
+        {
+            "id": "User.switchToTab.ED268D78",
+            "keys": "alt+9"
+        },
+        {
+            "id": "User.newTab.0",
+            "keys": "alt+t"
+        },
+        {
+            "id": "User.newTab.0",
+            "keys": "alt+shift+t"
+        },
+        {
+            "id": "User.closeTab.0",
+            "keys": "alt+w"
+        }
+    ],
+    "language": "ja",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "autoMarkPrompts": false,
+            "colorScheme": "Solarized Deep",
+            "cursorShape": "filledBox",
+            "font": 
+            {
+                "face": "Moralerspace Neon HW",
+                "size": 11
+            },
+            "opacity": 70,
+            "scrollbarState": "hidden",
+            "snapOnInput": false,
+            "useAcrylic": true
+        },
+        "list": 
+        [
+            {
+                "commandline": "pwsh.exe",
+                "guid": "{574e775e-4f2a-5b96-ac1e-a2962a402336}",
+                "hidden": false,
+                "name": "PowerShell 7",
+                "source": "Windows.Terminal.PowershellCore",
+                "startingDirectory": "E:\\work"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "font": 
+                {
+                    "face": "Hack Nerd Font Mono"
+                },
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": true,
+                "name": "Windows PowerShell",
+                "opacity": 80,
+                "useAcrylic": true
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": true,
+                "name": "\u30b3\u30de\u30f3\u30c9 \u30d7\u30ed\u30f3\u30d7\u30c8"
+            },
+            {
+                "guid": "{d8e96812-b789-5068-a5ae-10b2fb53e95f}",
+                "hidden": true,
+                "name": "Ubuntu 24.04.1 LTS",
+                "source": "CanonicalGroupLimited.Ubuntu24.04LTS_79rhkp1fndgsc"
+            },
+            {
+                "adjustIndistinguishableColors": "never",
+                "colorScheme": "Solarized Deep",
+                "commandline": "C:\\Program Files\\Git\\bin\\bash.exe --login -i",
+                "cursorShape": "filledBox",
+                "experimental.retroTerminalEffect": false,
+                "font": 
+                {
+                    "cellHeight": "1.2",
+                    "colorGlyphs": true,
+                    "face": "UDEV Gothic NFLG",
+                    "size": 9
+                },
+                "guid": "{af1461d7-0274-4bcf-832c-69a10fa6f155}",
+                "hidden": true,
+                "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+                "intenseTextStyle": "none",
+                "name": "GitBash",
+                "opacity": 47,
+                "scrollbarState": "hidden",
+                "startingDirectory": "E:\\work",
+                "useAcrylic": true
+            },
+            {
+                "guid": "{a71d2531-cc97-59a0-84f6-43686260e506}",
+                "hidden": true,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{55b666c1-48f7-5ed7-989f-4fea47b67228}",
+                "hidden": true,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            }
+        ]
+    },
+    "rendering.graphicsAPI": "direct3d11",
+    "schemes": 
+    [
+        {
+            "background": "#000A0F",
+            "black": "#021B26",
+            "blue": "#268BD2",
+            "brightBlack": "#586E75",
+            "brightBlue": "#268BD2",
+            "brightCyan": "#2AA198",
+            "brightGreen": "#859900",
+            "brightPurple": "#D33682",
+            "brightRed": "#DC322F",
+            "brightWhite": "#FDF6E3",
+            "brightYellow": "#B58900",
+            "cursorColor": "#93A1A1",
+            "cyan": "#2AA198",
+            "foreground": "#93A1A1",
+            "green": "#859900",
+            "name": "Solarized Deep",
+            "purple": "#D33682",
+            "red": "#DC322F",
+            "selectionBackground": "#021B26",
+            "white": "#EEE8D5",
+            "yellow": "#B58900"
+        }
+    ],
+    "showTabsInTitlebar": false,
+    "tabWidthMode": "titleLength",
+    "themes": [],
+    "useAcrylicInTabRow": false,
+    "warning.multiLinePaste": "never",
+    "windowingBehavior": "useAnyExisting"
+}

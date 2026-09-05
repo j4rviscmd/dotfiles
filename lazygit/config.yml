@@ -1,0 +1,15 @@
+os:
+    editPreset: 'nvim'
+    editor: 'nvim'
+promptToReturnFromSubprocess: false # removes "press enter to return to lazygit" popup
+gui:
+    language: 'ja'
+    showIcons: true
+    nerdFontsVersion: "3"
+notARepository: 'skip'
+customCommands:
+    - key: "C"
+      command: "git -c core.editor=nvim commit -v"
+      context: "files"
+      description: "Commit with nvim (Copilot inline suggest)"
+      output: terminal

@@ -1,0 +1,43 @@
+{
+    // Enable or disable the plugin
+    "enabled": true,
+    // Enable debug logging to ~/.config/opencode/logs/dcp/
+    "debug": false,
+    // Notification display: "off", "minimal", or "detailed"
+    "pruneNotification": "minimal",
+    // Protect from pruning for <turns> message turns
+    "turnProtection": {
+        "enabled": true,
+        "turns": 4
+    },
+    // LLM-driven context pruning tools
+    "tools": {
+        "settings": {
+            "nudgeEnabled": true,
+            "nudgeFrequency": 10,
+            "protectedTools": []
+        },
+        "discard": {
+            "enabled": true
+        },
+        "extract": {
+            "enabled": true,
+            "showDistillation": false
+        }
+    },
+    // Automatic pruning strategies
+    "strategies": {
+        "deduplication": {
+            "enabled": true,
+            "protectedTools": []
+        },
+        "supersedeWrites": {
+            "enabled": false
+        },
+        "purgeErrors": {
+            "enabled": true,
+            "turns": 4,
+            "protectedTools": []
+        }
+    }
+}

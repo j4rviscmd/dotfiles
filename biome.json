@@ -1,0 +1,32 @@
+{
+    "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+    "formatter": {
+        "enabled": true,
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 80
+    },
+    "javascript": {
+        "formatter": {
+            "semicolons": "asNeeded",
+            "quoteStyle": "single"
+        }
+    },
+    "json": {
+        "parser": {
+            "allowComments": true,
+            "allowTrailingCommas": true
+        }
+    },
+    "files": {
+        "includes": [
+            "**",
+            "!**/node_modules",
+            "!**/dist",
+            "!**/build",
+            "!**/.git",
+            // Why: Windows Terminalがsettings.jsonを独自の書式（コロンの後で改行等）で自動再書き込みするため、Biomeの整形は次回のWT書き込みで元に戻り差分が無限に発生する（fbdf26fでBiome整形→0f06abbの同期でWT書式に上書きされた実績に基づく）
+            "!WindowsTerminal/settings.json"
+        ]
+    }
+}

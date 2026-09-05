@@ -6,8 +6,6 @@ background-opacity = 0.8
 background-blur-radius = 20
 background = #031219
 
-# font-family = "PlemolJP Console NF"
-# font-family = Hack Nerd Font Mono
 # Note: README.md の Font セクションが本フォントを指定済み（commit d3618af）。
 #       config側が取り残されていたため README に合わせて反映
 font-family = Moralerspace Neon HW

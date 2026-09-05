@@ -117,9 +117,7 @@
     // ================================================================
     // Terminal
     // ================================================================
-    // "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
-    // "terminal.integrated.fontFamily": "NOTONOTO35 Console HS",
-    "terminal.integrated.fontFamily": "UDEV Gothic NF",
+    "terminal.integrated.fontFamily": "Moralerspace Neon HW",
     "terminal.integrated.lineHeight": 1.05,
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.fontWeight": "normal",

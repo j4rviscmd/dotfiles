@@ -12,9 +12,8 @@ ln -s ~/work/dev/dotfiles ~/.config
 
 ## フォント
 
-設定で使用するフォント（導入先）:
-Moralerspace Neon HW（ghostty）、UDEV Gothic（VSCode）、Hack Nerd Font（nvim）
-→ [Moralerspace](https://github.com/yuru7/moralerspace/releases)
+- Moralerspace Neon HW
+  - [Moralerspace](https://github.com/yuru7/moralerspace/releases)
 
 ## 機密情報の取扱い
 

@@ -65,7 +65,7 @@
     // ================================================================
     // Editor - Core
     // ================================================================
-    "editor.fontFamily": "Hack Nerd Font Mono",
+    "editor.fontFamily": "Moralerspace Neon HW",
     // "editor.fontFamily": "UDEV Gothic NFLG",
     "editor.fontSize": 14,
     "editor.lineHeight": 1.1,
@@ -119,7 +119,7 @@
     // Terminal
     // ================================================================
     "terminal.integrated.enableWin32InputMode": true,
-    "terminal.integrated.fontFamily": "Hack Nerd Font Mono",
+    "terminal.integrated.fontFamily": "Moralerspace Neon HW",
     "terminal.integrated.fontLigatures.enabled": true,
     "terminal.integrated.lineHeight": 1,
     "terminal.integrated.fontSize": 13,

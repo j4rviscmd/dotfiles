@@ -37,6 +37,11 @@ return {
         if not has_ruff_config(args.buf) then
           return
         end
+        -- Why: ruffは.gitignoreを解釈しないため、prettierと同等の
+        -- gitignore保護をnvim側で行う(lsp/init.luaのis_git_ignored参照)
+        if require("lsp").is_git_ignored(args.buf) then
+          return
+        end
         -- Why: BufWritePre内では同期実行(async=false)にする必要がある。async=trueだと
         -- 書き込みが先に走り、整形前の内容がそのまま保存されるため（:h BufWritePre, :h vim.lsp.buf.format()）
         -- Note: filterでruff以外のアタッチ中クライアントを除外し、pyright等との二重整形を防ぐ

@@ -26,7 +26,9 @@ return {
         }
       end
       conform.format({
-        async = true,
+        -- Why: Windows環境でasync実行はformatterジョブが完了せず整形が適用され
+        -- ないため同期実行とする(手動コマンドなのでブロックは許容)
+        async = false,
         lsp_format = "fallback",
         range = range,
       })

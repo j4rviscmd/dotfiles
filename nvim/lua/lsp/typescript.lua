@@ -32,6 +32,11 @@ return {
         if not has_biome_config(args.buf) then
           return
         end
+        -- Why: biomeはvcs.useIgnoreFile設定が無い限り.gitignoreを解釈しないため、
+        -- prettierと同等のgitignore保護をnvim側で行う(lsp/init.luaのis_git_ignored参照)
+        if require("lsp").is_git_ignored(args.buf) then
+          return
+        end
         -- Why: checktimeはautoread無効だとファイル変更を検知しても再読込しないため、
         -- biome実行前後のファイルサイズ比較で変更を検知し:editでリロードする
         -- NOTE: :editのリロードはundo履歴を保持する

@@ -4,6 +4,7 @@
 -- 集約対象の言語モジュール
 local languages = {
   "lsp.markdown",
+  "lsp.json",
   "lsp.python",
   "lsp.typescript",
   "lsp.tailwind",
@@ -57,6 +58,29 @@ for _, name in ipairs(languages) do
   if lang.on_setup then
     lang.on_setup()
   end
+end
+
+--- バッファのファイルが.gitignore対象か判定する
+--- Why: prettierは標準で.gitignore対象ファイルを無言で整形スキップするが、
+--- ruff/rustfmt/biomeはその機構を持たない(またはプロジェクト設定依存)ため、
+--- 保存時auto-formatで機密ファイル・生成物を保護する同等チェックをnvim側で行う
+---@param buf integer バッファ番号
+---@return boolean ignored trueなら.gitignore対象
+function M.is_git_ignored(buf)
+  local file = vim.api.nvim_buf_get_name(buf)
+  if file == "" then
+    return false
+  end
+  -- Note: gitリポジトリ外ではexit 128となりcode ~= 0のためfalse扱いになる
+  -- Why: cwd未指定だとnvimのcwdでgitが起動し、別リポジトリのファイルが
+  -- "outside repository"のexit 128となって保護が無効化されるため、
+  -- ファイル側ディレクトリで実行する
+  -- Why: タイムアウト無指定の:wait()は無期限にブロックするため、BufWritePreからの
+  -- 同期呼び出しでgitが停止しても保存が固まらないよう上限を設ける
+  -- Note: 超過時はSIGKILL(code 124)となりfalse(整形実行)側に倒れる
+  -- (:h vim.system.SystemObj:wait(), nvim 0.12 runtime doc/lua.txt)
+  local result = vim.system({ "git", "check-ignore", "-q", "--", file }, { cwd = vim.fs.dirname(file) }):wait(3000)
+  return result.code == 0
 end
 
 -- 対象言語のバッファオープン時に必須cliの存在チェック

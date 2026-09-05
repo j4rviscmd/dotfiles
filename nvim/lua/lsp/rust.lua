@@ -41,6 +41,11 @@ return {
       group = vim.api.nvim_create_augroup("UserRustfmt", {}),
       pattern = "*.rs",
       callback = function(args)
+        -- Why: rustfmtは.gitignoreを解釈しないため、prettierと同等の
+        -- gitignore保護をnvim側で行う(lsp/init.luaのis_git_ignored参照)
+        if require("lsp").is_git_ignored(args.buf) then
+          return
+        end
         -- Why: async = falseでないと書き込みが先行し、整形前の内容が保存される
         vim.lsp.buf.format({
           bufnr = args.buf,

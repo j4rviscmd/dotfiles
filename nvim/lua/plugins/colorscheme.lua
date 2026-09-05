@@ -48,5 +48,24 @@ return {
     --   (solarized-osaka groups/treesitter.lua)ため、labelと同色に揃えるために明示上書き
     vim.api.nvim_set_hl(0, "@markup.link.url", { fg = "#268bd3", underline = true })
     vim.api.nvim_set_hl(0, "@punctuation.special", { fg = "#576d74", italic = true }) -- 旧引用marker=Comment(非markdown言語用)
+    -- Why: Telescopeのpicker(C-i/C-g)背景が黒っぽくなるのは、solarized-osakaが
+    --   TelescopeNormal/TelescopeBorderへbg=bg_floatを固定定義しているため(transparent=trueの対象外、
+    --   solarized-osaka lua/solarized-osaka/groups/telescope.lua)。ここでbgのみ除去しpickerを透過する
+    -- Note: telescope本体はwindow種別group(TelescopeResultsNormal等)をwinhlへ指定するがthemeは未定義のため、
+    --   bg=NONE化した本体groupへlinkさせて全window(prompt/results/preview)を透過統一する
+    -- Note: 半透明(winblend)はtransparent colorscheme環境で黒帯が描かれるため使わない(neovim#18576、satellite.lua参照)
+    local function clear_bg(name)
+      local hl = vim.api.nvim_get_hl(0, { name = name })
+      hl.bg = nil
+      vim.api.nvim_set_hl(0, name, hl)
+    end
+    clear_bg("TelescopeNormal")
+    clear_bg("TelescopeBorder")
+    for _, group in ipairs({ "TelescopePromptNormal", "TelescopeResultsNormal", "TelescopePreviewNormal" }) do
+      vim.api.nvim_set_hl(0, group, { link = "TelescopeNormal" })
+    end
+    for _, group in ipairs({ "TelescopePromptBorder", "TelescopeResultsBorder", "TelescopePreviewBorder" }) do
+      vim.api.nvim_set_hl(0, group, { link = "TelescopeBorder" })
+    end
   end,
 }

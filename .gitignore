@@ -24,13 +24,7 @@ tool_state
 # Karabinerのimportストック(実稼働はkarabiner.json側)
 /karabiner/assets/
 .nuxt/devtools/*.json
-gh_token.txt
-discord_webhook_opencode.txt
-discord_webhook_opencode_normal.txt
-e5_pw.txt
 gcloud/
-context7_api_key.txt
-gh_mcp_token.txt
 logs/
 *.log
 uv/
@@ -75,8 +69,6 @@ claude/
 # opencode plugin settings
 opencode/discord-notify-queue.*
 opencode/package-lock.json
-
-powershell/*.txt
 
 # Git worktrees
 .worktrees/

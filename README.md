@@ -21,13 +21,3 @@ Why: 機密の実体をrepoに入れず、読み込み側で分離する運用�
 
 - `.env`（repo直下）: 環境変数のSSOT。zsh/bashは`~/.config/.env`経由、Windowsは`user_profile.ps1`がrepo直下を直接読込。雛形は `.env.sample`
 - `~/.hammerspoon/home-wifi.local`: 自宅Wi-Fi SSID（`.hammerspoon/README.md` 参照）
-- `powershell/*.txt`: 旧Windows用キーtxt（`.env`移行後は廃止。Git管理外のままWin側で手動削除）
-
-### Windows移行手順（旧txt → .env）
-
-Why: pullすると同時にtxt読込が消えるため、先に`.env`配置が必要。
-
-1. Win側repo直下へ`.env`を配置（macからscp等。win専用キーはこの時点で追記してよい）
-2. pull → PowerShell起動で`.env`から環境変数が読み込まれることを確認
-3. 旧`powershell/*.txt`を手動削除
-4. 任意: Git Bash(tmux利用)でも読む場合、`%USERPROFILE%\.config`→repoへjunction（`mklink /J`）で`bash/.bashrc`のsource行が効く

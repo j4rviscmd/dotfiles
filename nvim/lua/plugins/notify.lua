@@ -4,6 +4,7 @@
 -- 3. プラグインからの通知（telescope, lazy.nvim, gitsigns等）
 -- 4. マクロ/操作の完了通知（Yanked, Saved, Git pushed等）
 -- 5. noice.nvimとの連携（コマンドライン/検索/メッセージのモダンUI化）
+-- 6. ファイル操作通知（保存完了、自動保存、外部変更検知）
 
 return {
   "rcarriga/nvim-notify",

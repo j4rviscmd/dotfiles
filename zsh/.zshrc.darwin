@@ -4,6 +4,10 @@
 
 # ============================================================
 # Homebrew設定（Apple Silicon）
+# Why: login shellでは/etc/zprofileのpath_helperがPATHを再構成し
+#      /usr/local/bin(旧Intel Homebrewのbrew symlinkが現存)が先頭に来るため、
+#      ここでevalして/opt/homebrew/binを先頭へ置く
+#      (brew --prefixが/usr/localを返しantidote等が壊れるのを防ぐ)。削除注意
 # ============================================================
 eval "$(/opt/homebrew/bin/brew shellenv)"
 

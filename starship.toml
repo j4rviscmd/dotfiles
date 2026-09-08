@@ -50,12 +50,11 @@ style = 'bold solarized_yellow'
 # Gitステータス表示（色分け + スペース区切り）
 # ============================================================
 [git_status]
-format = '([$staged](solarized_green)[$modified](solarized_yellow)[$untracked](solarized_cyan)[$conflicted](solarized_red)[$stashed](solarized_violet) )'
+format = '([$staged](solarized_green)[$modified](solarized_yellow)[$untracked](solarized_cyan)[$conflicted](solarized_red) )'
 staged = "+${count}"
 modified = "~${count}"
 untracked = "?${count}"
 conflicted = "=${count}"
-stashed = "\\$$count"
 renamed = "»${count}"
 deleted = "✘${count}"
 ahead = "⇡${count}"

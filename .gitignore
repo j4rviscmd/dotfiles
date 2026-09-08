@@ -81,6 +81,9 @@ swiftpm/
 
 github-copilot/
 
+# GitHub CLI(認証トークン含む、自動生成)
+gh/
+
 # Claw-Code
 .claw/
 .playwright-mcp/

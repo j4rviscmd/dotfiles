@@ -1,0 +1,7 @@
+#!/bin/bash
+# Why: lazygitはデフォルトで ctrl+t = 外部difftool起動に割り当てているが、
+#      tmux prefix C-t が優先されて横取りされるため、起動中のみprefixを C-\ へ退避する
+#      復元はEXIT trapで行い、popupがシグナルkillされてもprefix C-t がサーバー全体に残存しないようにする
+trap 'tmux set-option -g prefix C-t' EXIT
+tmux set-option -g prefix C-\\
+lazygit "$@"

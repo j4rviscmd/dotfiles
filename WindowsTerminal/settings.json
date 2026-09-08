@@ -121,7 +121,7 @@
                 "face": "Moralerspace Neon HW",
                 "size": 11
             },
-            "opacity": 70,
+            "opacity": 80,
             "scrollbarState": "hidden",
             "snapOnInput": false,
             "useAcrylic": true

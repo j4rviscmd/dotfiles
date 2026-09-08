@@ -13,6 +13,18 @@ if ! command -v fzf >/dev/null 2>&1; then
   exit 1
 fi
 
+# ゾンビセッション掃除: prefix s 押下時にアタッチなしセッションをkill
+# Why: client-detachedフック(tmux.conf)はSSH強制切断等で取りこぼしがあり、
+#      残骸セッションがリストに溜まり続けるため、fzf表示前に掃除する
+# Note: 実測20ms程度でpopup表示体感に影響なし。killしたセッション名をstatuslineへ通知
+#       popupを開いたセッションは attached=1 になるため自分自身をkillすることはない
+killed="$(tmux list-sessions -F '#{session_name}|#{session_attached}' 2>/dev/null \
+  | awk -F'|' '$2==0{print $1}')"
+if [[ -n "$killed" ]]; then
+  while IFS= read -r s; do tmux kill-session -t "$s"; done <<< "$killed"
+  tmux display-message -c "#{client_name}" "killed zombie session(s): ${killed//$'\n'/ }"
+fi
+
 # Why: awk -v s={1} は {1} を非クォート位置に置く意図的設計。fzfはプレースホルダを
 #      'セッション名' のようにシングルクォート付きで置換するため、そのクォートをそのまま
 #      shのクォートとして機能させている（"s={1}" と囲むとクォート文字が awk の s に混入して

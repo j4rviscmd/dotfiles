@@ -11,6 +11,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- 外部変更の自動検知・自動読み込み
+-- Why: 下記autocmd群はフォーカス/バッファ切替が契機のためtmux非フォーカスpaneでは反映されない。
+--      リアルタイム検知はautoread.luaのFS eventウォッチャーが担い、こちらはフォールバックとして残す
+-- TODO: Neovim 0.13リリース後はネイティブのautoread FSウォッチャーが有効になるため
+--       下記autocmd群と lua/autoread.lua と autoread=true直後のenable()呼び出しを削除してよい
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
   pattern = "*",
   callback = function()
@@ -22,9 +26,8 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
 vim.api.nvim_create_autocmd("FileChangedShell", {
   pattern = "*",
   callback = function()
+    -- Why: Claude Code等の連続編集で通知が頻発するため黙って再読込する
     vim.v.fcs_choice = "reload"
-    -- TODO: 運用してみてうっとうしければ削除
-    vim.notify("File changed on disk, reloaded!", vim.log.levels.INFO)
   end,
 })
 
@@ -93,6 +96,9 @@ vim.opt.undofile = true
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.opt.autoread = true
+-- Why: autoreadをFS event(FSEvents/inotify)駆動のリアルタイム検知に強化(tmux非フォーカスpaneでも即時反映)
+--      実装の出所・差分は lua/autoread.lua の冒頭コメント参照
+require("autoread").enable()
 
 -- ===========================================
 -- プラグインマネージャー (lazy.nvim)

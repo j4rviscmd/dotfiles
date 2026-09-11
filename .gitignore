@@ -81,8 +81,9 @@ swiftpm/
 
 github-copilot/
 
-# GitHub CLI(認証トークン含む、自動生成)
-gh/
+# Why: gh CLIの認証をGITHUB_TOKEN環境変数(.env)に一本化したため、トークンを含み得るのはhosts.ymlのみ。機密を含まないconfig.ymlはgit管理対象とするため、gh/ディレクトリ全体のignoreからhosts.ymlのみに絞った (memory: gh-auth-env-token-only.md, 2026-09-11)
+# GitHub CLI hosts.yml(認証トークン含む、自動生成)。config.ymlは管理対象
+gh/hosts.yml
 
 # Claw-Code
 .claw/

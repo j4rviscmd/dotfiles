@@ -435,10 +435,11 @@ claude() {
   if [[ " $* " != *" --effort "* && " $* " != *" --effort="* ]]; then
     set -- "$@" --effort max
   fi
+  local _car_launcher="$HOME/work/dev/claude-auto-retry/src/launcher.js"
   # Degrade to plain claude if already inside a wrapped session, or if the launcher
   # is gone (package removed via `npm uninstall -g` without `claude-auto-retry
   # uninstall` first) — an orphaned wrapper must never break the claude command.
-  if [ "${CLAUDE_AUTO_RETRY_ACTIVE}" = "1" ] || [ ! -e "~/work/dev/claude-auto-retry/src/launcher.js" ]; then
+  if [ "${CLAUDE_AUTO_RETRY_ACTIVE}" = "1" ] || [ ! -e "${_car_launcher}" ]; then
     command claude "$@"
     return $?
   fi
@@ -451,7 +452,7 @@ claude() {
     # lists nothing — so the bash-style path silently wiped the user's traps.
     setopt localoptions localtraps
     trap 'unset CLAUDE_AUTO_RETRY_ACTIVE' INT TERM
-    node "~/work/dev/claude-auto-retry/src/launcher.js" "$@"
+    node "${_car_launcher}" "$@"
     _car_exit=$?
   else
     # bash: function traps are global, so capture and restore around ours.
@@ -459,7 +460,7 @@ claude() {
     _car_old_int_trap=$(trap -p INT 2>/dev/null)
     _car_old_term_trap=$(trap -p TERM 2>/dev/null)
     trap 'unset CLAUDE_AUTO_RETRY_ACTIVE' INT TERM
-    node "~/work/dev/claude-auto-retry/src/launcher.js" "$@"
+    node "${_car_launcher}" "$@"
     _car_exit=$?
     # Restore previous traps instead of clobbering them
     eval "${_car_old_int_trap:-trap - INT}"

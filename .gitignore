@@ -88,3 +88,6 @@ gh/hosts.yml
 # Claw-Code
 .claw/
 .playwright-mcp/
+
+# codexbar: providers API key included (machine-specific config, secrets)
+codexbar/

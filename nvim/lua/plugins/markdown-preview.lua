@@ -4,7 +4,8 @@ return {
   "iamcco/markdown-preview.nvim",
   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
   ft = { "markdown" },
-  -- Why: README掲載のyarn install方式。初回install時はbuild関数実行前にautoloadが
+  -- Why: README掲載(Packer例)のnpm install方式。初回install時はbuild関数実行前にautoloadが
   -- rtpへ載らずvim.fn["mkdp#util#install"]がE117で失敗するため、shellビルドとする
-  build = "cd app && yarn install",
+  -- NOTE: lockfileはyarn.lockのみでpackage-lock.jsonは無く、npmはsemverレンジから解決する
+  build = "cd app && npm install",
 }

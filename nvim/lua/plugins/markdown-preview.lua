@@ -6,6 +6,8 @@ return {
   ft = { "markdown" },
   -- Why: README掲載(Packer例)のnpm install方式。初回install時はbuild関数実行前にautoloadが
   -- rtpへ載らずvim.fn["mkdp#util#install"]がE117で失敗するため、shellビルドとする
-  -- NOTE: lockfileはyarn.lockのみでpackage-lock.jsonは無く、npmはsemverレンジから解決する
-  build = "cd app && npm install",
+  -- NOTE: upstreamはyarn.lockのみ追跡。初回buildはsemverレンジから解決され、2回目以降は生成済みpackage-lock.json基準で解決する
+  -- Why: npm v7+は既存yarn.lockをregistry.npmjs.org形式へ書き換えるため、放置するとlazyが
+  -- local changes検知してclean/updateに失敗する。build後にgit checkoutで復元する
+  build = "cd app && npm install && git checkout -- yarn.lock",
 }

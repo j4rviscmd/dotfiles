@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # GLM usage quota script for tmux statusline
-# Output format: 💠 75%(1h30m)
+# Output format: GLM: 25%(1h30m)  (残量% とリセットまでの残時間)
 #
-# Requires: GLM_TOKEN environment variable, jq, curl
+# Requires: ZAI_API_KEY (~/.config/.env), jq, curl
 # Cache: 60 seconds
 
 set -euo pipefail
@@ -10,8 +10,8 @@ set -euo pipefail
 # Environment variable loading (SSOT: repo直下.env)
 [ -f ~/.config/.env ] && source ~/.config/.env
 
-# Skip if GLM_TOKEN is not set
-[ -z "${GLM_TOKEN:-}" ] && exit 0
+# Skip if ZAI_API_KEY is not set
+[ -z "${ZAI_API_KEY:-}" ] && exit 0
 
 # Require jq
 command -v jq &>/dev/null || exit 0
@@ -19,16 +19,27 @@ command -v jq &>/dev/null || exit 0
 GLM_CACHE_FILE="/tmp/claude-glm-usage.cache"
 GLM_DATA=""
 
+# Detect the stat mtime flag once: GNU stat uses `-c %Y`, BSD stat (macOS) uses `-f %m`.
+# Branching (not `||` fallback) because command substitution merges stdout from
+# both sides of `||` — on Linux `stat -f %m` is the filesystem-mode flag, so its
+# garbage output would mix into the real value even when the fallback runs.
+# (Same pattern as git-status.sh)
+if stat -c %Y / >/dev/null 2>&1; then
+    stat_mtime() { stat -c %Y "$1"; }
+else
+    stat_mtime() { stat -f %m "$1"; }
+fi
+
 # Cache check (60 seconds)
 if [ -f "$GLM_CACHE_FILE" ]; then
-    CACHE_MTIME=$(stat -f %m "$GLM_CACHE_FILE" 2>/dev/null || stat -c %Y "$GLM_CACHE_FILE" 2>/dev/null)
-    [ $(($(date +%s) - CACHE_MTIME)) -lt 60 ] && GLM_DATA=$(cat "$GLM_CACHE_FILE")
+    CACHE_MTIME=$(stat_mtime "$GLM_CACHE_FILE" 2>/dev/null)
+    [ -n "$CACHE_MTIME" ] && [ $(($(date +%s) - CACHE_MTIME)) -lt 60 ] && GLM_DATA=$(cat "$GLM_CACHE_FILE")
 fi
 
 # Fetch from API if cache is stale
 if [ -z "$GLM_DATA" ]; then
     GLM_DATA=$(curl -s 'https://api.z.ai/api/monitor/usage/quota/limit' \
-        -H "authorization: Bearer $GLM_TOKEN" 2>/dev/null) || GLM_DATA=""
+        -H "authorization: Bearer $ZAI_API_KEY" 2>/dev/null) || GLM_DATA=""
     [ -n "$GLM_DATA" ] && echo "$GLM_DATA" > "$GLM_CACHE_FILE"
 fi
 

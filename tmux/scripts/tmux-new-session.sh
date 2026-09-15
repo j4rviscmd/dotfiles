@@ -14,6 +14,19 @@
 #      それらで即終了してしまうため。エラーは各コマンド単位で明示的にハンドリングする。
 set -uo pipefail
 
+# homebrew の PATH を冪等に保証 (macOS: /opt/homebrew, WSL/Linux: /home/linuxbrew)
+# Why: 本スクリプトは WT 等から non-login bash で呼ばれ profile/rc が一切読まれないため
+#      homebrew の PATH が入らない (brew shellenv の eval は zshrc のみ: zsh/.zshrc.linux:29、
+#      起動元: WindowsTerminal/settings.json:187)。ここで補強しないと tmuxサーバー環境
+#      (→ display-popup) 内で lazygit 等の homebrew製ツールが command not found になり
+#      popup が一瞬で閉じる
+for _p in /opt/homebrew/bin /home/linuxbrew/.linuxbrew/bin; do
+  if [[ -d "$_p" && ":$PATH:" != *":$_p:"* ]]; then
+    export PATH="$_p:$PATH"
+  fi
+done
+unset _p 2>/dev/null || true
+
 # tmux コマンドを確実に見つける（PATH 補強）
 # Why: Coderm を GUI 起動し terminal.integrated.inheritEnv=false の環境では、
 #      profile 起動スクリプトの PATH に /opt/homebrew/bin 等が含まれず、

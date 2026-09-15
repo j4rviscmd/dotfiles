@@ -34,7 +34,7 @@ TOOLS=(
   fnm        # Node.jsバージョン管理
   pyenv      # Pythonバージョン管理
   tmux       # ターミナルマルチプレクサ(.zshrcの自動起動が依存)
-  neovim     # エディタ(vi/vimエイリアスの実体)
+  neovim     # エディタ(vi/vimエイリアスの実体) ※Linuxはtarball導入のため下のループで対象外
   make       # ビルドツール
 )
 
@@ -56,6 +56,11 @@ is_installed() {
       #       Homebrewなしでgit clone導入: $HOME/.antidote)。片方だけだともう片方を誤って未導入扱いする
       [ -f "$(brew --prefix 2>/dev/null)/opt/antidote/share/antidote/antidote.zsh" ] \
         || [ -f "$HOME/.antidote/antidote.zsh" ]
+      ;;
+    neovim)
+      # Note: Linuxでは公式tarball(~/.local/opt配下、nvim/install-nvim.sh導入)でも運用するため、
+      #       PATH解決に依存せず導入先ファイルの存在でも判定する
+      command -v nvim &>/dev/null || [ -x "$HOME/.local/opt/nvim-linux-x86_64/bin/nvim" ]
       ;;
     *)
       command -v "$(command_name "$1")" &>/dev/null
@@ -108,6 +113,11 @@ missing=()
 for tool in "${TOOLS[@]}"; do
   if is_installed "$tool"; then
     echo "✔ 導入済み: $tool"
+  elif [[ "$tool" == "neovim" && "$OSTYPE" == linux* ]]; then
+    # Why: LinuxのnvimはUbuntu公式リポジトリ(0.11系)が古く、本repoのnvim設定が0.12前提のため
+    #      公式stable tarball運用(nvim/install-nvim.sh)に統一している。brew導入と二重管理に
+    #      なるためここでは入れず、手動導入を促すのみ
+    echo "⚠ 未導入  : neovim → Linuxではbrew対象外です。nvim/install-nvim.sh を実行して0.12系を手動導入してください"
   else
     missing+=("$tool")
     echo "✚ 未導入  : $tool"

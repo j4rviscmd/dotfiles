@@ -9,6 +9,7 @@ ln -s ~/work/dev/dotfiles ~/.config
 
 `~/.config` 直下を読むツール（nvim / ghostty / lazygit / opencode / git）はこれだけで動く。
 ホーム直下や別パスを読むツール（zsh / tmux / Hammerspoon / VSCode）は各ディレクトリのREADME参照。
+なお WSL/Linux の nvim バイナリはUbuntu公式リポジトリが古いため `nvim/install-nvim.sh`（公式stable tarball）で導入する（`nvim/README.md` 参照）。
 
 ## フォント
 

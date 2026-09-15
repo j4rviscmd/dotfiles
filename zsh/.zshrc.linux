@@ -31,6 +31,15 @@ if [ -d "/home/linuxbrew/.linuxbrew" ]; then
 fi
 
 # ============================================================
+# Neovim(公式stable tarball版)
+# ============================================================
+# Why: Ubuntu公式リポジトリのneovimは0.11系で古く、本repoのnvim設定は0.12前提のため、
+#      公式tarballを~/.local/opt配下で運用する(導入・更新は nvim/install-nvim.sh)。
+#      ここでPATHの先頭に追加し、apt版(/usr/bin/nvim)を上書きする
+# NOTE: macOSはbrewのneovim(zsh/setup.sh)を使うためdarwin側には設定しない
+[[ -d "$HOME/.local/opt/nvim-linux-x86_64/bin" ]] && export PATH="$HOME/.local/opt/nvim-linux-x86_64/bin:$PATH"
+
+# ============================================================
 # antidote プラグインマネージャー
 # ============================================================
 if command -v brew &>/dev/null; then

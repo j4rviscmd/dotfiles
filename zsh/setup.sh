@@ -84,6 +84,24 @@ if ! command -v brew &>/dev/null; then
 fi
 
 # ============================================================
+# Cツールチェーン導入(Linuxのみ、brew統一の方針の例外)
+# Why: telescope-fzf-native.nvim等のNeovimネイティブビルドが `cc` を要求するが、
+#      Homebrew自前のgccはシステムコンパイラの代替にならない(公式ドキュメント記載)。
+#      macOSはbrew動作前提のXcode CLTでccが常在するため対象外
+# ============================================================
+case "$OSTYPE" in
+  linux*)
+    if ! command -v cc &>/dev/null; then
+      echo "✚ Cコンパイラ未導入  : build-essential をインストールします"
+      sudo apt-get update
+      sudo apt-get install -y build-essential
+    else
+      echo "✔ 導入済み: cc(Cコンパイラ)"
+    fi
+    ;;
+esac
+
+# ============================================================
 # 未インストールツールの検出とインストール
 # ============================================================
 missing=()

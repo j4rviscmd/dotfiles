@@ -58,6 +58,8 @@ google-chrome/
 microsoft-edge/
 VirtualBox/
 procps/
+# Ubuntu Insights(Ubuntuテレメトリの同意状態、WSL側で自動生成)
+ubuntu-insights/
 
 # Claude Code関連
 claude/

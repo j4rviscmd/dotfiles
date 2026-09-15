@@ -6,9 +6,9 @@ zsh は `~/.config` を読まないためホーム直下へ symlink する
 （starship は `~/.config/starship.toml` を直接読むため不要）:
 
 ```sh
-ln -sf ~/work/dev/dotfiles/zsh/.zshrc ~/.zshrc
-ln -sf ~/work/dev/dotfiles/zsh/.zshenv ~/.zshenv
-ln -sf ~/work/dev/dotfiles/zsh/.zsh_plugins.txt ~/.zsh_plugins.txt
+ln -sf /mnt/e/work/dotfiles/zsh/.zshrc ~/.zshrc
+ln -sf /mnt/e/work/dotfiles/zsh/.zshenv ~/.zshenv
+ln -sf /mnt/e/work/dotfiles/zsh/.zsh_plugins.txt ~/.zsh_plugins.txt
 ```
 
 前提ツール（antidote / zoxide / starship）は `.zshrc` 内で初期化しているため、未インストールだと対応機能が動かない。
@@ -19,7 +19,8 @@ ln -sf ~/work/dev/dotfiles/zsh/.zsh_plugins.txt ~/.zsh_plugins.txt
 repo に置いてあるだけで `~` への symlink は必須ではなく、必要なOSのみ有効化する:
 
 ```sh
-ln -sf ~/work/dev/dotfiles/zsh/.zshrc.darwin ~/.zshrc.darwin
+ln -sf /mnt/e/work/dotfiles/zsh/.zshrc.darwin ~/.zshrc.darwin
+ln -sf /mnt/e/work/dotfiles/zsh/.zshrc.linux ~/.zshrc.linux   # WSL/Linux用
 ```
 
 Why: 未symlinkなら単にスキップされエラーにならない。

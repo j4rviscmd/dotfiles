@@ -37,6 +37,8 @@ vim.api.nvim_create_autocmd("FileChangedShell", {
 
 -- プラグイン非依存の基本操作
 vim.keymap.set("n", "<Esc>", "<Cmd>nohlsearch<CR>") -- 検索ハイライト解除
+-- Why: 誤爆でマクロ記録(q)が始まり以降の操作を汚すのを防ぐ。副作用としてq:/q/のコマンド履歴ウィンドウも使えなくなる
+vim.keymap.set("n", "q", "<nop>") -- マクロ記録を無効化
 
 -- Visual選択の翻訳(lsp_translator: 自作lua/lsp_translator/、plugin非依存)
 -- Why: LSP未attachバッファ(:ene直後等)でも発火するようグローバル登録(LspAttach内マップはbuffer-local)

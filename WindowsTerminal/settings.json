@@ -58,12 +58,12 @@
             "keys": "alt+1"
         },
         {
-            "id": "Terminal.SwitchToTab1",
-            "keys": "alt+2"
-        },
-        {
             "id": "Terminal.SwitchToTab2",
             "keys": "alt+3"
+        },
+        {
+            "id": "Terminal.SwitchToTab1",
+            "keys": "alt+2"
         },
         {
             "id": "Terminal.SwitchToTab4",
@@ -241,6 +241,7 @@
         }
     ],
     "showTabsInTitlebar": false,
+    "showTerminalTitleInTitlebar": false,
     "tabWidthMode": "titleLength",
     "themes": [],
     "useAcrylicInTabRow": false,

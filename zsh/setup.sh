@@ -109,6 +109,26 @@ case "$OSTYPE" in
 esac
 
 # ============================================================
+# ICUライブラリ導入(Linuxのみ、brew統一の方針の例外)
+# Why: nvimのmarksman LSP(.NET製バイナリ)がlibicuを要求するが、ミニマルな
+#      WSL Ubuntuには入っていないことがある(ICU欠落だとmarksmanがSIGABRT即死)。
+#      macOSはシステムICU(libicucore)が常在するため対象外
+# ============================================================
+case "$OSTYPE" in
+  linux*)
+    # Note: libicuのサフィックス番号はUbuntuバージョンで変わる(24.04=libicu74,
+    #       26.04=libicu78等)ためハードコードせず、リポジトリの最新を解決する
+    if ! ldconfig -p 2>/dev/null | grep -q "libicuuc\."; then
+      icu_pkg=$(apt-cache search --names-only '^libicu[0-9]+$' | sort | tail -1 | cut -d' ' -f1)
+      echo "✚ ICUライブラリ未導入  : ${icu_pkg} をインストールします"
+      sudo apt-get install -y "$icu_pkg"
+    else
+      echo "✔ 導入済み: libicu"
+    fi
+    ;;
+esac
+
+# ============================================================
 # 未インストールツールの検出とインストール
 # ============================================================
 missing=()

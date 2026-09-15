@@ -9,6 +9,22 @@ return {
   --- require("lsp")の初回ロード時に呼ばれる(autocmd登録等)
   --- @return nil
   on_setup = function()
+    -- Why: lspconfig既定のbiome cmdは関数でPATH上の実行ファイル(プロジェクトローカル
+    -- 優先)を使うが、mason/binシンボリックリンク経由だとnpm binラッパーの$0問題で
+    -- 起動即死するため、同一ロジックのフォールバック先をresolve_cmd(実体パス解決)に
+    -- 変えた関数で上書きする(lsp/init.luaのresolve_cmd参照)
+    vim.lsp.config("biome", {
+      cmd = function(dispatchers, config)
+        local cmd = "biome"
+        if (config or {}).root_dir then
+          local local_cmd = vim.fs.joinpath(config.root_dir, "node_modules/.bin", cmd)
+          if vim.fn.executable(local_cmd) == 1 then
+            cmd = local_cmd
+          end
+        end
+        return vim.lsp.rpc.start({ require("lsp").resolve_cmd(cmd), "lsp-proxy" }, dispatchers)
+      end,
+    })
     --- プロジェクトにbiome設定(biome.json/biome.jsonc)が存在するか判定する
     --- @param buf integer バッファ番号
     --- @return boolean
@@ -47,7 +63,10 @@ return {
         -- Note: wait()の第1引数はタイムアウト(ms)。超過時はプロセスがSIGKILLされ
         -- 整形もリロードも行われない(エラーにはならないため無音でスキップされる)
         -- (:h vim.system.SystemObj:wait(), neovim 0.11 runtime lua/vim/_system.lua)
-        vim.system({ "biome", "check", "--write", file }):wait(5000)
+        -- Why: mason/binシンボリックリンク経由だとnpm binラッパーの相対解決が
+        -- 崩れてMODULE_NOT_FOUNDで無音失敗するため、実体パスへ解決して実行する
+        -- (詳細はlsp/init.luaのresolve_cmd参照)
+        vim.system({ require("lsp").resolve_cmd("biome"), "check", "--write", file }):wait(5000)
         if vim.fn.getfsize(file) ~= size_before then
           -- Why: :editはカレントバッファを対象にするため、:wa等でargs.bufが
           -- 非カレントのときも対象バッファを確実にリロードする

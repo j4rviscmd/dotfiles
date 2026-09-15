@@ -83,6 +83,24 @@ function M.is_git_ignored(buf)
   return result.code == 0
 end
 
+--- コマンド名の実行パスをシンボリックリンク解決した実体パスで返す
+--- Why: mason/bin配下のシンボリックリンクからnpm製cliのbinラッパー
+--- (node_modules/.bin/<cmd>)を起動すると、ラッパー内の$0(リンクパス)基準の
+--- ../@<scope>相対解決がmason直下を指し、実体が無いままMODULE_NOT_FOUNDで
+--- 起動即死する(tailwindcss/vtsls/biome/pyright等。mason-org/mason.nvim#1997)。
+--- 実体パスを渡せばラッパーの基準がnode_modules/.binへ戻り正常起動する
+--- @param cmd string コマンド名
+--- @return string 実体パス。見つからない場合はコマンド名をそのまま返す
+function M.resolve_cmd(cmd)
+  -- Why: exepathは実行不可時に""を返し、resolve("")も""のため、このガードが無いと
+  -- cmd[1]が空文字のままspawnして不明瞭に失敗する。元の名前を返して通常の実行不可経路へ倒す
+  -- (:h exepath()、nvim headlessでresolve("")==""を確認済み)
+  if vim.fn.executable(cmd) == 0 then
+    return cmd
+  end
+  return vim.fn.resolve(vim.fn.exepath(cmd))
+end
+
 -- 対象言語のバッファオープン時に必須cliの存在チェック
 -- Why: mason-lspconfigの自動インストール失敗等でcliが欠けた場合、LSP起動失敗の
 -- 通知だけでは対策がわかりにくいため、インストールコマンド付きで明示的にwarnする

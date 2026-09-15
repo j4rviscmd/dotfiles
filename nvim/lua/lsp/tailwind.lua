@@ -12,4 +12,24 @@ return {
   formatters = {},
   filetypes = { "html", "css", "typescriptreact", "javascriptreact" },
   executables = { "tailwindcss-language-server" },
+  --- require("lsp")の初回ロード時に呼ばれる(autocmd登録等)
+  --- @return nil
+  on_setup = function()
+    -- Why: lspconfig既定のcmdは関数でPATH上の実行ファイル(プロジェクトローカル優先)
+    -- を使うが、mason/binシンボリックリンク経由だとnpm binラッパーの$0問題で起動
+    -- 即死するため、同一ロジックのフォールバック先をresolve_cmd(実体パス解決)に
+    -- 変えた関数で上書きする(lsp/init.luaのresolve_cmd参照)
+    vim.lsp.config("tailwindcss", {
+      cmd = function(dispatchers, config)
+        local cmd = "tailwindcss-language-server"
+        if (config or {}).root_dir then
+          local local_cmd = vim.fs.joinpath(config.root_dir, "node_modules/.bin", cmd)
+          if vim.fn.executable(local_cmd) == 1 then
+            cmd = local_cmd
+          end
+        end
+        return vim.lsp.rpc.start({ require("lsp").resolve_cmd(cmd), "--stdio" }, dispatchers)
+      end,
+    })
+  end,
 }

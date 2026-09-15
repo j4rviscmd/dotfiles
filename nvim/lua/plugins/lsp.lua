@@ -303,10 +303,20 @@ return {
       -- (mason-lspconfig v2はsettings.luaのautomatic_enable=trueがデフォルトで
       -- setup時にmason導入済み全サーバーをenableするため、このループでの事前configが必須)
       for _, server in ipairs(lsp.servers) do
-        vim.lsp.config(server, {
+        local config = {
           capabilities = capabilities,
           settings = lsp.lsp_settings[server],
-        })
+        }
+        -- Why: lspconfig既定のcmd[1]がmason/binのシンボリックリンクを指す場合、
+        -- npm binラッパー内の$0基準相対解決が崩れて起動即死するサーバーがある
+        -- ため、実体パスへ解決して差し替える(詳細はlsp/init.luaのresolve_cmd参照)
+        -- Note: cmdが関数のサーバー(biome/tailwindcss)はここでは対象外とし、
+        -- 各言語モジュールのon_setupでresolve_cmd組み込み版へ上書きする
+        local default_cmd = (vim.lsp.config[server] or {}).cmd
+        if type(default_cmd) == "table" then
+          config.cmd = vim.list_extend({ lsp.resolve_cmd(default_cmd[1]) }, default_cmd, 2)
+        end
+        vim.lsp.config(server, config)
       end
       -- Why: rust_analyzer等mason管理外(rustup等)サーバーはmason-lspconfigの
       -- 自動enable対象にならないため、全サーバーを明示的にenableする

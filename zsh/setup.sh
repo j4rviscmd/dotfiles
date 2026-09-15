@@ -35,14 +35,16 @@ TOOLS=(
   pyenv      # Pythonバージョン管理
   tmux       # ターミナルマルチプレクサ(.zshrcの自動起動が依存)
   neovim     # エディタ(vi/vimエイリアスの実体) ※Linuxはtarball導入のため下のループで対象外
+  ripgrep    # telescope(nvimの<C-g> live_grep / <C-i> quick_open)が依存
   make       # ビルドツール
 )
 
 # フォーミュラ名とコマンド名が異なるツールの対応
 command_name() {
   case "$1" in
-    neovim) echo "nvim" ;;
-    *)      echo "$1" ;;
+    neovim)  echo "nvim" ;;
+    ripgrep) echo "rg" ;;
+    *)       echo "$1" ;;
   esac
 }
 

@@ -19,7 +19,7 @@ ln -sf /mnt/e/work/dotfiles/zsh/.zsh_plugins.txt ~/.zsh_plugins.txt
 ./setup.sh
 ```
 
-- 対象: antidote / starship / zoxide / eza / peco / fzf / lazygit / fnm / pyenv / tmux / neovim / make
+- 対象: antidote / starship / zoxide / eza / peco / fzf / lazygit / fnm / pyenv / tmux / neovim / ripgrep / make
 - 前提: zsh本体とHomebrew導入済み（未導入ならインストール手順を表示して中断）
 - NOTE: claude/coderm/opencode/copilot等のLLMエージェント系とbun/rustは公式手順のため対象外
 - NOTE: neovimはLinux(WSL2)ではbrew対象外。Ubuntu公式リポジトリが0.11系で古いため、

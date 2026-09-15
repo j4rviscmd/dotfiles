@@ -357,69 +357,24 @@ copilot() {
 #      パイプ経由で実行されるため。このガードがないと非対話呼び出しでも tmux が
 #      起動し、環境解決がブロックされていた（commit c4a4b84）
 if [[ -z "$TMUX" ]] && [[ -t 0 ]] && command -v tmux &>/dev/null; then
-  # Note: 判定対象は使用環境の VSCode 系ターミナルが設定する TERM_PROGRAM 値。
-  #       Coderm は GUI アプリ側（commit 359656b）。vscodeee の由来は commit 7296ed8
-  #       に説明がなく未確認
-  if [[ "${TERM_PROGRAM:-}" == vscode || "${TERM_PROGRAM:-}" == vscodeee || "${TERM_PROGRAM:-}" == Coderm ]]; then
-    # VSCode統合ターミナルでは常に新規セッションを自動作成
-    # フォールバック: tmux profile 使用時は $TMUX が既にセット済みのため本ブロックは
-    # スキップされ、代わりに tmux/scripts/vscode-new-session.sh が命名を担う。
-    # tmux profile が機能せず zsh が直接起動された場合のみここへ到達する。
-    _base_name="$(basename -- "$PWD")"
-    _sanitized="$(printf '%s' "$_base_name" | tr -cs '[:alnum:]_-' '_' | sed -e 's/^_//' -e 's/_$//')"
-    _base="${_sanitized:-workspace}"
-    # クライアントなしのゾンビセッションを破棄
-    _sessions_raw=$(command tmux list-sessions -F '#{session_name} #{session_attached}' 2>/dev/null)
-    while IFS=' ' read -r _s _s_attached; do
-      [[ -z "$_s" ]] && continue
-      [[ "$_s" =~ ^${_base}-[0-9]+$ ]] || continue
-      (( _s_attached == 0 )) && command tmux kill-session -t "=$_s" 2>/dev/null
-    done <<< "$_sessions_raw"
-    # 空き番号を採番
-    _n=0
-    while command tmux has-session -t "=${_base}-${_n}" 2>/dev/null; do
-      (( _n++ ))
-    done
-    _session="${_base}-${_n}"
-    # 同時起動の衝突確率を下げるランダムジッター (0-99ms)
-    sleep "0.0$(( RANDOM % 100 ))"
-    # new-session失敗時は番号をインクリメントしてリトライ
-    _retry=0
-    while ! command tmux new-session -d -s "$_session" 2>/dev/null; do
-      (( _retry++ ))
-      if (( _retry > 9 )); then
-        echo "tmux: auto-start failed after $_retry retries" >&2
-        return 1
-      fi
-      _session="${_base}-$(( _n + _retry ))"
-    done
-    # Why: VSCode統合ターミナルではステータスラインを非表示化する。tmux.conf の %if は
-    #      サーバー起動時にしか評価されず共有サーバーでは信頼できないため、セッション単位で
-    #      設定する方式にしている（commit c4a4b84）
-    # Constraint: attach はブロッキングするため、この設定は必ず attach より前に実行すること
-    #             （コメントアウト中の tmux 関数内の同名処理と同理由）
-    command tmux set-option -t "$_session" status off 2>/dev/null
-    command tmux attach -t "=$_session"
-  else
-    # 【注意】セッション選択メニュー(上記tmux関数)はコメントアウト中（論理削除）
-    # 理由: セッション開始時の選択メニューと {ディレクトリ名}-N 採番を廃止し、
-    #       デフォルトtmuxの挙動（既存セッションへアタッチ、なければ0からの
-    #       連番で自動採番）へ戻すため。復元時は下のゾンビ破棄を削除して
-    #       tmux のコメントを外し、tmux関数本体を復元すること。
-    # ゾンビ破棄のみ現行仕様を継続: クライアントなしセッションを全て自動破棄
-    # Why: tmuxセッションはサーバーのメモリ上にのみ存在しマシン再起動で消滅する運用
-    #      （resurrect 等の永続化は不使用）のため、クライアントなしセッションを
-    #      保持せず全破棄としている（本変更の設計判断）
-    # Caution: デタッチ中のセッションで実行中のプロセスも kill される。
-    #          永続化運用へ切り替える場合はこの破棄を削除すること
-    _zombie_sessions=$(command tmux list-sessions -F '#{session_name} #{session_attached}' 2>/dev/null)
-    while IFS=' ' read -r _zs _za; do
-      [[ -z "$_zs" ]] && continue
-      (( _za == 0 )) && command tmux kill-session -t "=$_zs" 2>/dev/null
-    done <<< "$_zombie_sessions"
-    # tmux
-    command tmux
-  fi
+  # 【注意】セッション選択メニュー(上記tmux関数)はコメントアウト中（論理削除）
+  # 理由: セッション開始時の選択メニューと {ディレクトリ名}-N 採番を廃止し、
+  #       デフォルトtmuxの挙動（既存セッションへアタッチ、なければ0からの
+  #       連番で自動採番）へ戻すため。復元時は下のゾンビ破棄を削除して
+  #       tmux のコメントを外し、tmux関数本体を復元すること。
+  # ゾンビ破棄のみ現行仕様を継続: クライアントなしセッションを全て自動破棄
+  # Why: tmuxセッションはサーバーのメモリ上にのみ存在しマシン再起動で消滅する運用
+  #      （resurrect 等の永続化は不使用）のため、クライアントなしセッションを
+  #      保持せず全破棄としている（本変更の設計判断）
+  # Caution: デタッチ中のセッションで実行中のプロセスも kill される。
+  #          永続化運用へ切り替える場合はこの破棄を削除すること
+  _zombie_sessions=$(command tmux list-sessions -F '#{session_name} #{session_attached}' 2>/dev/null)
+  while IFS=' ' read -r _zs _za; do
+    [[ -z "$_zs" ]] && continue
+    (( _za == 0 )) && command tmux kill-session -t "=$_zs" 2>/dev/null
+  done <<< "$_zombie_sessions"
+  # tmux
+  command tmux
 fi
 
 # bun completions
@@ -473,3 +428,9 @@ claude() {
 }
 # <<< claude-auto-retry <<<
 
+
+# Note: uv インストーラ(astral.sh/uv/install.sh)が生成する ~/.local/bin/env の source。
+#       uv は opencode の実行に使用（opencode/opencode.json の install・UV_PATH 参照）。
+#       ~/.local/bin の PATH 追加は上の「基本PATH設定」と重複するが、env 側が
+#       重複時の追加をスキップする作りのため無害。fish では conf.d/uv.env.fish が同役割
+. "$HOME/.local/bin/env"

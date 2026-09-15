@@ -126,15 +126,15 @@
     "terminal.integrated.fontWeight": "normal",
     "terminal.integrated.defaultProfile.osx": "tmux",
     "terminal.integrated.profiles.osx": {
-        // tmux profile: ワークスペース名ベースの連番セッション（dotfiles-N）を生成
+        // tmux profile: ワークスペース名ベースの連番セッション（{base}-N）を生成
         // Why: tmux を直接起動すると数字のデフォルト名になるため、採番スクリプト経由で
-        //      .zshrc の自動起動ロジックと同等の命名を実現する
+        //      名前付きセッションを実現する
         "zsh": {
             "path": "/bin/zsh",
             "args": ["-l"]
         },
         "tmux": {
-            "path": "${env:HOME}/.config/tmux/scripts/vscode-new-session.sh",
+            "path": "${env:HOME}/.config/tmux/scripts/tmux-new-session.sh",
             "args": ["${workspaceFolderBasename}"],
             "icon": "terminal-tmux"
         }
@@ -148,7 +148,7 @@
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     // Constraint: inheritEnv:false では profile 起動スクリプトへ GUI 起動時の PATH が引き継がれず
     //             /opt/homebrew/bin 等が未設定で動く。これが tmux profile 起動スクリプト
-    //             (tmux/scripts/vscode-new-session.sh 行16-26) で PATH 補強を行う根拠。
+    //             (tmux/scripts/tmux-new-session.sh 行16-26) で PATH 補強を行う根拠。
     "terminal.integrated.inheritEnv": false,
     "terminal.integrated.allowChords": true,
     "terminal.integrated.useWslProfiles": false,

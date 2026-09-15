@@ -58,12 +58,12 @@
             "keys": "alt+1"
         },
         {
-            "id": "Terminal.SwitchToTab2",
-            "keys": "alt+3"
-        },
-        {
             "id": "Terminal.SwitchToTab1",
             "keys": "alt+2"
+        },
+        {
+            "id": "Terminal.SwitchToTab2",
+            "keys": "alt+3"
         },
         {
             "id": "Terminal.SwitchToTab4",
@@ -184,8 +184,8 @@
                 "useAcrylic": true
             },
             {
-                "commandline": "wsl.exe -d Ubuntu-26.04 --cd ~ -- tmux new -A -s main",
-                "font":
+                "commandline": "wsl.exe -d Ubuntu-26.04 --cd ~ -- bash ~/.config/tmux/scripts/tmux-new-session.sh main",
+                "font": 
                 {
                     "face": "UDEV Gothic NFLG"
                 },
@@ -204,6 +204,12 @@
                 "hidden": true,
                 "name": "Developer PowerShell for VS 2022",
                 "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{2274d35c-ec30-550d-948a-58078efd357a}",
+                "hidden": false,
+                "name": "Ubuntu-26.04",
+                "source": "Microsoft.WSL"
             }
         ]
     },

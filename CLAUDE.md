@@ -15,7 +15,9 @@
   - コミット前のコミットメッセージの確認は不要
   - コミット時にはプッシュも行うこと
   - `lazy-lock.json`もコミット対象
-- `~/.config`にシンボリックシンクして運用している
+- このrepoの資材はmacOS/Windows/WSLの各OSから利用される
+  - 変更時は全OSでの動作を担保すること（GNU/BSD互換、OS固有のパス・ツール依存など）
+- `~/.config`にシンボリックリンクして運用している
   - このrepo資材を操作すると環境へ反映される
 <!-- Note: git reset --hard はref指定なしなので lazy-lock.json がピン留めしたコミットに戻るだけで、回復してもプラグインのバージョンは変わらない (2026-09-10に HEAD と nvim/lazy-lock.json の copilot.lua commit の一致を確認) -->
 - `:Lazy sync`がcopilot.luaのlocal changesで失敗したら、runtimeがagentをプラグインdir内のgit追跡ファイルへ上書きしたのが原因。以下で回復:

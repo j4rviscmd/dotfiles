@@ -27,6 +27,19 @@ fi
 source ${zsh_plugins}.zsh
 
 # ============================================================
+# 履歴設定
+# Why: HISTFILE未設定・SAVEHIST=0だとzsh-autosuggestionsが参照する履歴が
+#      空になり、サジェスト(グレー表示)が一切表示されないため
+# ============================================================
+HISTFILE=${ZDOTDIR:-~}/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt share_history          # セッション間(tmuxマルチペイン含む)で履歴をリアルタイム共有
+setopt hist_ignore_all_dups   # 重複コマンドを履歴に残さない
+setopt hist_ignore_space      # スペース始まりのコマンドは履歴に残さない(秘匿コマンド用)
+setopt hist_reduce_blanks     # 余分な空白を正規化して記録
+
+# ============================================================
 # 補完: smartcase風の大文字小文字マッチ
 # Why: 小文字入力は大文字始まりファイルにもマッチ、大文字入力は
 #      厳格一致にする(nvimのsmartcaseと同じ挙動)

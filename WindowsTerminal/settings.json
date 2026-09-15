@@ -184,7 +184,7 @@
                 "useAcrylic": true
             },
             {
-                "commandline": "wsl.exe -d Ubuntu-26.04 --cd ~ -- bash ~/.config/tmux/scripts/tmux-new-session.sh main",
+                "commandline": "wsl.exe -d Ubuntu-26.04 --cd ~/work/ -- bash ~/.config/tmux/scripts/tmux-new-session.sh main",
                 "font": 
                 {
                     "face": "UDEV Gothic NFLG"

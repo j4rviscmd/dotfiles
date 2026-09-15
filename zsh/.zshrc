@@ -331,7 +331,9 @@ function clear() {
 # ============================================================
 # .env に機密情報や環境固有の設定を記述（雛形: .env.sample）
 [ -f ~/.config/.env ] && source ~/.config/.env
-zsh-defer eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+# Why: fnm未導入環境(WSL移行直後等)でcommand not foundが出るためガード
+# TODO: .zshrc.linuxにもfnm envのevalがあり、fnm導入時は二重評価になる。いずれこちらに統合する
+command -v fnm &>/dev/null && zsh-defer eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # opencode は ~/.bun/bin/opencode としてインストール済み（PATH は bun 設定で追加済み）
 # export PATH=/home/user/.opencode/bin:$PATH

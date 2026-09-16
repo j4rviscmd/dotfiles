@@ -11,8 +11,10 @@ tmux source-file "${HOME}/.config/tmux/statusline.conf"
 
 # continuum 本体 (continuum.tmux の add_resurrect_save_interpolation) と同一の
 # interpolation 文字列 (絶対パス) を prepend する
-save_hook="#(${HOME}/.local/share/tmux/plugins/tmux-continuum/scripts/continuum_save.sh)"
+# Note: continuum 未導入環境 (WSL等で tmux/setup.sh 未実行) ではスキップ。
+#       実体のない #(...) を埋めると status-interval 毎に sh が起動するノイズが出るため
+save_script="${HOME}/.local/share/tmux/plugins/tmux-continuum/scripts/continuum_save.sh"
 current="$(tmux show-option -gv status-right)"
-if [[ "$current" != *"continuum_save.sh"* ]]; then
-  tmux set-option -g status-right "${save_hook}${current}"
+if [[ -x "$save_script" && "$current" != *"continuum_save.sh"* ]]; then
+  tmux set-option -g status-right "#(${save_script})${current}"
 fi

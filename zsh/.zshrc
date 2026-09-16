@@ -93,6 +93,32 @@ export XDG_CONFIG_HOME="$HOME/.config"
 [[ -z "$TMUX" ]] && export TERM=xterm-256color
 
 # ============================================================
+# Ghostty タブ起動時の tmux セッション自動再アタッチ
+# ============================================================
+# tmux外の対話シェルかつGhostty起動の場合、カレントディレクトリ名と同名の tmux
+# セッションが存在すれば自動でアタッチする (なければ通常のシェルのまま何もしない)
+# Why: PC再起動後、Ghostty の window-save-state がタブ毎のCWDを復元し、continuum が
+#      tmux server 起動時にセッションを復元するため、この再アタッチで各タブが
+#      対応セッションへ自動再接続される ( resurrect/continuum 導入の主目的)
+# Why 同名セッション「既存時のみ」: 無条件 new -A だと新規タブ(既定CWD ~/work/dev)が
+#      全て "dev" セッションに巻き込まれ、cd 後の tmux 起動がネストしてしまうため。
+#      セッション新規作成は従来通り手動 (ディレクトリ名での作成推奨:
+#      `tmux new -A -s <dirname>` とするとタブ↔セッションの自動復元が効く)
+# Why Ghostty限定: VSCode/Coderm/WindowsTerminal は tmux-new-session.sh を持つ専用
+#      プロファイル経由で起動するため、ここでの自動アタッチは不要かつ競合する
+if [[ $- == *i* && -z "${TMUX:-}" && "${TERM_PROGRAM:-}" == "ghostty" ]]; then
+  # tmuxセッション名に使えない文字 (ドット・コロン等) を '_' へ正規化し前後の'_'を除去
+  _tmux_auto_session="${PWD:t}"
+  _tmux_auto_session="${_tmux_auto_session//[^[:alnum:]_-]/_}"
+  _tmux_auto_session="${${_tmux_auto_session%%_}##_}"
+  # Note: "-t =名前" は完全一致指定 ('='無しは接頭辞一致で誤セッションに繋がる)
+  if [[ -n "$_tmux_auto_session" ]] && command tmux has-session -t "=${_tmux_auto_session}" 2>/dev/null; then
+    command tmux attach-session -t "=${_tmux_auto_session}"
+  fi
+  unset _tmux_auto_session
+fi
+
+# ============================================================
 # eza配色設定 (Solarized Dark)
 # ============================================================
 # Solarized Dark カラースキーム

@@ -7,8 +7,9 @@ return {
     local lint = require("lint")
     lint.linters_by_ft = require("lsp").linters_by_ft
 
-    -- markdownlint: MD013(行長80文字制限)は無効
-    -- Why: 日本語Markdownは80文字で折り返すと逆に読みにくく、実害が薄いため
+    -- markdownlint: 以下ルールは無効(許容)
+    -- MD013(行長80文字制限): 日本語Markdownは80文字で折り返すと逆に読みにくく、実害が薄いため
+    -- MD040(fenced code blockの言語指定必須) / MD060(テーブル列スタイルの統一チェック): 個人運用では許容するため
     local markdownlint = lint.linters.markdownlint
     -- Why: nvim-lintのlinter定義はテーブル直定義と遅延評価のファクトリ関数の両形態が
     -- 許容され、実行時は本体側で同様の分岐をしてから利用する(nvim-lint lua/lint.lua
@@ -21,7 +22,7 @@ return {
     -- なる。ignore_exitcode=trueで黙って失敗する)
     -- 変更時注意: ファクトリ関数形態のlinterは都度新テーブルを返すため、このargs上書きは
     -- 現行のテーブル直定義(markdownlint.luaがテーブルをreturn)でのみ有効
-    markdownlint.args = { "--stdin", "--disable", "MD013" }
+    markdownlint.args = { "--stdin", "--disable", "MD013", "MD040", "MD060" }
 
     local group = vim.api.nvim_create_augroup("UserNvimLint", {})
 

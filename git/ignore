@@ -5,3 +5,6 @@
 **/._.DS_Store
 
 **/.claude/settings.local.json
+
+# codebase-memory-mcp per-repo graph artifact (team-share is opt-in via persistence)
+.codebase-memory/

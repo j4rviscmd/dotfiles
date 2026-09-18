@@ -10,10 +10,7 @@
 - `main`ブランチで直接作業を許容
   - pull request/featureブランチ作成は不要
 - 作業開始時には`worktree-start`スキルを発動する必要はない
-- ヒトによる動確前には`review-all`スキルを発動すること
-  - review対象ファイルは作業ファイルのみを指定すること
-  - コミット前のコミットメッセージの確認は不要
-  - コミット時にはプッシュも行うこと
+- ヒトによる動確前には`review-all(mode:review)`スキルを発動すること
   - `lazy-lock.json`もコミット対象
 - このrepoの資材はmacOS/Windows/WSLの各OSから利用される
   - 変更時は全OSでの動作を担保すること（GNU/BSD互換、OS固有のパス・ツール依存など）
